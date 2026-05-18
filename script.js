@@ -1,5 +1,5 @@
 /* ============================================
-   YOKOOL — Interaction layer
+   tamayoko — Interaction layer
    - Hero carousel (auto-rotate, manual nav, dots)
    - Sticky header on scroll
    - Mobile menu toggle
@@ -266,8 +266,8 @@
   }
 
   const Cart = {
-    KEY: 'yokool_cart_v1',
-    ORDERS_KEY: 'yokool_orders_v1',
+    KEY: 'tamayoko_cart_v1',
+    ORDERS_KEY: 'tamayoko_orders_v1',
 
     getItems() {
       try {
@@ -412,7 +412,7 @@
   };
 
   // Expose globally for inline handlers / debugging
-  window.YokoolCart = Cart;
+  window.tamayokoCart = Cart;
 
   // ============ TOAST NOTIFICATIONS ============
   function showToast(message, type = 'success') {
@@ -435,7 +435,7 @@
       setTimeout(() => toast.remove(), 300);
     }, 2800);
   }
-  window.yokoolToast = showToast;
+  window.tamayokoToast = showToast;
 
   // ============ CART DRAWER TOGGLE ============
   function pathPrefix() {
@@ -491,7 +491,7 @@
       const product = readProductFromButton(btn);
       if (!product.id) return;
       product.qty = 1;
-      sessionStorage.setItem('yokool_buy_now', JSON.stringify(product));
+      sessionStorage.setItem('tamayoko_buy_now', JSON.stringify(product));
       window.location.href = pathPrefix() + 'checkout.html';
     });
   });
@@ -501,7 +501,7 @@
       showToast('Giỏ hàng đang trống', 'info');
       return;
     }
-    sessionStorage.removeItem('yokool_buy_now');
+    sessionStorage.removeItem('tamayoko_buy_now');
     window.location.href = pathPrefix() + 'checkout.html';
   });
 
@@ -525,7 +525,7 @@
     // Pick items: buy-now mode if sessionStorage has it, else cart
     let items;
     let isBuyNow = false;
-    const buyNowRaw = sessionStorage.getItem('yokool_buy_now');
+    const buyNowRaw = sessionStorage.getItem('tamayoko_buy_now');
     if (buyNowRaw) {
       try {
         const buyNow = JSON.parse(buyNowRaw);
@@ -623,7 +623,7 @@
         paymentMethod: 'COD',
       };
 
-      // Save locally so Jay can debug via console: YokoolCart.getOrders()
+      // Save locally so Jay can debug via console: tamayokoCart.getOrders()
       Cart.saveOrder(order);
 
       // TODO Jay: integrate real backend here.
@@ -634,11 +634,11 @@
       //     headers: { 'Content-Type': 'application/json', Accept: 'application/json' }
       //   });
 
-      console.log('[Yokool order]', order);
+      console.log('[tamayoko order]', order);
 
       // Clear buy-now / cart
       if (isBuyNow) {
-        sessionStorage.removeItem('yokool_buy_now');
+        sessionStorage.removeItem('tamayoko_buy_now');
       } else {
         Cart.clear();
       }
@@ -678,9 +678,9 @@
 
   // ============ FLOATING CONTACT WIDGET ============
   // Inject the contact widget on every page automatically.
-  // Update the 3 links below with Yokool's real channels.
+  // Update the 3 links below with tamayoko's real channels.
   const CONTACT_CONFIG = {
-    messenger: 'https://m.me/yokool',           // ← Jay: thay bằng m.me/<facebook-page-username>
+    messenger: 'https://m.me/tamayoko',           // ← Jay: thay bằng m.me/<facebook-page-username>
     zalo: 'https://zalo.me/0971222822',             // ← Jay: thay bằng zalo.me/<số điện thoại Zalo OA>
     phone: '0971 222 822',                      // ← Jay: thay bằng hotline thật (giữ định dạng +84...)
     phoneDisplay: '0900 000 000',               // ← Jay: cách hiển thị tooltip
@@ -691,7 +691,7 @@
 
     const widget = document.createElement('div');
     widget.className = 'contact-widget';
-    widget.setAttribute('aria-label', 'Liên hệ Yokool');
+    widget.setAttribute('aria-label', 'Liên hệ tamayoko');
     widget.innerHTML = `
       <a href="${CONTACT_CONFIG.messenger}" target="_blank" rel="noopener noreferrer"
         class="contact-widget-btn contact-widget-btn--messenger"
@@ -728,7 +728,7 @@
 
   // ============ CONSOLE EASTER EGG ============
   if (typeof console !== 'undefined' && console.log) {
-    console.log('%c YOKOOL ', 'background:#DC143B;color:#fff;font-weight:bold;font-size:14px;padding:4px 8px;');
+    console.log('%c tamayoko ', 'background:#DC143B;color:#fff;font-weight:bold;font-size:14px;padding:4px 8px;');
     console.log('%c Năng lượng. Không giới hạn. ', 'color:#888;font-style:italic;');
     console.log('Build: v2.0 — light theme · Cloudflare Pages');
   }

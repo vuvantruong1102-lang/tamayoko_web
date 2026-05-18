@@ -1,5 +1,5 @@
 /* ============================================
-   YOKOOL — Light theme design system
+   tamayoko — Light theme design system
    Brand: #DC143B (crimson red)
    Inspired by sharge.com layout, adapted for light theme
    ============================================ */
@@ -1190,7 +1190,7 @@ input, select, textarea, button {
   letter-spacing: 0.1em;
 }
 
-/* ============ WHY YOKOOL ============ */
+/* ============ WHY tamayoko ============ */
 .why-section {
   padding: var(--section-padding) 0;
   background: var(--bg-surface);

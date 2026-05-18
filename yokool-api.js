@@ -1,23 +1,23 @@
 // ============================================================
-// YOKOOL ↔ ADMIN API integration (v3)
+// tamayoko ↔ ADMIN API integration (v3)
 // ------------------------------------------------------------
-// Đặt file này cùng cấp với script.js. Thêm vào MỌI trang yokool.vn
+// Đặt file này cùng cấp với script.js. Thêm vào MỌI trang tamayoko.vn
 // ngay sau <script src="script.js"></script>:
 //
-//   <script src="yokool-api.js"></script>
+//   <script src="tamayoko-api.js"></script>
 //
 // Tính năng:
 //   1. Tự động gửi đơn hàng từ checkout → admin API
-//   2. Cung cấp window.YokoolAPI.fetchProducts/Articles/Banners/Config
+//   2. Cung cấp window.tamayokoAPI.fetchProducts/Articles/Banners/Config
 //   3. Tự động fill nội dung động (contact, footer, banner, products,
-//      articles) qua data-yokool-* attribute
+//      articles) qua data-tamayoko-* attribute
 // ============================================================
 
 (function () {
   'use strict';
 
-  // 👉 SỬA URL NÀY khi có custom domain admin.yokool.vn
-  const API_BASE = 'https://yokool-admin.pages.dev';
+  // 👉 SỬA URL NÀY khi có custom domain admin.tamayoko.vn
+  const API_BASE = 'https://tamayoko-admin.pages.dev';
 
   // Cache 5 phút trong localStorage để giảm fetch
   const CACHE_TTL = 5 * 60 * 1000;
@@ -46,7 +46,7 @@
         unit_price: parseInt(it.price || it.unit_price || 0, 10) || 0,
       })),
     };
-    console.log('[YokoolAPI] POST /api/orders payload:', payload);
+    console.log('[tamayokoAPI] POST /api/orders payload:', payload);
     const res = await fetch(API_BASE + '/api/orders', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
@@ -84,7 +84,7 @@
   // 2. GET helpers (cache 5 phút)
   // ============================================================
 
-  function cacheKey(path) { return 'yokool_cache_' + path; }
+  function cacheKey(path) { return 'tamayoko_cache_' + path; }
 
   async function fetchWithCache(path) {
     const key = cacheKey(path);
@@ -137,12 +137,12 @@
   function clearCache() {
     try {
       Object.keys(localStorage).forEach(k => {
-        if (k.startsWith('yokool_cache_')) localStorage.removeItem(k);
+        if (k.startsWith('tamayoko_cache_')) localStorage.removeItem(k);
       });
     } catch {}
   }
 
-  window.YokoolAPI = {
+  window.tamayokoAPI = {
     submitOrder, submitInquiry,
     fetchProducts, fetchProduct,
     fetchArticles, fetchArticle,
@@ -152,26 +152,26 @@
   };
 
   // ============================================================
-  // 3. Auto-hook YokoolCart.saveOrder
+  // 3. Auto-hook tamayokoCart.saveOrder
   // ============================================================
 
   let hooked = false;
   function hookSaveOrder() {
     if (hooked) return;
-    if (!window.YokoolCart || typeof window.YokoolCart.saveOrder !== 'function') return;
-    const original = window.YokoolCart.saveOrder.bind(window.YokoolCart);
-    window.YokoolCart.saveOrder = function (order) {
+    if (!window.tamayokoCart || typeof window.tamayokoCart.saveOrder !== 'function') return;
+    const original = window.tamayokoCart.saveOrder.bind(window.tamayokoCart);
+    window.tamayokoCart.saveOrder = function (order) {
       const localResult = original(order);
       submitOrder(order)
         .then(r => {
-          console.log('[YokoolAPI] ✓ Order saved:', r.order_id);
-          if (window.yokoolToast) setTimeout(() => window.yokoolToast('Đơn đã ghi nhận: ' + r.order_id, 'success'), 500);
+          console.log('[tamayokoAPI] ✓ Order saved:', r.order_id);
+          if (window.tamayokoToast) setTimeout(() => window.tamayokoToast('Đơn đã ghi nhận: ' + r.order_id, 'success'), 500);
         })
-        .catch(err => console.error('[YokoolAPI] ✗ Order failed:', err.message));
+        .catch(err => console.error('[tamayokoAPI] ✗ Order failed:', err.message));
       return localResult;
     };
     hooked = true;
-    console.log('[YokoolAPI] ✓ Hooked YokoolCart.saveOrder');
+    console.log('[tamayokoAPI] ✓ Hooked tamayokoCart.saveOrder');
   }
   hookSaveOrder();
   let tries = 0;
@@ -186,11 +186,11 @@
   // ============================================================
   // 4. Auto-populate dynamic content
   // ------------------------------------------------------------
-  // <span data-yokool-config="hotline">+84...</span>
-  // <a data-yokool-config="zalo_link" href="#">...</a>     → set href
-  // <div data-yokool-banner="home_1"></div>                → render banner
-  // <div data-yokool-products data-yokool-limit="4"></div> → render grid
-  // <div data-yokool-articles data-yokool-limit="3"></div> → render list
+  // <span data-tamayoko-config="hotline">+84...</span>
+  // <a data-tamayoko-config="zalo_link" href="#">...</a>     → set href
+  // <div data-tamayoko-banner="home_1"></div>                → render banner
+  // <div data-tamayoko-products data-tamayoko-limit="4"></div> → render grid
+  // <div data-tamayoko-articles data-tamayoko-limit="3"></div> → render list
   // ============================================================
 
   function escapeHtml(s) {
@@ -200,8 +200,8 @@
   }
 
   function applyConfig(config) {
-    document.querySelectorAll('[data-yokool-config]').forEach(el => {
-      const key = el.dataset.yokoolConfig;
+    document.querySelectorAll('[data-tamayoko-config]').forEach(el => {
+      const key = el.dataset.tamayokoConfig;
       const value = config[key] || '';
       if (!value) return;
       if (el.tagName === 'A')      el.href = value;
@@ -212,8 +212,8 @@
   }
 
   function applyBanners(banners) {
-    document.querySelectorAll('[data-yokool-banner]').forEach(el => {
-      const slot = el.dataset.yokoolBanner;
+    document.querySelectorAll('[data-tamayoko-banner]').forEach(el => {
+      const slot = el.dataset.tamayokoBanner;
       const b = banners.find(x => x.slot === slot);
       if (!b || !b.enabled) return;
       el.innerHTML = `
@@ -228,8 +228,8 @@
   }
 
   function applyProducts(products) {
-    document.querySelectorAll('[data-yokool-products]').forEach(el => {
-      const limit = parseInt(el.dataset.yokoolLimit || '0', 10);
+    document.querySelectorAll('[data-tamayoko-products]').forEach(el => {
+      const limit = parseInt(el.dataset.tamayokoLimit || '0', 10);
       const list = limit > 0 ? products.slice(0, limit) : products;
       el.innerHTML = list.map(p => `
         <a href="products/${escapeHtml(p.slug)}.html" class="product-card">
@@ -249,8 +249,8 @@
   }
 
   function applyArticles(articles) {
-    document.querySelectorAll('[data-yokool-articles]').forEach(el => {
-      const limit = parseInt(el.dataset.yokoolLimit || '0', 10);
+    document.querySelectorAll('[data-tamayoko-articles]').forEach(el => {
+      const limit = parseInt(el.dataset.tamayokoLimit || '0', 10);
       const list = limit > 0 ? articles.slice(0, limit) : articles;
       el.innerHTML = list.map(a => `
         <a href="news/${escapeHtml(a.slug)}.html" class="article-card">
@@ -267,16 +267,16 @@
 
   async function autoPopulate() {
     const tasks = [];
-    if (document.querySelector('[data-yokool-config]')) {
+    if (document.querySelector('[data-tamayoko-config]')) {
       tasks.push(fetchConfig().then(applyConfig).catch(e => console.warn('Config fetch failed:', e)));
     }
-    if (document.querySelector('[data-yokool-banner]')) {
+    if (document.querySelector('[data-tamayoko-banner]')) {
       tasks.push(fetchBanners().then(applyBanners).catch(e => console.warn('Banners fetch failed:', e)));
     }
-    if (document.querySelector('[data-yokool-products]')) {
+    if (document.querySelector('[data-tamayoko-products]')) {
       tasks.push(fetchProducts().then(applyProducts).catch(e => console.warn('Products fetch failed:', e)));
     }
-    if (document.querySelector('[data-yokool-articles]')) {
+    if (document.querySelector('[data-tamayoko-articles]')) {
       tasks.push(fetchArticles().then(applyArticles).catch(e => console.warn('Articles fetch failed:', e)));
     }
     await Promise.all(tasks);
