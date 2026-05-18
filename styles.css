@@ -1,5 +1,5 @@
 /* ============================================
-   Tamayoko — Light theme design system
+   YOKOOL — Light theme design system
    Brand: #DC143B (crimson red)
    Inspired by sharge.com layout, adapted for light theme
    ============================================ */
@@ -1190,7 +1190,7 @@ input, select, textarea, button {
   letter-spacing: 0.1em;
 }
 
-/* ============ WHY Tamayoko ============ */
+/* ============ WHY YOKOOL ============ */
 .why-section {
   padding: var(--section-padding) 0;
   background: var(--bg-surface);
@@ -1268,6 +1268,11 @@ input, select, textarea, button {
   border: 1px solid var(--border-subtle);
   text-align: center;
   transition: all 0.3s var(--ease);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 96px;
 }
 
 .contact-channel:hover {
@@ -1289,6 +1294,10 @@ input, select, textarea, button {
   font-weight: 600;
   font-size: 15px;
   color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .contact-channel:hover .contact-channel-value {
@@ -3664,5 +3673,15 @@ body.cart-drawer-open .contact-widget {
   }
   .faq-answer {
     padding: 0 18px 18px;
+  }
+}
+
+/* Mobile: contact-channels stack to 2 columns to avoid cramping */
+@media (max-width: 640px) {
+  .contact-channels {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-channel-value {
+    font-size: 14px;
   }
 }
