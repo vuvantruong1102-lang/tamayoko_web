@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tin tức và cập nhật mới nhất từ Yokool - sản phẩm sạc, ổ điện du lịch.">
+  <meta name="description" content="Liên hệ Tamayoko - hotline, email, Zalo, Shopee, địa chỉ văn phòng. Đội ngũ phản hồi trong 30 phút giờ hành chính.">
   <meta name="theme-color" content="#FFFFFF">
-  <title>Tin tức — YOKOOL</title>
+  <title>Liên hệ — TAMAYOKO</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +15,7 @@
 </head>
 <body>
 
+  <!-- ============ HEADER ============ -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a href="index.html" class="logo" aria-label="tamayoko trang chủ">
@@ -88,39 +89,94 @@
     </div>
   </header>
 
-  <section class="news-hero">
+  <!-- ============ HERO ============ -->
+  <section class="checkout-page">
     <div class="container">
-      <div class="news-hero-inner">
-        <span class="section-label">/ News &amp; updates</span>
-        <h1 class="news-hero-title">Tin tức Yokool.</h1>
-        <p class="news-hero-tagline">Cập nhật sản phẩm, sự kiện và câu chuyện thương hiệu.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="news-empty">
-    <div class="container">
-      <div class="news-empty-inner">
-        <div class="news-empty-mark">◆</div>
-        <h2 class="news-empty-title">Đang được cập nhật</h2>
-        <p class="news-empty-description">
-          Đội ngũ Yokool đang chuẩn bị những bài viết đầu tiên về công nghệ GaN,
-          hướng dẫn chọn sạc phù hợp và cập nhật bộ sưu tập 2026.
-          Quay lại sớm để đón đọc nhé!
+      <div class="checkout-header" style="text-align: center;">
+        <span class="section-label">/ Contact</span>
+        <h1 class="checkout-title">Liên hệ với <em style="font-style: normal; color: var(--brand);">Tamayoko</em></h1>
+        <p class="checkout-subtitle" style="max-width: 640px; margin: 16px auto 0;">
+          Đội ngũ của chúng tôi luôn sẵn sàng tư vấn sản phẩm, hỗ trợ đặt hàng, giải đáp bảo hành và đề xuất giải pháp B2B. Phản hồi trong 30 phút giờ hành chính.
         </p>
-        <div class="news-empty-actions">
-          <a href="index.html" class="cta-button cta-button--large">
-            Khám phá sản phẩm
-            <span class="cta-arrow">→</span>
-          </a>
-          <a href="index.html#contact" class="cta-button cta-button--ghost cta-button--large">
-            Đăng ký nhận tin
-          </a>
+      </div>
+
+      <!-- Contact channels -->
+      <div class="contact-channels" style="margin-top: 48px;">
+        <a href="tel:+84900000000" class="contact-channel">
+          <div class="contact-channel-label">Hotline</div>
+          <div class="contact-channel-value">+84 900 000 000</div>
+        </a>
+        <a href="https://zalo.me/yokool" target="_blank" rel="noopener" class="contact-channel">
+          <div class="contact-channel-label">Zalo</div>
+          <div class="contact-channel-value">zalo.me/yokool</div>
+        </a>
+        <a href="mailto:info@yokool.vn" class="contact-channel">
+          <div class="contact-channel-label">Email</div>
+          <div class="contact-channel-value">info@yokool.vn</div>
+        </a>
+        <a href="https://shopee.vn/yokool" target="_blank" rel="noopener" class="contact-channel">
+          <div class="contact-channel-label">Shopee</div>
+          <div class="contact-channel-value">shopee.vn/yokool</div>
+        </a>
+      </div>
+
+      <!-- Info cards: working hours + address -->
+      <div class="why-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 880px; margin: 48px auto 0;">
+        <div class="why-card">
+          <div class="why-icon">◷</div>
+          <h3 class="why-title">Giờ làm việc</h3>
+          <p class="why-description">
+            Thứ Hai – Thứ Bảy: 8:00 – 18:00<br>
+            Chủ Nhật: 9:00 – 17:00<br>
+            Nghỉ các ngày lễ Tết.
+          </p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">◆</div>
+          <h3 class="why-title">Văn phòng &amp; kho</h3>
+          <p class="why-description">
+            [Địa chỉ văn phòng — Quận/Huyện, Tỉnh/Thành phố]<br>
+            Hỗ trợ ghé thăm xem hàng theo lịch hẹn trước.
+          </p>
         </div>
       </div>
+
+      <!-- Contact form -->
+      <form class="checkout-form-card" id="contactForm" style="margin-top: 48px; max-width: 760px; margin-left: auto; margin-right: auto;" novalidate>
+        <h2 class="checkout-section-title">Gửi yêu cầu tư vấn</h2>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label is-required" for="ct-name">Họ và tên</label>
+            <input class="form-input" type="text" id="ct-name" name="name" required placeholder="Nguyễn Văn A">
+          </div>
+          <div class="form-field">
+            <label class="form-label is-required" for="ct-phone">Số điện thoại</label>
+            <input class="form-input" type="tel" id="ct-phone" name="phone" inputmode="numeric" required placeholder="09xx xxx xxx">
+          </div>
+          <div class="form-field form-field--full">
+            <label class="form-label" for="ct-email">Email (tuỳ chọn)</label>
+            <input class="form-input" type="email" id="ct-email" name="email" placeholder="ban@email.com">
+          </div>
+          <div class="form-field form-field--full">
+            <label class="form-label is-required" for="ct-topic">Nội dung cần tư vấn</label>
+            <textarea class="form-textarea" id="ct-topic" name="topic" required placeholder="Bạn muốn tìm hiểu sản phẩm nào? Vui lòng mô tả nhu cầu cụ thể."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="cta-button cta-button--large cta-button--full" style="margin-top: 24px;">
+          Gửi yêu cầu
+          <span class="cta-arrow">→</span>
+        </button>
+
+        <p class="form-help" style="text-align: center; margin-top: 16px;">
+          Bằng việc gửi yêu cầu, bạn đồng ý cho Tamayoko liên hệ lại trong 30 phút giờ hành chính.
+        </p>
+      </form>
     </div>
   </section>
 
+  <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
@@ -155,10 +211,11 @@
     </div>
 
     <div class="container footer-bottom">
-      <p>© 2026 YOKOOL. Made in Vietnam.</p>
-      <p class="footer-meta">v3.4 — B2B menu + catalogue</p>
+      <p>© 2026 TAMAYOKO. Made in Vietnam.</p>
+      <p class="footer-meta">v3.5 — Support pages</p>
     </div>
   </footer>
+
   <!-- ============ CART DRAWER ============ -->
   <div class="cart-drawer-overlay" aria-hidden="true"></div>
   <aside class="cart-drawer" aria-label="Giỏ hàng">
@@ -170,7 +227,6 @@
         </svg>
       </button>
     </div>
-
     <div class="cart-drawer-body">
       <div id="cartDrawerEmpty" class="cart-drawer-empty">
         <svg class="cart-drawer-empty-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
@@ -183,7 +239,6 @@
       </div>
       <div id="cartDrawerList"></div>
     </div>
-
     <div class="cart-drawer-footer" id="cartDrawerFooter" style="display: none;">
       <div class="cart-drawer-total-row">
         <span class="cart-drawer-total-label">Tổng tạm tính</span>
@@ -198,5 +253,15 @@
   </aside>
 
   <script src="script.js"></script>
+  <script>
+    // Contact form: client-side stub. To send to email, integrate Formspree/EmailJS later.
+    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(this).entries());
+      console.log('Contact request:', data);
+      alert('Cảm ơn bạn! Yêu cầu đã được ghi nhận. Đội ngũ Tamayoko sẽ liên hệ lại trong 30 phút giờ hành chính.');
+      this.reset();
+    });
+  </script>
 </body>
 </html>
