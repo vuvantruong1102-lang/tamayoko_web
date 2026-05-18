@@ -574,30 +574,105 @@
       return;
     }
 
-    // Render summary
-    if (summaryList) {
-      summaryList.innerHTML = items.map(item => `
-        <div class="summary-item">
-          <div class="summary-item-image">
-            <img src="${item.image}" alt="${item.name}">
-            <span class="summary-item-qty">${item.qty}</span>
-          </div>
-          <div class="summary-item-info">
-            <div class="summary-item-name">${item.name}</div>
-            <div class="summary-item-unit">${formatPrice(item.price)} × ${item.qty}</div>
-          </div>
-          <div class="summary-item-subtotal">${formatPrice(item.price * item.qty)}</div>
-        </div>
-      `).join('');
+    // ----- Render & state management for summary -----
+    function persistItems() {
+      // Persist mutation back to source of truth
+      if (isBuyNow) {
+        if (items.length === 0) {
+          sessionStorage.removeItem('Tamayoko_buy_now');
+        } else {
+          // Buy-now is single item — keep only first
+          sessionStorage.setItem('Tamayoko_buy_now', JSON.stringify(items[0]));
+        }
+      } else {
+        Cart.setItems(items);
+        Cart.refresh();
+      }
     }
 
-    const total = items.reduce((s, i) => s + i.price * i.qty, 0);
-    if (summarySubtotal) summarySubtotal.textContent = formatPrice(total);
-    if (summaryTotal) summaryTotal.textContent = formatPrice(total);
+    function renderSummary() {
+      // If we emptied everything, show empty state and stop
+      if (!items || items.length === 0) {
+        if (checkoutEmpty) checkoutEmpty.style.display = 'block';
+        if (checkoutMain) checkoutMain.style.display = 'none';
+        return;
+      }
+
+      if (summaryList) {
+        summaryList.innerHTML = items.map(item => `
+          <div class="summary-item" data-id="${item.id}">
+            <div class="summary-item-image">
+              <img src="${item.image}" alt="${item.name}">
+            </div>
+            <div class="summary-item-body">
+              <div class="summary-item-row-top">
+                <div class="summary-item-name">${item.name}</div>
+                <button class="summary-item-remove js-summary-remove" data-id="${item.id}" type="button" aria-label="Xoá khỏi đơn hàng">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                    <path d="M4 4L14 14M14 4L4 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="summary-item-unit-price">${formatPrice(item.price)} / cái</div>
+              <div class="summary-item-row-bottom">
+                <div class="summary-qty-control">
+                  <button class="summary-qty-btn js-summary-qty-down" data-id="${item.id}" type="button" aria-label="Giảm số lượng">−</button>
+                  <span class="summary-qty-value">${item.qty}</span>
+                  <button class="summary-qty-btn js-summary-qty-up" data-id="${item.id}" type="button" aria-label="Tăng số lượng">+</button>
+                </div>
+                <div class="summary-item-subtotal">${formatPrice(item.price * item.qty)}</div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      const total = items.reduce((s, i) => s + i.price * i.qty, 0);
+      if (summarySubtotal) summarySubtotal.textContent = formatPrice(total);
+      if (summaryTotal) summaryTotal.textContent = formatPrice(total);
+    }
+
+    // Delegate qty/remove clicks on summary list
+    if (summaryList) {
+      summaryList.addEventListener('click', (e) => {
+        const up = e.target.closest('.js-summary-qty-up');
+        const down = e.target.closest('.js-summary-qty-down');
+        const rm = e.target.closest('.js-summary-remove');
+        const id = (up || down || rm)?.dataset.id;
+        if (!id) return;
+
+        const idx = items.findIndex(it => String(it.id) === String(id));
+        if (idx === -1) return;
+
+        if (up) {
+          items[idx].qty = (items[idx].qty || 1) + 1;
+        } else if (down) {
+          if (items[idx].qty > 1) {
+            items[idx].qty -= 1;
+          } else {
+            // Drop the item if going below 1
+            items.splice(idx, 1);
+          }
+        } else if (rm) {
+          items.splice(idx, 1);
+        }
+
+        persistItems();
+        renderSummary();
+      });
+    }
+
+    renderSummary();
 
     // Form submit handler
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      // Guard: empty cart at submit time
+      if (!items || items.length === 0) {
+        showToast('Đơn hàng đang trống', 'info');
+        return;
+      }
 
       // Basic validation
       const data = new FormData(form);
@@ -635,6 +710,9 @@
         String(now.getMonth() + 1).padStart(2, '0') +
         String(now.getDate()).padStart(2, '0') + '-' +
         Math.floor(1000 + Math.random() * 9000);
+
+      // Recompute total at submit (items may have been edited)
+      const total = items.reduce((s, i) => s + i.price * i.qty, 0);
 
       const order = {
         _type: 'order',
