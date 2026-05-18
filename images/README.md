@@ -1,2 +1,2 @@
-# tamayoko-web
-tamayoko-web
+# Tamayoko-web
+Tamayoko-web

@@ -1,11 +1,11 @@
-# tamayoko Website — v2.0
+# Tamayoko Website — v2.0
 
-Website tĩnh cho thương hiệu tamayoko, giao diện sáng (light theme) với màu chủ đạo **#DC143B** (crimson red). Pure HTML/CSS/JS — không framework, không build step.
+Website tĩnh cho thương hiệu Tamayoko, giao diện sáng (light theme) với màu chủ đạo **#DC143B** (crimson red). Pure HTML/CSS/JS — không framework, không build step.
 
 ## Cấu trúc thư mục
 
 ```
-tamayoko/
+Tamayoko/
 ├── index.html              ← Trang chủ (carousel + product grid)
 ├── news.html               ← Trang Tin tức (placeholder)
 ├── checkout.html           ← Trang thanh toán (đặt hàng COD)
@@ -13,7 +13,7 @@ tamayoko/
 ├── script.js               ← JavaScript (carousel, menu, cart, checkout)
 ├── README.md               ← File này
 ├── images/                 ← Ảnh và banner (đều là .jpg / .png)
-│   ├── tamayoko-logo.png     ← Logo thương hiệu (nền trong suốt)
+│   ├── Tamayoko-logo.png     ← Logo thương hiệu (nền trong suốt)
 │   ├── banner-1.jpg        ← Banner slide 1 — 1600×600
 │   ├── banner-2.jpg        ← Banner slide 2 — 1600×600
 │   ├── banner-3.jpg        ← Banner slide 3 — 1600×600
@@ -51,9 +51,9 @@ tamayoko/
 Format: `YK-YYMMDD-XXXX` (ví dụ: `YK-260517-3829`)
 
 ### Đơn hàng lưu ở đâu?
-Hiện đang lưu vào `localStorage.tamayoko_orders_v1`. Mở Console (F12) gõ:
+Hiện đang lưu vào `localStorage.Tamayoko_orders_v1`. Mở Console (F12) gõ:
 ```javascript
-JSON.parse(localStorage.getItem('tamayoko_orders_v1'))
+JSON.parse(localStorage.getItem('Tamayoko_orders_v1'))
 ```
 
 ## ⚠️ Quan trọng: cần tích hợp backend để nhận đơn thật
@@ -106,16 +106,16 @@ Trên desktop: hover để mở dropdown. Trên mobile: tap để toggle (accord
 
 ### Cách 1: Upload qua GitHub (đã làm rồi, chỉ cần update repo)
 
-1. Vào repo GitHub `vuvantruong1102-lang/tamayoko-web`
+1. Vào repo GitHub `vuvantruong1102-lang/Tamayoko-web`
 2. **Xoá tất cả file cũ** trong repo (chọn từng file → Delete)
-3. Upload toàn bộ nội dung **bên trong** thư mục `tamayoko/` này lên repo (KHÔNG upload thư mục `tamayoko/` mà upload các file/folder bên trong nó)
+3. Upload toàn bộ nội dung **bên trong** thư mục `Tamayoko/` này lên repo (KHÔNG upload thư mục `Tamayoko/` mà upload các file/folder bên trong nó)
 4. Cloudflare Pages sẽ tự động deploy lại trong 30-60 giây
 
-**LƯU Ý**: Khi upload phải đảm bảo file `index.html` nằm ở root của repo, không phải trong subfolder `tamayoko/index.html`.
+**LƯU Ý**: Khi upload phải đảm bảo file `index.html` nằm ở root của repo, không phải trong subfolder `Tamayoko/index.html`.
 
 ### Cách 2: Drag & drop trực tiếp lên Cloudflare Pages
 
-1. Vào Cloudflare dashboard → Pages → project `tamayoko-web`
+1. Vào Cloudflare dashboard → Pages → project `Tamayoko-web`
 2. Click "Create deployment" → "Upload assets"
 3. Kéo cả 4 thứ: `index.html`, `styles.css`, `script.js`, thư mục `images/`, thư mục `products/`
 4. Click "Deploy site"
@@ -123,7 +123,7 @@ Trên desktop: hover để mở dropdown. Trên mobile: tap để toggle (accord
 ## Test local trước khi deploy
 
 1. Giải nén file zip (đừng mở trực tiếp từ trong zip)
-2. Vào thư mục `tamayoko/`
+2. Vào thư mục `Tamayoko/`
 3. Double-click `index.html`
 4. Browser sẽ mở và hiển thị website
 
@@ -133,14 +133,14 @@ Nếu test trang sản phẩm: vào `products/` → double-click bất kỳ file
 
 ### Đổi link Shopee
 
-Search & replace `https://shopee.vn/tamayokoofficial` trong tất cả file `.html` thành link Shopee thật của bạn.
+Search & replace `https://shopee.vn/Tamayokoofficial` trong tất cả file `.html` thành link Shopee thật của bạn.
 
 ### Đổi thông tin liên hệ
 
 Trong `index.html`, tìm section `<section class="contact-section">` và sửa:
 - Số hotline: `0971 222 822`
 - Zalo: `zalo.me/0971222822`
-- Email: `contact@tamayoko.com`
+- Email: `contact@Tamayoko.com`
 
 ### Đổi màu thương hiệu
 
@@ -216,4 +216,4 @@ A: Đợi 30-60 giây, mở incognito để bypass cache, hoặc vào Cloudflare
 
 ---
 
-© 2026 tamayoko — Made in Vietnam · v2.0 light theme · Powered by Cloudflare Pages
+© 2026 Tamayoko — Made in Vietnam · v2.0 light theme · Powered by Cloudflare Pages
