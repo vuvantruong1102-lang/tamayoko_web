@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yokool SL207 - Ổ điện đa năng du lịch PD 35W. Sạc nhanh 5 thiết bị cùng lúc, dùng được tại 180+ quốc gia. Bảo hành 12 tháng.">
+  <meta name="theme-color" content="#FFFFFF">
+  <title>Yokool SL207 — Ổ điện du lịch đa năng PD35W</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo" aria-label="tamayoko trang chủ">
+        <img src="../images/tamayoko.png" alt="tamayoko" class="logo-img">
+      </a>
+
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="../index.html" class="nav-link">Trang chủ</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+            Sạc dự phòng
+            <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-panel" role="menu">
+            <a href="../products/jp395.html" class="nav-leaf">JP395</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+            Củ sạc
+            <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-panel" role="menu">
+            <a href="../products/rc502.html" class="nav-leaf">RC502</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+            Ổ điện du lịch
+            <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-panel" role="menu">
+            <a href="../products/sl207.html" class="nav-leaf">SL207</a>
+            <a href="../products/ol212.html" class="nav-leaf">OL212</a>
+          </div>
+        </div>
+
+        <a href="../news.html" class="nav-link">Tin tức</a>
+        <a href="../b2b.html" class="nav-link">Hợp tác B2B</a>
+        <a href="../lien-he.html" class="nav-link">Liên hệ</a>
+      </nav>
+
+      <button class="cart-icon-btn" id="cartIconBtn" aria-label="Mở giỏ hàng">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 4H5L6 16C6 16.5523 6.44772 17 7 17H17C17.5523 17 18 16.5523 18 16L19 7H7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="9" cy="20" r="1.3" fill="currentColor"/>
+          <circle cx="16" cy="20" r="1.3" fill="currentColor"/>
+        </svg>
+        <span class="cart-badge" aria-label="Số sản phẩm trong giỏ">0</span>
+      </button>
+
+      <a href="https://shopee.vn/yokool" target="_blank" rel="noopener" class="cta-button cta-button--small">
+        Mua tại Shopee
+        <span class="cta-arrow">→</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Mở menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="product-hero">
+    <div class="container product-hero-inner">
+      <div class="product-hero-visual">
+        <div class="product-gallery">
+          <div class="product-gallery-main">
+            <img id="galleryMain" src="../images/product-sl207.jpg" alt="Yokool SL207 ổ điện du lịch đa năng">
+            <button class="product-gallery-arrow product-gallery-arrow--prev" type="button" id="galleryPrev" aria-label="Ảnh trước">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="product-gallery-arrow product-gallery-arrow--next" type="button" id="galleryNext" aria-label="Ảnh kế tiếp">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+          <div class="product-gallery-thumbs">
+            <button class="product-gallery-thumb is-active" type="button" data-src="../images/product-sl207.jpg" aria-label="Ảnh SL207 màu trắng">
+              <img src="../images/product-sl207.jpg" alt="SL207 màu trắng">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/sl207-black.jpg" aria-label="Ảnh SL207 màu đen">
+              <img src="../images/sl207-black.jpg" alt="SL207 màu đen">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/sl207-quick-charge.jpg" aria-label="SL207 sạc nhanh PD 35W">
+              <img src="../images/sl207-quick-charge.jpg" alt="Sạc nhanh PD 35W">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/sl207-multi-device.jpg" aria-label="SL207 sạc 6 thiết bị cùng lúc">
+              <img src="../images/sl207-multi-device.jpg" alt="Sạc 6 thiết bị cùng lúc">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/sl207-plugs.jpg" aria-label="SL207 4 chân cắm US EU AUS UK">
+              <img src="../images/sl207-plugs.jpg" alt="4 chân cắm chuẩn quốc tế">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/sl207-power.jpg" aria-label="SL207 công suất 2500W max">
+              <img src="../images/sl207-power.jpg" alt="Công suất 2500W">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/sl207-safety.jpg" aria-label="SL207 bảo vệ an toàn 8 lớp">
+              <img src="../images/sl207-safety.jpg" alt="Bảo vệ an toàn 8 lớp">
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-hero-content">
+        <span class="section-label">/ Travel power · PD 35W</span>
+        <h1 class="product-hero-title">SL207</h1>
+        <p class="product-hero-tagline">
+          Ổ điện đa năng PD 35W. Sạc cùng lúc 5 thiết bị. Dùng được tại 180+ quốc gia.
+        </p>
+
+        <ul class="product-hero-bullets">
+          <li>4 loại chân cắm Type A/C/G/I tích hợp sẵn, trượt gập gọn trong 1 giây</li>
+          <li>3 cổng USB-A và 2 cổng USB-C, sạc nhanh tối đa 35W</li>
+          <li>Sạc cùng lúc 5 thiết bị, công suất tối đa 2500W ở 250V</li>
+          <li>Cầu chì 10A và lẫy bảo vệ trẻ em tích hợp sẵn</li>
+          <li>2 màu Đen / Trắng, chỉ 164g — nhỏ gọn cầm tay</li>
+        </ul>
+
+        <div class="product-color-section">
+          <div class="product-color-label">
+            Màu sắc <span class="product-color-label-value" id="colorLabelValue">Trắng</span>
+          </div>
+          <div class="product-color-swatches" id="colorSwatches">
+            <button type="button" class="product-color-swatch product-color-swatch--white is-active"
+              data-color="Trắng"
+              data-image="../images/product-sl207.jpg"
+              aria-label="Màu Trắng">
+              <span class="product-color-swatch-fill"></span>
+            </button>
+            <button type="button" class="product-color-swatch product-color-swatch--black"
+              data-color="Đen"
+              data-image="../images/sl207-black.jpg"
+              aria-label="Màu Đen">
+              <span class="product-color-swatch-fill"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="product-hero-price-row">
+          <span class="price-current">500.000đ</span>
+          <span class="price-tag">Giá lẻ · đã VAT</span>
+        </div>
+
+        <div class="product-hero-actions">
+          <button class="cta-button cta-button--large buy-now-btn"
+            data-id="sl207"
+            data-name="Ổ điện du lịch Yokool SL207 (Trắng)"
+            data-price="500000"
+            data-image="../images/product-sl207.jpg">
+            Mua ngay
+            <span class="cta-arrow">→</span>
+          </button>
+          <button class="cta-button cta-button--secondary cta-button--large add-to-cart-btn"
+            data-id="sl207"
+            data-name="Ổ điện du lịch Yokool SL207 (Trắng)"
+            data-price="500000"
+            data-image="../images/product-sl207.jpg">
+            Thêm vào giỏ hàng
+          </button>
+        </div>
+
+        <div class="product-hero-meta">
+          <div class="product-hero-meta-item">
+            <span class="product-hero-meta-icon">◆</span>
+            <span>Bảo hành 12 tháng</span>
+          </div>
+          <div class="product-hero-meta-item">
+            <span class="product-hero-meta-icon">◆</span>
+            <span>Giao COD toàn quốc</span>
+          </div>
+          <div class="product-hero-meta-item">
+            <span class="product-hero-meta-icon">◆</span>
+            <span>2 màu: Đen / Trắng</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ KEY FEATURES ============ -->
+  <section class="key-features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">/ Tính năng nổi bật</span>
+        <h2 class="section-title">Bốn ưu thế. <em>Một sản phẩm</em>.</h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrap">⚡</div>
+          <h3 class="feature-title">PD 35W</h3>
+          <p class="feature-description">
+            Cổng USB-C sạc nhanh tối đa 35W. Đủ sức kéo MacBook Air, iPad Pro, mọi smartphone hiện đại.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">🌐</div>
+          <h3 class="feature-title">180+ quốc gia</h3>
+          <p class="feature-description">
+            4 loại chân cắm Type A/C/G/I tích hợp sẵn, trượt gập gọn trong giây. Phủ hơn 180 quốc gia.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">⊟</div>
+          <h3 class="feature-title">6 thiết bị cùng lúc</h3>
+          <p class="feature-description">
+            3 cổng USB-A + 2 cổng USB-C + 1 ổ AC. Sạc song song laptop, tablet, điện thoại, smartwatch và thiết bị AC mà không sụt nguồn.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">◇</div>
+          <h3 class="feature-title">Chỉ 164g</h3>
+          <p class="feature-description">
+            77 × 56 × 54mm, nhỏ gọn vừa lòng bàn tay. Mang theo dễ dàng cho mọi chuyến đi.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHOWCASE 1: Travel ============ -->
+  <section class="showcase">
+    <div class="container showcase-inner">
+      <div class="showcase-visual">
+        <img src="../images/sl207-plugs.jpg" alt="SL207 với 4 chuẩn chân cắm US, EU, AUS, UK">
+      </div>
+      <div class="showcase-content">
+        <span class="section-label">/ Travel companion</span>
+        <h2 class="showcase-title">Sạc nhanh 35W,<br>+180 Quốc gia.</h2>
+        <p class="showcase-description">
+          4 loại chân cắm tiêu chuẩn Type A/C/G/I tích hợp sẵn, trượt ra thu vào chỉ trong 1 giây.
+          Không cần mang adapter rời. Một chiếc SL207 trong vali là đủ cho mọi điểm đến.
+        </p>
+        <ul class="showcase-bullets">
+          <li>Type A — Mỹ, Nhật, Canada, Mexico, Đài Loan</li>
+          <li>Type C — châu Âu, Hàn Quốc, Pháp, Đức, Tây Ban Nha</li>
+          <li>Type G — Anh, Singapore, Malaysia, Hong Kong, UAE</li>
+          <li>Type I — Trung Quốc, Úc, New Zealand, Argentina</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHOWCASE 2: Quick Charge PD 35W ============ -->
+  <section class="showcase showcase--reverse">
+    <div class="container showcase-inner">
+      <div class="showcase-visual">
+        <img src="../images/sl207-quick-charge.jpg" alt="SL207 sạc nhanh PD 35W qua cổng USB-C">
+      </div>
+      <div class="showcase-content">
+        <span class="section-label">/ Quick charge · PD 35W</span>
+        <h2 class="showcase-title">PD 35W.<br>Sạc nhanh laptop.</h2>
+        <p class="showcase-description">
+          Cổng USB-C hỗ trợ chuẩn Power Delivery 35W — đủ sức sạc MacBook Air, iPad Pro,
+          và mọi laptop USB-C hiện đại ở tốc độ tối đa. Cao hơn 75% so với chuẩn PD 20W thông thường.
+        </p>
+        <ul class="showcase-bullets">
+          <li>MacBook Air M2 — sạc đầy trong ~2 giờ</li>
+          <li>iPad Pro 11" — đạt tốc độ sạc tối đa</li>
+          <li>iPhone 15 Pro — 0% lên 50% trong 25 phút</li>
+          <li>Tự động nhận diện thiết bị qua chuẩn PD 3.0</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHOWCASE 3: Multi-device ============ -->
+  <section class="showcase">
+    <div class="container showcase-inner">
+      <div class="showcase-visual">
+        <img src="../images/sl207-multi-device.jpg" alt="SL207 sạc đồng thời 6 thiết bị qua 5 cổng USB + AC">
+      </div>
+      <div class="showcase-content">
+        <span class="section-label">/ 6 ports, 6 devices</span>
+        <h2 class="showcase-title">Một ổ.<br>Sáu thiết bị.</h2>
+        <p class="showcase-description">
+          5 cổng USB (1× USB-C PD 35W, 1× USB-C PD 20W, 3× USB-A 3A tổng) cộng thêm 1 ổ cắm AC chuẩn quốc tế.
+          Cấp điện đồng thời cho laptop, tablet, điện thoại, đồng hồ, tai nghe và 1 thiết bị AC — không cần chia ca.
+        </p>
+        <ul class="showcase-bullets">
+          <li>USB-C #1 — PD 35W cho laptop/iPad</li>
+          <li>USB-C #2 — PD 20W cho iPhone/Android</li>
+          <li>3× USB-A — chia sẻ 3A tổng cho phụ kiện</li>
+          <li>Ổ AC chuẩn quốc tế, tổng tối đa 2500W</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHOWCASE 4: High Power 2500W ============ -->
+  <section class="showcase showcase--reverse">
+    <div class="container showcase-inner">
+      <div class="showcase-visual">
+        <img src="../images/sl207-power.jpg" alt="SL207 cấp điện 2500W cho máy sấy tóc với baby-proof outlet">
+      </div>
+      <div class="showcase-content">
+        <span class="section-label">/ High power · Baby-proof</span>
+        <h2 class="showcase-title">2500W mạnh mẽ.<br>An toàn trẻ em.</h2>
+        <p class="showcase-description">
+          Ổ AC chính chịu tải đến 2500W ở 250V — đủ kéo máy sấy tóc, ấm siêu tốc, bàn là, máy uốn tóc trong khách sạn.
+          Khe cắm có lẫy bảo vệ trẻ em (baby-proof outlet) tự động khoá khi không có phích cắm.
+        </p>
+        <ul class="showcase-bullets">
+          <li>Tối đa 2500W ở 250V (1875W ở 125V)</li>
+          <li>Đủ cho máy sấy, ấm đun nước, bàn là du lịch</li>
+          <li>Khe cắm có lẫy bảo vệ trẻ em tích hợp</li>
+          <li>Cầu chì tự phục hồi — không cần thay tay</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHOWCASE 5: Safety ============ -->
+  <section class="showcase">
+    <div class="container showcase-inner">
+      <div class="showcase-visual">
+        <img src="../images/sl207-safety.jpg" alt="SL207 cấu tạo bên trong với 8 lớp bảo vệ và cầu chì tự phục hồi">
+      </div>
+      <div class="showcase-content">
+        <span class="section-label">/ An toàn tuyệt đối</span>
+        <h2 class="showcase-title">8 lớp bảo vệ.<br>Yên tâm trên mọi nẻo đường.</h2>
+        <p class="showcase-description">
+          Vỏ ngoài chất liệu PC chống cháy. Cầu chì tự phục hồi (auto-resetting fuse) 10A
+          tự reset khi quá tải mà không cần thay tay. Mạch bảo vệ thông minh với 8 cơ chế ngắt khẩn cấp.
+        </p>
+        <ul class="showcase-bullets">
+          <li>Cầu chì tự phục hồi 10A 250V — không cần thay</li>
+          <li>Vỏ ngoài PC chống cháy V0</li>
+          <li>Chống quá nhiệt, quá dòng, quá áp, quá sạc</li>
+          <li>Chống đoản mạch, quá tải, sụt áp, bảo vệ chip</li>
+          <li>Chứng nhận FCC, CE, UKCA, RoHS</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- ============ REVIEWERS ON TIKTOK ============ -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">/ Reviewer nói về chúng tôi</span>
+        <h2 class="section-title">Người thật, <em>cảm nhận thật</em>.</h2>
+        <p class="section-description">
+          Trải nghiệm thực tế từ người dùng và creators trên TikTok.
+        </p>
+      </div>
+
+      <div class="reviews-grid">
+        <button class="review-card" type="button"
+                data-tt-id="7634042928335244562"
+                data-tt-user="auberginesc"
+                aria-label="Xem video review của @auberginesc trên TikTok">
+          <img class="review-thumb" src="../images/review-auberginesc.jpg" alt="" loading="lazy" decoding="async">
+          <div class="review-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="review-meta">
+            <span class="review-tt-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V9.41a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.84z"/></svg>
+            </span>
+            <span class="review-handle">@auberginesc</span>
+          </div>
+        </button>
+
+        <button class="review-card" type="button"
+                data-tt-id="7626719228787379477"
+                data-tt-user="tuan.metech"
+                aria-label="Xem video review của @tuan.metech trên TikTok">
+          <img class="review-thumb" src="../images/review-tuanmetech.jpg" alt="" loading="lazy" decoding="async">
+          <div class="review-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="review-meta">
+            <span class="review-tt-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V9.41a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.84z"/></svg>
+            </span>
+            <span class="review-handle">@tuan.metech</span>
+          </div>
+        </button>
+
+        <button class="review-card" type="button"
+                data-tt-id="7627101355903257877"
+                data-tt-user="hi.iamphat"
+                aria-label="Xem video review của @hi.iamphat trên TikTok">
+          <img class="review-thumb" src="../images/review-iamphat.jpg" alt="" loading="lazy" decoding="async">
+          <div class="review-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="review-meta">
+            <span class="review-tt-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V9.41a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.84z"/></svg>
+            </span>
+            <span class="review-handle">@hi.iamphat</span>
+          </div>
+        </button>
+
+        <button class="review-card" type="button"
+                data-tt-id="7630774956556569877"
+                data-tt-user="hoanglong_studio"
+                aria-label="Xem video review của @hoanglong_studio trên TikTok">
+          <img class="review-thumb" src="../images/review-hoanglong.jpg" alt="" loading="lazy" decoding="async">
+          <div class="review-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="review-meta">
+            <span class="review-tt-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V9.41a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.84z"/></svg>
+            </span>
+            <span class="review-handle">@hoanglong_studio</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TikTok video modal -->
+  <div class="tt-modal" id="ttModal" aria-hidden="true" role="dialog" aria-label="TikTok video player">
+    <div class="tt-modal-backdrop" data-close></div>
+    <div class="tt-modal-content">
+      <button class="tt-modal-close" type="button" data-close aria-label="Đóng">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="tt-modal-embed" id="ttModalEmbed"></div>
+    </div>
+  </div>
+
+  <!-- ============ SPECS TABLE ============ -->
+  <section class="specs-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">/ Thông số kỹ thuật</span>
+        <h2 class="section-title">Chi tiết kỹ thuật</h2>
+      </div>
+
+      <div class="specs-table">
+        <div class="specs-row">
+          <div class="specs-label">Mã sản phẩm</div>
+          <div class="specs-value">SL207</div>
+        </div>
+        <div class="specs-row">
+          <div class="specs-label">Công suất sạc nhanh</div>
+          <div class="specs-value">PD 35W (cổng USB-C)</div>
+        </div>
+        <div class="specs-row">
+          <div class="specs-label">Cổng ra</div>
+          <div class="specs-value">3× USB-A + 2× USB-C</div>
+        </div>
+        <div class="specs-row">
+          <div class="specs-label">Sạc đồng thời</div>
+          <div class="specs-value">Tối đa 5 thiết bị</div>
+        </div>
+        <div class="specs-row">
+          <div class="specs-label">Chân cắm</div>
+          <div class="specs-value">Type A / C / G / I (4-in-1 gập gọn)</div>
+        </div>
+        <div class="specs-row">
+          <div class="specs-label">Tương thích</div>
+          <div class="specs-value">Hơn 180 quốc gia trên thế giới</div>
+        </div>
+        <div class="specs-row">
+          <div class="specs-label">Công suất tối đa</div>
+          <div class="specs-value">2500W ở 250V</div>
+        </div>
+        <div class="specs-row">
+          <div class="specs-label">Bảo vệ tích hợp</div>
+          <div class="specs-value">Cầu chì 10A, lẫy bảo vệ trẻ em</div>
+        </div>
+        <div class="specs-row">
+          <div class="specs-label">Chất liệu</div>
+          <div class="specs-value">Nhựa ABS, PC chống cháy</div>
+        </div>
+        <div class="specs-row">
+          <div class="specs-label">Kích thước</div>
+          <div class="specs-value">77 × 56 × 54 mm</div>
+        </div>
+        <div class="specs-row">
+          <div class="specs-label">Khối lượng</div>
+          <div class="specs-value">164g</div>
+        </div>
+        <div class="specs-row">
+          <div class="specs-label">Màu sắc</div>
+          <div class="specs-value">Đen, Trắng</div>
+        </div>
+        <div class="specs-row">
+          <div class="specs-label">Chứng nhận</div>
+          <div class="specs-value">FCC, CE, UKCA, RoHS</div>
+        </div>
+        <div class="specs-row">
+          <div class="specs-label">Xuất xứ</div>
+          <div class="specs-value">Trung Quốc · Phân phối chính hãng tại Việt Nam</div>
+        </div>
+        <div class="specs-row">
+          <div class="specs-label">Trong hộp</div>
+          <div class="specs-value">Sạc SL207, hướng dẫn sử dụng, thẻ bảo hành</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta">
+    <div class="container final-cta-inner">
+      <h2 class="final-cta-title">Sẵn sàng cho<br>chuyến đi tiếp theo?</h2>
+      <p class="final-cta-description">
+        SL207 đang có sẵn trên Shopee với giá ưu đãi. Bảo hành 12 tháng, giao COD toàn quốc.
+      </p>
+      <div class="final-cta-actions">
+        <a href="https://shopee.vn/yokool" target="_blank" rel="noopener" class="cta-button cta-button--large">
+          Mua tại Shopee
+          <span class="cta-arrow">→</span>
+        </a>
+        <a href="../lien-he.html" class="cta-button cta-button--ghost cta-button--large">
+          Tư vấn đặt hàng
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RELATED PRODUCTS ============ -->
+  <section class="related-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">/ Sản phẩm khác</span>
+        <h2 class="section-title">Có thể bạn quan tâm</h2>
+      </div>
+
+      <div class="related-grid">
+        <a href="ol212.html" class="related-card">
+          <div class="related-card-image">
+            <img src="../images/product-ol212.jpg" alt="OL212">
+          </div>
+          <div class="related-card-name">Ổ điện du lịch Yokool OL212</div>
+          <div class="related-card-code">OL212 · PD 20W</div>
+        </a>
+        <a href="jp395.html" class="related-card">
+          <div class="related-card-image">
+            <img src="../images/product-jp395.jpg" alt="JP395">
+          </div>
+          <div class="related-card-name">Sạc dự phòng Yokool JP395</div>
+          <div class="related-card-code">JP395 · 10.000mAh</div>
+        </a>
+        <a href="rc502.html" class="related-card">
+          <div class="related-card-image">
+            <img src="../images/product-rc502.jpg" alt="RC502">
+          </div>
+          <div class="related-card-name">Sạc nhanh 65W tích hợp dây rút Yokool RC502</div>
+          <div class="related-card-code">RC502 · PD 65W</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <img src="../images/tamayoko.png" alt="tamayoko" class="logo-img">
+        </a>
+        <p class="footer-tagline">Công nghệ vì cuộc sống tốt đẹp hơn</p>
+        <div class="footer-company">
+          <p class="footer-company-name">Công ty TNHH Thương mại dịch vụ và sản xuất VNF Việt Nam</p>
+          <p class="footer-company-line">Mã số doanh nghiệp: 2400883385. Giấy chứng nhận đăng ký doanh nghiệp do Sở Kế hoạch và Đầu tư tỉnh Bắc Giang cấp lần đầu ngày 03/03/2020.</p>
+          <p class="footer-company-line">Địa chỉ: KĐT Văn Khê, phường La Khê, quận Hà Đông, TP Hà Nội.</p>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Sản phẩm</h4>
+          <a href="sl207.html">SL207</a>
+          <a href="ol212.html">OL212</a>
+          <a href="jp395.html">JP395</a>
+          <a href="rc502.html">RC502</a>
+        </div>
+        <div class="footer-col">
+          <h4>Hỗ trợ</h4>
+          <a href="../lien-he.html">Liên hệ</a>
+          <a href="../bao-hanh.html">Bảo hành</a>
+          <a href="../van-chuyen.html">Vận chuyển</a>
+          <a href="../faq.html">Câu hỏi thường gặp</a>
+        </div>
+        <div class="footer-col">
+          <h4>Kênh bán</h4>
+          <a href="https://shopee.vn/yokool" target="_blank" rel="noopener">Shopee</a>
+          <a href="https://zalo.me/0971222822" target="_blank" rel="noopener">Zalo</a>
+          <a href="mailto:contact@tamayoko.com">Email</a>
+        </div>
+        <div class="footer-col">
+          <h4>Mạng xã hội</h4>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/tamayokoofficial" target="_blank" rel="noopener" aria-label="Facebook Tamayoko" class="footer-social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@tamayokoofficial" target="_blank" rel="noopener" aria-label="YouTube Tamayoko" class="footer-social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M23.5 6.2c-.3-1-1.1-1.8-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6c-1 .3-1.8 1.1-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1.1 1.8 2.1 2.1 1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6c1-.3 1.8-1.1 2.1-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/>
+              </svg>
+            </a>
+            <a href="https://www.tiktok.com/@tamayoko.tech" target="_blank" rel="noopener" aria-label="TikTok Tamayoko" class="footer-social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V9.41a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.84z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 TAMAYOKO.</p>
+    </div>
+  </footer>
+
+  <!-- ============ CART DRAWER ============ -->
+  <div class="cart-drawer-overlay" aria-hidden="true"></div>
+  <aside class="cart-drawer" aria-label="Giỏ hàng">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">Giỏ hàng</h3>
+      <button class="cart-drawer-close" aria-label="Đóng giỏ hàng">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="cart-drawer-body">
+      <div id="cartDrawerEmpty" class="cart-drawer-empty">
+        <svg class="cart-drawer-empty-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M10 14H16L18 46C18 47.6569 19.3431 49 21 49H47C48.6569 49 50 47.6569 50 46L52 22H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="26" cy="56" r="3" stroke="currentColor" stroke-width="2"/>
+          <circle cx="44" cy="56" r="3" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <div class="cart-drawer-empty-text">Giỏ hàng đang trống</div>
+        <a href="../index.html" class="cta-button cta-button--ghost cta-button--small">Tiếp tục mua sắm</a>
+      </div>
+      <div id="cartDrawerList"></div>
+    </div>
+
+    <div class="cart-drawer-footer" id="cartDrawerFooter" style="display: none;">
+      <div class="cart-drawer-total-row">
+        <span class="cart-drawer-total-label">Tổng tạm tính</span>
+        <span class="cart-drawer-total-value" id="cartDrawerTotal">0đ</span>
+      </div>
+      <button class="cta-button cta-button--full cta-button--large" id="cartDrawerCheckout">
+        Thanh toán
+        <span class="cta-arrow">→</span>
+      </button>
+      <div class="cart-drawer-hint">Phí vận chuyển sẽ tính ở bước kế tiếp · COD toàn quốc</div>
+    </div>
+  </aside>
+
+  <script src="../script.js"></script>
+  <script>
+    // Product gallery + color picker
+    (function() {
+      const main = document.getElementById('galleryMain');
+      const thumbs = document.querySelectorAll('.product-gallery-thumb');
+      const swatches = document.querySelectorAll('.product-color-swatch[data-image]');
+      const colorLabel = document.getElementById('colorLabelValue');
+
+      // Thumbnail click
+      thumbs.forEach(t => t.addEventListener('click', () => {
+        const src = t.dataset.src;
+        if (!src || !main) return;
+        main.src = src;
+        thumbs.forEach(x => x.classList.remove('is-active'));
+        t.classList.add('is-active');
+      }));
+
+      // Arrow buttons: prev/next cycling through thumbs
+      const prevBtn = document.getElementById('galleryPrev');
+      const nextBtn = document.getElementById('galleryNext');
+      function getActiveIndex() {
+        let idx = 0;
+        thumbs.forEach((t, i) => { if (t.classList.contains('is-active')) idx = i; });
+        return idx;
+      }
+      function activateThumb(i) {
+        if (!thumbs.length) return;
+        const wrapped = ((i % thumbs.length) + thumbs.length) % thumbs.length;
+        const t = thumbs[wrapped];
+        const src = t.dataset.src;
+        if (!src || !main) return;
+        main.src = src;
+        thumbs.forEach(x => x.classList.remove('is-active'));
+        t.classList.add('is-active');
+      }
+      if (prevBtn) prevBtn.addEventListener('click', () => activateThumb(getActiveIndex() - 1));
+      if (nextBtn) nextBtn.addEventListener('click', () => activateThumb(getActiveIndex() + 1));
+
+
+      // Color swatch click — change main image, label, and update buttons' data
+      swatches.forEach(s => s.addEventListener('click', () => {
+        const img = s.dataset.image;
+        const color = s.dataset.color;
+        if (!img || !main) return;
+
+        // Update main hero image
+        main.src = img;
+        // Sync first thumbnail to match
+        if (thumbs[0]) {
+          thumbs[0].dataset.src = img;
+          thumbs[0].querySelector('img').src = img;
+          thumbs.forEach(x => x.classList.remove('is-active'));
+          thumbs[0].classList.add('is-active');
+        }
+        // Update label
+        if (colorLabel) colorLabel.textContent = color;
+        // Update active swatch
+        swatches.forEach(x => x.classList.remove('is-active'));
+        s.classList.add('is-active');
+
+        // Update buy/cart button data attributes so cart records the color
+        document.querySelectorAll('.buy-now-btn, .add-to-cart-btn').forEach(btn => {
+          const baseName = 'Ổ điện du lịch Yokool SL207';
+          btn.dataset.name = baseName + ' (' + color + ')';
+          btn.dataset.image = img;
+        });
+      }));
+    })();
+  </script>
+</body>
+</html>
