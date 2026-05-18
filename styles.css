@@ -3640,12 +3640,17 @@ body.cart-drawer-open .contact-widget {
 /* ============ HERO BANNER — TEXT POSITIONING FOR NEW BANNERS ============ */
 /* Banner mới có sản phẩm bên phải, text bên trái → cần giới hạn width text */
 .carousel-slide .slide-content {
-  max-width: 42%;
+  max-width: none;       /* override default 1280px container limit */
+  width: 780px;          /* fixed width gives enough room for "Mọi lúc, mọi nơi" on one line */
+  margin: 0;             /* left-aligned, not centered in viewport */
+  padding-left: clamp(24px, 6vw, 80px);
+  padding-right: 32px;
 }
 .carousel-slide .slide-title {
   max-width: 100%;
-  font-size: clamp(44px, 6.4vw, 88px);
-  line-height: 1.08;
+  font-size: clamp(44px, 6.2vw, 82px);
+  line-height: 1.1;
+  white-space: nowrap;   /* keep each <br>-separated line on a single row */
 }
 .carousel-slide .slide-tagline {
   max-width: 100%;
@@ -3654,12 +3659,14 @@ body.cart-drawer-open .contact-widget {
 /* Mobile: text full width, banner sẽ chuyển sang ảnh nền thay vì side-by-side */
 @media (max-width: 768px) {
   .carousel-slide .slide-content {
+    width: 100%;
     max-width: 100%;
     padding-right: 24px;
   }
   .carousel-slide .slide-title {
-    font-size: clamp(40px, 9vw, 64px);
-    line-height: 1.1;
+    font-size: clamp(36px, 8vw, 60px);
+    line-height: 1.12;
+    white-space: normal; /* allow natural wrap on small screens */
   }
 }
 
