@@ -131,6 +131,26 @@
           <li>2 màu Đen / Trắng, chỉ 164g — nhỏ gọn cầm tay</li>
         </ul>
 
+        <div class="product-color-section">
+          <div class="product-color-label">
+            Màu sắc <span class="product-color-label-value" id="colorLabelValue">Trắng</span>
+          </div>
+          <div class="product-color-swatches" id="colorSwatches">
+            <button type="button" class="product-color-swatch product-color-swatch--white is-active"
+              data-color="Trắng"
+              data-image="../images/product-sl207.jpg"
+              aria-label="Màu Trắng">
+              <span class="product-color-swatch-fill"></span>
+            </button>
+            <button type="button" class="product-color-swatch product-color-swatch--black"
+              data-color="Đen"
+              data-image="../images/sl207-black.jpg"
+              aria-label="Màu Đen">
+              <span class="product-color-swatch-fill"></span>
+            </button>
+          </div>
+        </div>
+
         <div class="product-hero-price-row">
           <span class="price-current">500.000đ</span>
           <span class="price-tag">Giá lẻ · đã VAT</span>
@@ -139,7 +159,7 @@
         <div class="product-hero-actions">
           <button class="cta-button cta-button--large buy-now-btn"
             data-id="sl207"
-            data-name="Ổ điện du lịch Yokool SL207"
+            data-name="Ổ điện du lịch Yokool SL207 (Trắng)"
             data-price="500000"
             data-image="../images/product-sl207.jpg">
             Mua ngay
@@ -147,7 +167,7 @@
           </button>
           <button class="cta-button cta-button--secondary cta-button--large add-to-cart-btn"
             data-id="sl207"
-            data-name="Ổ điện du lịch Yokool SL207"
+            data-name="Ổ điện du lịch Yokool SL207 (Trắng)"
             data-price="500000"
             data-image="../images/product-sl207.jpg">
             Thêm vào giỏ hàng
@@ -492,17 +512,49 @@
 
   <script src="../script.js"></script>
   <script>
-    // Product gallery
+    // Product gallery + color picker
     (function() {
       const main = document.getElementById('galleryMain');
       const thumbs = document.querySelectorAll('.product-gallery-thumb');
-      if (!main || !thumbs.length) return;
+      const swatches = document.querySelectorAll('.product-color-swatch[data-image]');
+      const colorLabel = document.getElementById('colorLabelValue');
+
+      // Thumbnail click
       thumbs.forEach(t => t.addEventListener('click', () => {
         const src = t.dataset.src;
-        if (!src) return;
+        if (!src || !main) return;
         main.src = src;
         thumbs.forEach(x => x.classList.remove('is-active'));
         t.classList.add('is-active');
+      }));
+
+      // Color swatch click — change main image, label, and update buttons' data
+      swatches.forEach(s => s.addEventListener('click', () => {
+        const img = s.dataset.image;
+        const color = s.dataset.color;
+        if (!img || !main) return;
+
+        // Update main hero image
+        main.src = img;
+        // Sync first thumbnail to match
+        if (thumbs[0]) {
+          thumbs[0].dataset.src = img;
+          thumbs[0].querySelector('img').src = img;
+          thumbs.forEach(x => x.classList.remove('is-active'));
+          thumbs[0].classList.add('is-active');
+        }
+        // Update label
+        if (colorLabel) colorLabel.textContent = color;
+        // Update active swatch
+        swatches.forEach(x => x.classList.remove('is-active'));
+        s.classList.add('is-active');
+
+        // Update buy/cart button data attributes so cart records the color
+        document.querySelectorAll('.buy-now-btn, .add-to-cart-btn').forEach(btn => {
+          const baseName = 'Ổ điện du lịch Yokool SL207';
+          btn.dataset.name = baseName + ' (' + color + ')';
+          btn.dataset.image = img;
+        });
       }));
     })();
   </script>

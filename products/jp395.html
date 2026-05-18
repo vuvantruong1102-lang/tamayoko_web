@@ -15,7 +15,6 @@
 </head>
 <body>
 
-  <!-- ============ HEADER ============ -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a href="../index.html" class="logo" aria-label="tamayoko trang chủ">
@@ -24,7 +23,6 @@
 
       <nav class="main-nav" aria-label="Điều hướng chính">
         <a href="../index.html" class="nav-link">Trang chủ</a>
-
         <div class="nav-dropdown">
           <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
             Sạc dự phòng
@@ -36,7 +34,6 @@
             <a href="../products/jp395.html" class="nav-leaf">JP395</a>
           </div>
         </div>
-
         <div class="nav-dropdown">
           <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
             Củ sạc
@@ -48,7 +45,6 @@
             <a href="../products/rc502.html" class="nav-leaf">RC502</a>
           </div>
         </div>
-
         <div class="nav-dropdown">
           <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
             Ổ điện du lịch
@@ -61,7 +57,6 @@
             <a href="../products/ol212.html" class="nav-leaf">OL212</a>
           </div>
         </div>
-
         <a href="../news.html" class="nav-link">Tin tức</a>
         <a href="../b2b.html" class="nav-link">Hợp tác B2B</a>
         <a href="../lien-he.html" class="nav-link">Liên hệ</a>
@@ -76,39 +71,47 @@
         <span class="cart-badge" aria-label="Số sản phẩm trong giỏ">0</span>
       </button>
 
-      <a href="https://shopee.vn/yokool" target="_blank" rel="noopener" class="cta-button cta-button--small">
-        Mua tại Shopee
-        <span class="cta-arrow">→</span>
+      <a href="https://shopee.vn/tamayokoofficial" target="_blank" rel="noopener" class="cta-button cta-button--small">
+        Mua tại Shopee <span class="cta-arrow">→</span>
       </a>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Mở menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- ============ HERO ============ -->
   <section class="product-hero">
     <div class="container product-hero-inner">
       <div class="product-hero-visual">
         <img src="../images/product-jp395.jpg" alt="Yokool JP395 sạc dự phòng từ tính 10.000mAh">
       </div>
+
       <div class="product-hero-content">
         <span class="section-label">/ Power bank · 10.000mAh</span>
         <h1 class="product-hero-title">JP395</h1>
         <p class="product-hero-tagline">
-          Sạc dự phòng từ tính 10.000mAh. PD 22.5W. Sạc không dây 15W. Dây type-C tích hợp sẵn.
+          Sạc dự phòng từ tính MagSafe 10.000mAh. PD 22.5W. Sạc không dây 15W. Dây type-C tích hợp.
         </p>
 
         <ul class="product-hero-bullets">
           <li>Lõi pin Lithium Polymer cao cấp dung lượng 10.000mAh</li>
-          <li>Sạc nhanh PD 22.5W cả chiều ra lẫn vào — pin đầy chỉ trong ~3 giờ</li>
-          <li>Dây Type-C tích hợp sẵn, không cần mang theo dây rời</li>
-          <li>Sạc không dây Qi 15W (7.5W cho iPhone) — đặt là sạc</li>
-          <li>Chứng chỉ CCC, CE, RoHS, MSDS, UN38.3 — mang lên máy bay được</li>
+          <li>Sạc nhanh PD 22.5W cả chiều ra lẫn vào</li>
+          <li>Dây Type-C tích hợp sẵn — không cần mang theo dây rời</li>
+          <li>Sạc không dây MagSafe 15W (7.5W cho iPhone) — đặt là sạc</li>
+          <li>Màn hình LED hiển thị % pin còn lại</li>
         </ul>
+
+        <div class="product-color-section">
+          <div class="product-color-label">
+            Màu sắc <span class="product-color-label-value" id="colorLabelValue">Đen</span>
+          </div>
+          <div class="product-color-swatches" id="colorSwatches">
+            <button type="button" class="product-color-swatch product-color-swatch--black is-active is-single" data-color="Đen" aria-label="Màu Đen">
+              <span class="product-color-swatch-fill"></span>
+            </button>
+          </div>
+        </div>
 
         <div class="product-hero-price-row">
           <span class="price-current">650.000đ</span>
@@ -118,15 +121,14 @@
         <div class="product-hero-actions">
           <button class="cta-button cta-button--large buy-now-btn"
             data-id="jp395"
-            data-name="Sạc dự phòng Yokool JP395"
+            data-name="Sạc dự phòng từ tính Yokool JP395 (Đen)"
             data-price="650000"
             data-image="../images/product-jp395.jpg">
-            Mua ngay
-            <span class="cta-arrow">→</span>
+            Mua ngay <span class="cta-arrow">→</span>
           </button>
           <button class="cta-button cta-button--secondary cta-button--large add-to-cart-btn"
             data-id="jp395"
-            data-name="Sạc dự phòng Yokool JP395"
+            data-name="Sạc dự phòng từ tính Yokool JP395 (Đen)"
             data-price="650000"
             data-image="../images/product-jp395.jpg">
             Thêm vào giỏ hàng
@@ -135,24 +137,19 @@
 
         <div class="product-hero-meta">
           <div class="product-hero-meta-item">
-            <span class="product-hero-meta-icon">◆</span>
-            <span>Bảo hành 12 tháng</span>
+            <span class="product-hero-meta-icon">◆</span><span>Bảo hành 12 tháng</span>
           </div>
           <div class="product-hero-meta-item">
-            <span class="product-hero-meta-icon">◆</span>
-            <span>Giao COD toàn quốc</span>
+            <span class="product-hero-meta-icon">◆</span><span>Giao COD toàn quốc</span>
           </div>
           <div class="product-hero-meta-item">
-            <span class="product-hero-meta-icon">◆</span>
-            <span>2 màu: Đen / Trắng</span>
+            <span class="product-hero-meta-icon">◆</span><span>Mang lên máy bay được</span>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ============ KEY FEATURES ============ -->
   <section class="key-features">
     <div class="container">
       <div class="section-header">
@@ -168,62 +165,57 @@
             Pin Lithium Polymer cao cấp. Sạc iPhone 15 đầy 2 lần, đủ năng lượng cho cả ngày làm việc.
           </p>
         </div>
-
         <div class="feature-card">
           <div class="feature-icon-wrap">⊟</div>
           <h3 class="feature-title">Dây Type-C tích hợp</h3>
           <p class="feature-description">
-            Dây sạc type-C gắn liền vào thân pin — vừa sạc ra cho thiết bị, vừa sạc vào cho pin. Không cần dây rời.
+            Dây sạc type-C gắn liền vào thân pin — vừa sạc ra cho thiết bị, vừa sạc vào cho pin.
           </p>
         </div>
-
         <div class="feature-card">
           <div class="feature-icon-wrap">📡</div>
-          <h3 class="feature-title">Sạc không dây 15W</h3>
+          <h3 class="feature-title">MagSafe 15W</h3>
           <p class="feature-description">
-            Đặt iPhone, AirPods lên mặt sạc là tự nhận. Chuẩn Qi 15W (7.5W cho iPhone).
+            Hít chặt vào lưng iPhone bằng nam châm. Sạc không dây Qi 15W (7.5W cho iPhone).
           </p>
         </div>
-
         <div class="feature-card">
           <div class="feature-icon-wrap">🔋</div>
-          <h3 class="feature-title">PD 22.5W hai chiều</h3>
+          <h3 class="feature-title">Màn hình LED</h3>
           <p class="feature-description">
-            Sạc nhanh cả chiều ra lẫn vào. Pin đầy trong ~3 giờ thay vì 5–6 giờ như pin thường.
+            Hiển thị chính xác % pin còn lại. Không còn đoán mò khi sắp cạn pin.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ SHOWCASE 1: Wireless ============ -->
   <section class="showcase">
     <div class="container showcase-inner">
       <div class="showcase-visual">
-        <img src="../images/product-jp395.jpg" alt="JP395 sạc không dây Qi 15W">
+        <img src="../images/product-jp395.jpg" alt="JP395 sạc không dây MagSafe">
       </div>
       <div class="showcase-content">
-        <span class="section-label">/ Wireless charging</span>
-        <h2 class="showcase-title">Đặt là sạc.<br>Không cần dây.</h2>
+        <span class="section-label">/ MagSafe wireless</span>
+        <h2 class="showcase-title">Hít vào iPhone.<br>Tự sạc.</h2>
         <p class="showcase-description">
-          Cuộn sạc không dây chuẩn Qi 15W tích hợp trên mặt JP395. Đặt iPhone, AirPods Pro, Samsung Galaxy là tự nhận và sạc ngay.
-          Không cần lo cắm sai cổng hay quên dây ở nhà.
+          Vòng nam châm trên mặt JP395 hít chặt vào lưng iPhone 12 trở lên hoặc ốp lưng có MagSafe.
+          Sạc không dây 15W tự động kích hoạt — không cần cắm dây, không lo rớt.
         </p>
         <ul class="showcase-bullets">
+          <li>Tương thích iPhone 12, 13, 14, 15, 16 với MagSafe</li>
           <li>Sạc không dây Qi 15W (7.5W cho iPhone)</li>
-          <li>Tương thích iPhone 8 trở lên, Galaxy S6 trở lên</li>
-          <li>Sạc được AirPods Pro, Pixel Buds, Galaxy Buds</li>
-          <li>Tự động ngắt khi pin thiết bị đầy 100%</li>
+          <li>Cũng sạc được AirPods Pro, Pixel Buds</li>
+          <li>Tự động ngắt khi pin đầy 100%</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ============ SHOWCASE 2: PD 22.5W ============ -->
   <section class="showcase showcase--reverse">
     <div class="container showcase-inner">
       <div class="showcase-visual">
-        <img src="../images/product-jp395.jpg" alt="JP395 sạc nhanh PD 22.5W cả ra lẫn vào">
+        <img src="../images/product-jp395.jpg" alt="JP395 sạc nhanh PD 22.5W">
       </div>
       <div class="showcase-content">
         <span class="section-label">/ PD 22.5W bi-directional</span>
@@ -242,30 +234,6 @@
     </div>
   </section>
 
-  <!-- ============ SHOWCASE 3: Safety ============ -->
-  <section class="showcase">
-    <div class="container showcase-inner">
-      <div class="showcase-visual">
-        <img src="../images/product-jp395.jpg" alt="JP395 đạt nhiều chứng nhận an toàn quốc tế">
-      </div>
-      <div class="showcase-content">
-        <span class="section-label">/ An toàn pin Li-Po</span>
-        <h2 class="showcase-title">Pin an toàn.<br>Đầy đủ chứng nhận.</h2>
-        <p class="showcase-description">
-          Lõi pin Lithium Polymer cao cấp — bền và an toàn hơn pin Lithium-ion thông thường.
-          Vỏ nhựa PC chống cháy. Đạt đầy đủ chứng nhận quốc tế CCC, CE, RoHS, MSDS, UN38.3 — được phép mang lên máy bay hành lý xách tay.
-        </p>
-        <ul class="showcase-bullets">
-          <li>Pin Lithium Polymer — bền và ổn định</li>
-          <li>Chống quá nhiệt, quá dòng, quá áp</li>
-          <li>Chứng nhận CCC, CE, RoHS, MSDS, UN38.3</li>
-          <li>~37Wh — được phép mang lên máy bay</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SPECS TABLE ============ -->
   <section class="specs-section">
     <div class="container">
       <div class="section-header">
@@ -291,12 +259,16 @@
           <div class="specs-value">PD 22.5W (cả chiều ra và vào)</div>
         </div>
         <div class="specs-row">
-          <div class="specs-label">Sạc không dây</div>
+          <div class="specs-label">Sạc không dây MagSafe</div>
           <div class="specs-value">Qi 15W (7.5W đối với iPhone)</div>
         </div>
         <div class="specs-row">
           <div class="specs-label">Cổng sạc</div>
           <div class="specs-value">Dây type-C tích hợp + cổng type-C riêng</div>
+        </div>
+        <div class="specs-row">
+          <div class="specs-label">Màn hình</div>
+          <div class="specs-value">LED hiển thị % pin</div>
         </div>
         <div class="specs-row">
           <div class="specs-label">Chất liệu vỏ</div>
@@ -312,7 +284,7 @@
         </div>
         <div class="specs-row">
           <div class="specs-label">Màu sắc</div>
-          <div class="specs-value">Đen, Trắng</div>
+          <div class="specs-value">Đen</div>
         </div>
         <div class="specs-row">
           <div class="specs-label">Chứng nhận an toàn</div>
@@ -334,7 +306,6 @@
     </div>
   </section>
 
-  <!-- ============ FINAL CTA ============ -->
   <section class="final-cta">
     <div class="container final-cta-inner">
       <h2 class="final-cta-title">Năng lượng.<br>Theo bạn mọi lúc.</h2>
@@ -342,9 +313,8 @@
         JP395 đang có sẵn trên Shopee với giá ưu đãi. Bảo hành 12 tháng, giao COD toàn quốc.
       </p>
       <div class="final-cta-actions">
-        <a href="https://shopee.vn/yokool" target="_blank" rel="noopener" class="cta-button cta-button--large">
-          Mua tại Shopee
-          <span class="cta-arrow">→</span>
+        <a href="https://shopee.vn/tamayokoofficial" target="_blank" rel="noopener" class="cta-button cta-button--large">
+          Mua tại Shopee <span class="cta-arrow">→</span>
         </a>
         <a href="../lien-he.html" class="cta-button cta-button--ghost cta-button--large">
           Tư vấn đặt hàng
@@ -353,7 +323,6 @@
     </div>
   </section>
 
-  <!-- ============ RELATED PRODUCTS ============ -->
   <section class="related-section">
     <div class="container">
       <div class="section-header">
@@ -387,7 +356,6 @@
     </div>
   </section>
 
-  <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
@@ -414,7 +382,7 @@
         </div>
         <div class="footer-col">
           <h4>Kênh bán</h4>
-          <a href="https://shopee.vn/yokool" target="_blank" rel="noopener">Shopee</a>
+          <a href="https://shopee.vn/tamayokoofficial" target="_blank" rel="noopener">Shopee</a>
           <a href="https://zalo.me/0971222822" target="_blank" rel="noopener">Zalo</a>
           <a href="mailto:contact@tamayoko.com">Email</a>
         </div>
@@ -423,11 +391,10 @@
 
     <div class="container footer-bottom">
       <p>© 2026 TAMAYOKO. Made in Vietnam.</p>
-      <p class="footer-meta">v3.5 — Support pages</p>
+      <p class="footer-meta">v3.6 — Color picker</p>
     </div>
   </footer>
 
-  <!-- ============ CART DRAWER ============ -->
   <div class="cart-drawer-overlay" aria-hidden="true"></div>
   <aside class="cart-drawer" aria-label="Giỏ hàng">
     <div class="cart-drawer-header">
@@ -438,7 +405,6 @@
         </svg>
       </button>
     </div>
-
     <div class="cart-drawer-body">
       <div id="cartDrawerEmpty" class="cart-drawer-empty">
         <svg class="cart-drawer-empty-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
@@ -451,15 +417,13 @@
       </div>
       <div id="cartDrawerList"></div>
     </div>
-
     <div class="cart-drawer-footer" id="cartDrawerFooter" style="display: none;">
       <div class="cart-drawer-total-row">
         <span class="cart-drawer-total-label">Tổng tạm tính</span>
         <span class="cart-drawer-total-value" id="cartDrawerTotal">0đ</span>
       </div>
       <button class="cta-button cta-button--full cta-button--large" id="cartDrawerCheckout">
-        Thanh toán
-        <span class="cta-arrow">→</span>
+        Thanh toán <span class="cta-arrow">→</span>
       </button>
       <div class="cart-drawer-hint">Phí vận chuyển sẽ tính ở bước kế tiếp · COD toàn quốc</div>
     </div>
