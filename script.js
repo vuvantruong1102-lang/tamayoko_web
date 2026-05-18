@@ -920,6 +920,54 @@
     });
   })();
 
+  // ============ FAQ SIDEBAR SCROLL-SPY ============
+  (function initFaqScrollSpy() {
+    const nav = document.getElementById('supportNav');
+    if (!nav) return;
+    const links = Array.from(nav.querySelectorAll('.support-nav-link'));
+    if (links.length === 0) return;
+
+    const sections = links
+      .map(l => document.getElementById(l.getAttribute('href').replace('#', '')))
+      .filter(Boolean);
+    if (sections.length === 0) return;
+
+    function setActive(idx) {
+      links.forEach((l, i) => l.classList.toggle('is-active', i === idx));
+    }
+
+    // Use IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      // Find the topmost visible section
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .map(e => sections.indexOf(e.target))
+        .filter(i => i >= 0);
+      if (visible.length > 0) {
+        setActive(Math.min(...visible));
+      }
+    }, {
+      rootMargin: '-100px 0px -60% 0px',
+    });
+
+    sections.forEach(s => observer.observe(s));
+
+    // Smooth scroll on click
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href').replace('#', '');
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth',
+          });
+        }
+      });
+    });
+  })();
+
   // ============ CONSOLE EASTER EGG ============
   if (typeof console !== 'undefined' && console.log) {
     console.log('%c Tamayoko ', 'background:#DC143B;color:#fff;font-weight:bold;font-size:14px;padding:4px 8px;');

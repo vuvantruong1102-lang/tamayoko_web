@@ -5075,3 +5075,739 @@ body.cart-drawer-open .contact-widget {
     justify-content: center;
   }
 }
+
+/* ============================================================ */
+/* SUPPORT PAGES (FAQ + Warranty)                               */
+/* ============================================================ */
+
+/* Shared hero */
+.support-hero {
+  position: relative;
+  padding: 96px 0 64px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.support-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, #c8c5bf 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.support-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.support-hero-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 16px 0 16px;
+  color: var(--text-primary);
+}
+
+.support-hero-title em {
+  font-style: normal;
+  color: var(--brand);
+}
+
+.support-hero-tagline {
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.55;
+  color: var(--text-secondary);
+  max-width: 680px;
+}
+
+.support-hero-tagline a {
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.support-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 48px;
+}
+
+.support-stat {
+  background: var(--bg-base);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.support-stat-value {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(32px, 3vw, 44px);
+  color: var(--brand);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.support-stat-suffix {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  margin-left: 6px;
+  letter-spacing: 0.05em;
+}
+
+.support-stat-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+/* ============ FAQ Layout ============ */
+.support-section {
+  padding: 80px 0 96px;
+}
+
+.support-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.support-nav {
+  position: sticky;
+  top: 100px;
+}
+
+.support-nav-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin: 0 0 16px;
+}
+
+.support-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+  border: 1px solid transparent;
+}
+
+.support-nav-link:hover {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.support-nav-link.is-active {
+  background: var(--bg-base);
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.support-nav-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.support-nav-link.is-active .support-nav-num {
+  color: var(--brand);
+}
+
+/* FAQ groups */
+.support-content {
+  min-width: 0;
+}
+
+.faq-group {
+  margin-bottom: 64px;
+  scroll-margin-top: 100px;
+}
+
+.faq-group:last-child {
+  margin-bottom: 0;
+}
+
+.faq-group-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.faq-group-num {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: var(--brand);
+  font-weight: 500;
+}
+
+.faq-group-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(24px, 2.5vw, 32px);
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* FAQ items */
+.faq-item {
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  background: var(--bg-base);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.faq-item:hover {
+  border-color: var(--text-tertiary);
+}
+
+.faq-item[open] {
+  border-color: var(--text-primary);
+  box-shadow: 0 4px 12px -4px rgba(0,0,0,0.08);
+}
+
+.faq-question {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-primary);
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question-text {
+  flex: 1;
+}
+
+.faq-toggle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  flex-shrink: 0;
+  position: relative;
+  transition: background 0.2s var(--ease), transform 0.3s var(--ease);
+}
+
+.faq-toggle::before,
+.faq-toggle::after {
+  content: '';
+  position: absolute;
+  background: var(--text-primary);
+  top: 50%;
+  left: 50%;
+  transition: transform 0.3s var(--ease), background 0.2s var(--ease);
+}
+
+.faq-toggle::before {
+  width: 12px;
+  height: 1.6px;
+  transform: translate(-50%, -50%);
+}
+
+.faq-toggle::after {
+  width: 1.6px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+}
+
+.faq-item[open] .faq-toggle {
+  background: var(--brand);
+}
+
+.faq-item[open] .faq-toggle::before,
+.faq-item[open] .faq-toggle::after {
+  background: #fff;
+}
+
+.faq-item[open] .faq-toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-answer {
+  padding: 0 24px 22px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+.faq-answer a {
+  color: var(--brand);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+/* ============ WARRANTY PROMISES ============ */
+.warranty-promises {
+  padding: 80px 0 32px;
+}
+
+.warranty-promise-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.warranty-promise {
+  padding: 32px 28px;
+  background: var(--bg-base);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.warranty-promise:hover {
+  border-color: var(--text-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px -16px rgba(0,0,0,0.15);
+}
+
+.warranty-promise-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--brand);
+  margin-bottom: 20px;
+}
+
+.warranty-promise-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.warranty-promise-big {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 52px;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.warranty-promise-big-unit {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  margin-left: 6px;
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+}
+
+.warranty-promise-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.warranty-promise-text {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ============ WARRANTY PROCESS TIMELINE ============ */
+.warranty-process {
+  padding: 64px 0;
+  background: var(--bg-surface);
+}
+
+.warranty-section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin: 16px 0 12px;
+}
+
+.warranty-section-title em {
+  font-style: normal;
+  color: var(--brand);
+}
+
+.warranty-section-tagline {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  max-width: 600px;
+}
+
+.warranty-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 56px 0 0;
+  display: grid;
+  gap: 0;
+  position: relative;
+  counter-reset: step;
+}
+
+.warranty-timeline::before {
+  content: '';
+  position: absolute;
+  left: 35px;
+  top: 32px;
+  bottom: 32px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--brand), var(--border-subtle));
+}
+
+.warranty-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 24px 0;
+  position: relative;
+}
+
+.warranty-step-num {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--bg-base);
+  border: 2px solid var(--brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--brand);
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+}
+
+.warranty-step-body {
+  flex: 1;
+  padding-top: 8px;
+}
+
+.warranty-step-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.warranty-step-text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.warranty-step-text a {
+  color: var(--brand);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+/* ============ WARRANTY CONDITIONS ============ */
+.warranty-conditions {
+  padding: 80px 0;
+}
+
+.warranty-conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.warranty-condition-card {
+  padding: 32px;
+  border-radius: 14px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-base);
+}
+
+.warranty-condition-card--positive {
+  border-left: 3px solid #16a34a;
+}
+
+.warranty-condition-card--negative {
+  border-left: 3px solid var(--brand);
+}
+
+.warranty-condition-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.warranty-condition-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.warranty-condition-badge svg {
+  width: 22px;
+  height: 22px;
+}
+
+.warranty-condition-badge--ok {
+  background: #16a34a;
+}
+
+.warranty-condition-badge--no {
+  background: var(--brand);
+}
+
+.warranty-condition-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.warranty-condition-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.warranty-condition-list li {
+  padding: 10px 0 10px 26px;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.warranty-condition-list li:last-child {
+  border-bottom: none;
+}
+
+.warranty-condition-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 19px;
+  width: 14px;
+  height: 1.5px;
+  background: var(--text-tertiary);
+}
+
+.warranty-condition-card--positive .warranty-condition-list li::before {
+  background: #16a34a;
+}
+
+.warranty-condition-card--negative .warranty-condition-list li::before {
+  background: var(--brand);
+}
+
+/* ============ SUPPORT CTA ============ */
+.support-cta {
+  padding: 0 0 96px;
+}
+
+.support-cta-card {
+  background: var(--text-primary);
+  color: #fff;
+  border-radius: 18px;
+  padding: 56px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.support-cta-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.support-cta-card > * {
+  position: relative;
+}
+
+.support-cta-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+
+.support-cta-text {
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.75);
+  margin: 0 0 32px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.support-cta-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.support-cta-actions .cta-button--ghost {
+  border-color: rgba(255,255,255,0.3);
+  color: #fff;
+}
+
+.support-cta-actions .cta-button--ghost:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: #fff;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .support-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .support-nav {
+    position: static;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 24px;
+  }
+  .support-nav-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+  }
+  .support-nav-label {
+    grid-column: 1 / -1;
+  }
+  .warranty-promise-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .support-hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .support-hero {
+    padding: 64px 0 48px;
+  }
+  .support-section {
+    padding: 56px 0 64px;
+  }
+  .warranty-promises {
+    padding: 48px 0 16px;
+  }
+  .warranty-promise-grid {
+    grid-template-columns: 1fr;
+  }
+  .warranty-conditions {
+    padding: 48px 0;
+  }
+  .warranty-conditions-grid {
+    grid-template-columns: 1fr;
+  }
+  .warranty-process {
+    padding: 48px 0;
+  }
+  .warranty-step {
+    gap: 16px;
+    padding: 16px 0;
+  }
+  .warranty-step-num {
+    width: 56px;
+    height: 56px;
+    font-size: 18px;
+  }
+  .warranty-timeline::before {
+    left: 27px;
+  }
+  .warranty-condition-card {
+    padding: 24px 20px;
+  }
+  .support-cta {
+    padding: 0 0 64px;
+  }
+  .support-cta-card {
+    padding: 40px 24px;
+  }
+  .faq-question {
+    padding: 18px 18px;
+    font-size: 15px;
+  }
+  .faq-answer {
+    padding: 0 18px 20px;
+  }
+}

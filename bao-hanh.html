@@ -19,7 +19,7 @@
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a href="index.html" class="logo" aria-label="Tamayoko trang chủ">
-        <img src="images/tamayoko.png" alt="Tamayoko" class="logo-img">
+        <img src="images/tamayoko.png" alt="Tamayoko" class="logo-img logo-img--dark"><img src="images/tamayoko-white.png" alt="Tamayoko" class="logo-img logo-img--light">
       </a>
 
       <nav class="main-nav" aria-label="Điều hướng chính">
@@ -89,101 +89,202 @@
     </div>
   </header>
 
-  <!-- ============ PAGE BODY ============ -->
-  <section class="checkout-page">
+  <!-- ============ HERO ============ -->
+  <section class="support-hero">
     <div class="container">
-      <div class="checkout-header" style="text-align: center;">
-        <span class="section-label">/ Warranty</span>
-        <h1 class="checkout-title">Chính sách <em style="font-style: normal; color: var(--brand);">bảo hành</em></h1>
-        <p class="checkout-subtitle" style="max-width: 640px; margin: 16px auto 0;">
-          Mỗi sản phẩm Tamayoko đều được bảo hành chính hãng 12 tháng. Đổi mới trong 30 ngày đầu nếu phát sinh lỗi do nhà sản xuất.
+      <span class="section-label">/ Warranty policy</span>
+      <h1 class="support-hero-title">Chính sách <em>bảo hành</em>.</h1>
+      <p class="support-hero-tagline">
+        Mọi sản phẩm Tamayoko được bảo hành chính hãng 12 tháng. Đổi mới trong 30 ngày đầu nếu phát sinh lỗi từ nhà sản xuất.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ PROMISES ============ -->
+  <section class="warranty-promises">
+    <div class="container">
+      <div class="warranty-promise-grid">
+
+        <div class="warranty-promise">
+          <div class="warranty-promise-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M24 14V24L31 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="warranty-promise-big">12<span class="warranty-promise-big-unit">tháng</span></div>
+          <h3 class="warranty-promise-title">Bảo hành chính hãng</h3>
+          <p class="warranty-promise-text">
+            Tính từ ngày khách nhận hàng. Áp dụng mọi sản phẩm mua tại kênh chính thức.
+          </p>
+        </div>
+
+        <div class="warranty-promise">
+          <div class="warranty-promise-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <path d="M16 8L8 24L16 40" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M32 8L40 24L32 40" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 24H34" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="warranty-promise-big">30<span class="warranty-promise-big-unit">ngày</span></div>
+          <h3 class="warranty-promise-title">1 đổi 1 miễn phí</h3>
+          <p class="warranty-promise-text">
+            Lỗi do nhà sản xuất trong 30 ngày đầu được đổi sản phẩm mới ngay.
+          </p>
+        </div>
+
+        <div class="warranty-promise">
+          <div class="warranty-promise-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <path d="M6 30H10L14 18L24 36L32 12L36 30H42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="warranty-promise-big">0<span class="warranty-promise-big-unit">đ</span></div>
+          <h3 class="warranty-promise-title">Phí vận chuyển 2 chiều</h3>
+          <p class="warranty-promise-text">
+            Tamayoko hỗ trợ chi phí ship 2 chiều cho mọi trường hợp bảo hành hợp lệ.
+          </p>
+        </div>
+
+        <div class="warranty-promise">
+          <div class="warranty-promise-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <path d="M8 14L24 26L40 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="6" y="10" width="36" height="28" rx="3" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <div class="warranty-promise-big">30<span class="warranty-promise-big-unit">phút</span></div>
+          <h3 class="warranty-promise-title">Phản hồi nhanh</h3>
+          <p class="warranty-promise-text">
+            Tiếp nhận yêu cầu trong vòng 30 phút giờ hành chính qua hotline, Zalo, email.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS TIMELINE ============ -->
+  <section class="warranty-process">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">/ Quy trình 4 bước</span>
+        <h2 class="warranty-section-title">Bảo hành <em>dễ dàng</em>.</h2>
+        <p class="warranty-section-tagline">
+          Chỉ với 4 bước đơn giản, sản phẩm của bạn sẽ được kiểm tra và xử lý nhanh chóng.
         </p>
       </div>
 
-      <!-- Key promises -->
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon">12</div>
-          <h3 class="why-title">Bảo hành 12 tháng</h3>
-          <p class="why-description">
-            Tính từ ngày khách hàng nhận hàng. Áp dụng cho mọi sản phẩm Tamayoko mua tại các kênh chính thức.
-          </p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">30</div>
-          <h3 class="why-title">1-đổi-1 trong 30 ngày</h3>
-          <p class="why-description">
-            Lỗi do nhà sản xuất trong 30 ngày đầu sẽ được đổi sản phẩm mới ngay, không qua quy trình sửa chữa.
-          </p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">◆</div>
-          <h3 class="why-title">Miễn phí vận chuyển</h3>
-          <p class="why-description">
-            Tamayoko hỗ trợ chi phí vận chuyển 2 chiều cho các trường hợp bảo hành hợp lệ trên toàn quốc.
-          </p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">◉</div>
-          <h3 class="why-title">Phản hồi nhanh</h3>
-          <p class="why-description">
-            Tiếp nhận yêu cầu bảo hành trong vòng 30 phút giờ hành chính qua hotline, Zalo hoặc email.
-          </p>
-        </div>
+      <ol class="warranty-timeline">
+        <li class="warranty-step">
+          <div class="warranty-step-num">01</div>
+          <div class="warranty-step-body">
+            <h3 class="warranty-step-title">Liên hệ Tamayoko</h3>
+            <p class="warranty-step-text">
+              Gửi yêu cầu qua hotline <a href="tel:0971222822">0971 222 822</a>, Zalo <a href="https://zalo.me/0971222822" target="_blank" rel="noopener">zalo.me/0971222822</a> hoặc email <a href="mailto:contact@tamayoko.com">contact@tamayoko.com</a>. Cung cấp mã đơn hàng và mô tả lỗi.
+            </p>
+          </div>
+        </li>
+        <li class="warranty-step">
+          <div class="warranty-step-num">02</div>
+          <div class="warranty-step-body">
+            <h3 class="warranty-step-title">Xác nhận &amp; hướng dẫn</h3>
+            <p class="warranty-step-text">
+              Nhân viên Tamayoko phản hồi trong 30 phút giờ hành chính, xác nhận tình trạng sản phẩm và hướng dẫn cách gửi về trung tâm bảo hành.
+            </p>
+          </div>
+        </li>
+        <li class="warranty-step">
+          <div class="warranty-step-num">03</div>
+          <div class="warranty-step-body">
+            <h3 class="warranty-step-title">Kiểm tra sản phẩm</h3>
+            <p class="warranty-step-text">
+              Sản phẩm được kiểm tra kỹ lưỡng trong 3–5 ngày làm việc. Chúng tôi chủ động liên hệ thông báo kết quả và phương án xử lý phù hợp.
+            </p>
+          </div>
+        </li>
+        <li class="warranty-step">
+          <div class="warranty-step-num">04</div>
+          <div class="warranty-step-body">
+            <h3 class="warranty-step-title">Giao trả khách hàng</h3>
+            <p class="warranty-step-text">
+              Sản phẩm sau bảo hành (hoặc sản phẩm đổi mới với trường hợp 30 ngày đầu) được Tamayoko gửi miễn phí về địa chỉ của khách hàng.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ CONDITIONS ============ -->
+  <section class="warranty-conditions">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">/ Điều kiện áp dụng</span>
+        <h2 class="warranty-section-title">Điều kiện <em>bảo hành</em>.</h2>
       </div>
 
-      <!-- Conditions -->
-      <div class="checkout-form-card" style="margin-top: 48px;">
-        <h2 class="checkout-section-title">Điều kiện áp dụng bảo hành</h2>
-        <ul class="policy-list">
-          <li>Sản phẩm còn trong thời hạn bảo hành 12 tháng kể từ ngày nhận hàng.</li>
-          <li>Sản phẩm còn nguyên tem niêm phong và tem bảo hành của Tamayoko, không bị bóc, rách hay tẩy xoá.</li>
-          <li>Khách hàng cung cấp được mã đơn hàng, hoá đơn mua hàng hoặc thông tin tài khoản mua tại Shopee chính hãng.</li>
-          <li>Lỗi phát sinh thuộc về nhà sản xuất: lỗi mạch, lỗi pin, lỗi cổng sạc, lỗi đèn báo, lỗi đầu chuyển đổi.</li>
-          <li>Sản phẩm không có dấu hiệu va đập mạnh, vỡ vỏ, cong vênh, hay tiếp xúc với chất lỏng.</li>
-        </ul>
+      <div class="warranty-conditions-grid">
 
-        <h2 class="checkout-section-title" style="margin-top: 32px;">Các trường hợp KHÔNG được bảo hành</h2>
-        <ul class="policy-list policy-list--negative">
-          <li>Sản phẩm hết thời hạn bảo hành.</li>
-          <li>Mất tem bảo hành, tem niêm phong bị bóc hoặc thay đổi.</li>
-          <li>Hư hỏng do tác động ngoại lực: rơi vỡ, cong vênh, móp méo.</li>
-          <li>Sản phẩm bị vào nước, ẩm mốc, han gỉ, cháy nổ do dùng sai cách.</li>
-          <li>Tự ý tháo, sửa, can thiệp linh kiện bên trong khi chưa được Tamayoko cho phép.</li>
-          <li>Sản phẩm không phải hàng chính hãng Tamayoko hoặc mua từ kênh không uỷ quyền.</li>
-        </ul>
+        <div class="warranty-condition-card warranty-condition-card--positive">
+          <div class="warranty-condition-header">
+            <div class="warranty-condition-badge warranty-condition-badge--ok">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12L10 17L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="warranty-condition-title">Áp dụng bảo hành khi</h3>
+          </div>
+          <ul class="warranty-condition-list">
+            <li>Sản phẩm còn trong thời hạn bảo hành 12 tháng kể từ ngày nhận hàng.</li>
+            <li>Sản phẩm còn nguyên tem niêm phong và tem bảo hành Tamayoko.</li>
+            <li>Cung cấp được mã đơn hàng, hoá đơn hoặc tài khoản mua tại Shopee chính hãng.</li>
+            <li>Lỗi thuộc về nhà sản xuất: mạch, pin, cổng sạc, đèn báo, đầu chuyển đổi.</li>
+            <li>Không có dấu hiệu va đập mạnh, vỡ vỏ, cong vênh, vào nước.</li>
+          </ul>
+        </div>
+
+        <div class="warranty-condition-card warranty-condition-card--negative">
+          <div class="warranty-condition-header">
+            <div class="warranty-condition-badge warranty-condition-badge--no">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="warranty-condition-title">Không bảo hành khi</h3>
+          </div>
+          <ul class="warranty-condition-list">
+            <li>Sản phẩm hết thời hạn bảo hành 12 tháng.</li>
+            <li>Mất tem bảo hành, tem niêm phong bị bóc hoặc thay đổi.</li>
+            <li>Hư hỏng do tác động ngoại lực: rơi vỡ, cong vênh, móp méo.</li>
+            <li>Bị vào nước, ẩm mốc, han gỉ, cháy nổ do dùng sai cách.</li>
+            <li>Tự ý tháo, sửa, can thiệp linh kiện bên trong.</li>
+            <li>Không phải hàng chính hãng Tamayoko hoặc mua từ kênh không uỷ quyền.</li>
+          </ul>
+        </div>
+
       </div>
+    </div>
+  </section>
 
-      <!-- Process -->
-      <div class="checkout-form-card" style="margin-top: 32px;">
-        <h2 class="checkout-section-title">Quy trình bảo hành 4 bước</h2>
-        <ol class="policy-steps">
-          <li>
-            <strong>Bước 1 — Liên hệ.</strong>
-            Gửi yêu cầu qua hotline <a href="tel:0971 222 822">0971 222 822</a>, Zalo <a href="https://zalo.me/0971222822" target="_blank" rel="noopener">zalo.me/0971222822</a> hoặc email <a href="mailto:contact@tamayoko.com">contact@tamayoko.com</a>. Cung cấp mã đơn hàng và mô tả lỗi.
-          </li>
-          <li>
-            <strong>Bước 2 — Xác nhận &amp; hướng dẫn.</strong>
-            Nhân viên Tamayoko phản hồi trong 30 phút giờ hành chính, xác nhận tình trạng và hướng dẫn cách gửi sản phẩm về trung tâm bảo hành.
-          </li>
-          <li>
-            <strong>Bước 3 — Kiểm tra sản phẩm.</strong>
-            Sản phẩm được kiểm tra trong 3–5 ngày làm việc. Tamayoko sẽ chủ động liên hệ thông báo kết quả và phương án xử lý.
-          </li>
-          <li>
-            <strong>Bước 4 — Giao trả khách hàng.</strong>
-            Sản phẩm sau bảo hành (hoặc sản phẩm đổi mới với trường hợp 30 ngày đầu) được Tamayoko gửi miễn phí về địa chỉ khách hàng.
-          </li>
-        </ol>
-      </div>
-
-      <!-- CTA -->
-      <div style="text-align: center; margin-top: 48px;">
-        <p class="checkout-subtitle" style="margin-bottom: 20px;">Bạn đang cần hỗ trợ bảo hành?</p>
-        <a href="lien-he.html" class="cta-button cta-button--large">
-          Liên hệ ngay
-          <span class="cta-arrow">→</span>
-        </a>
+  <!-- ============ BOTTOM CTA ============ -->
+  <section class="support-cta">
+    <div class="container">
+      <div class="support-cta-card">
+        <h2 class="support-cta-title">Bạn đang cần bảo hành?</h2>
+        <p class="support-cta-text">
+          Liên hệ ngay với Tamayoko để được hướng dẫn quy trình bảo hành nhanh chóng.
+        </p>
+        <div class="support-cta-actions">
+          <a href="tel:0971222822" class="cta-button cta-button--large">
+            <span>Gọi 0971 222 822</span>
+            <span class="cta-arrow">→</span>
+          </a>
+          <a href="https://zalo.me/0971222822" target="_blank" rel="noopener" class="cta-button cta-button--ghost cta-button--large">
+            Nhắn Zalo
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -193,7 +294,7 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <a href="index.html" class="logo">
-          <img src="images/tamayoko.png" alt="Tamayoko" class="logo-img">
+          <img src="images/tamayoko.png" alt="Tamayoko" class="logo-img logo-img--dark"><img src="images/tamayoko-white.png" alt="Tamayoko" class="logo-img logo-img--light">
         </a>
         <p class="footer-tagline">Công nghệ vì cuộc sống tốt đẹp hơn</p>
         <div class="footer-company">
