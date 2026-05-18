@@ -3640,11 +3640,12 @@ body.cart-drawer-open .contact-widget {
 /* ============ HERO BANNER — TEXT POSITIONING FOR NEW BANNERS ============ */
 /* Banner mới có sản phẩm bên phải, text bên trái → cần giới hạn width text */
 .carousel-slide .slide-content {
-  max-width: 48%;
+  max-width: 42%;
 }
 .carousel-slide .slide-title {
   max-width: 100%;
-  font-size: clamp(44px, 7.2vw, 96px);
+  font-size: clamp(44px, 6.4vw, 88px);
+  line-height: 1.08;
 }
 .carousel-slide .slide-tagline {
   max-width: 100%;
@@ -3658,5 +3659,6 @@ body.cart-drawer-open .contact-widget {
   }
   .carousel-slide .slide-title {
     font-size: clamp(40px, 9vw, 64px);
+    line-height: 1.1;
   }
 }
