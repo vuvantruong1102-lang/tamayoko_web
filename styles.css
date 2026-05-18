@@ -3424,7 +3424,6 @@ body.cart-drawer-open .contact-widget {
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
 }
-
 .product-color-label {
   display: flex;
   align-items: center;
@@ -3435,7 +3434,6 @@ body.cart-drawer-open .contact-widget {
   color: var(--text-secondary);
   margin-bottom: 12px;
 }
-
 .product-color-label-value {
   color: var(--text-primary);
   font-weight: 600;
@@ -3443,14 +3441,12 @@ body.cart-drawer-open .contact-widget {
   letter-spacing: 0;
   font-size: 14px;
 }
-
 .product-color-swatches {
   display: flex;
   gap: 12px;
   align-items: center;
   flex-wrap: wrap;
 }
-
 .product-color-swatch {
   position: relative;
   width: 44px;
@@ -3465,55 +3461,140 @@ body.cart-drawer-open .contact-widget {
   align-items: center;
   justify-content: center;
 }
-
 .product-color-swatch-fill {
   width: 32px;
   height: 32px;
   border-radius: 50%;
   display: block;
 }
-
-.product-color-swatch--black .product-color-swatch-fill {
-  background: #1a1a1a;
-}
-
+.product-color-swatch--black .product-color-swatch-fill { background: #1a1a1a; }
 .product-color-swatch--white .product-color-swatch-fill {
   background: #ffffff;
   border: 1px solid #e5e5e5;
 }
-
 .product-color-swatch:hover {
   border-color: var(--text-secondary);
   transform: translateY(-1px);
 }
-
 .product-color-swatch.is-active {
   border-color: var(--brand);
   border-width: 2.5px;
 }
-
 .product-color-swatch:disabled,
-.product-color-swatch.is-single {
-  cursor: default;
-}
-
+.product-color-swatch.is-single { cursor: default; }
 .product-color-swatch:disabled:hover,
 .product-color-swatch.is-single:hover {
   transform: none;
   border-color: var(--border-subtle);
 }
-
-.product-color-swatch.is-single.is-active:hover {
-  border-color: var(--brand);
+.product-color-swatch.is-single.is-active:hover { border-color: var(--brand); }
+@media (max-width: 768px) {
+  .product-color-swatch { width: 40px; height: 40px; }
+  .product-color-swatch-fill { width: 28px; height: 28px; }
 }
 
+/* ============ PRODUCT GALLERY (multi-image) ============ */
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.product-gallery-main {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-base);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.product-gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8%;
+  transition: opacity 0.3s var(--ease);
+}
+.product-gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 10px;
+}
+.product-gallery-thumb {
+  aspect-ratio: 1 / 1;
+  background: var(--bg-base);
+  border: 1.5px solid var(--border-subtle);
+  cursor: pointer;
+  padding: 0;
+  overflow: hidden;
+  transition: border-color 0.2s var(--ease);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8%;
+}
+.product-gallery-thumb:hover { border-color: var(--text-secondary); }
+.product-gallery-thumb.is-active {
+  border-color: var(--brand);
+  border-width: 2px;
+}
+
+/* ============ PRODUCT HERO BULLETS ============ */
+.product-hero-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 24px;
+}
+.product-hero-bullets li {
+  position: relative;
+  padding: 8px 0 8px 24px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.product-hero-bullets li::before {
+  content: "●";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  color: var(--brand);
+  font-size: 10px;
+  line-height: 1.6;
+}
 @media (max-width: 768px) {
-  .product-color-swatch {
-    width: 40px;
-    height: 40px;
+  .product-gallery-thumbs { grid-template-columns: repeat(4, 1fr); }
+  .product-hero-bullets li { font-size: 14px; }
+}
+
+/* ============ PRODUCT CARD IMAGE — LARGER, CONTAIN ============ */
+/* Override các rule cũ ở phần ô 4 sản phẩm trang chủ */
+.products-grid .product-card-image {
+  min-height: 320px;
+  background: transparent;
+  padding: 16px;
+}
+.products-grid .product-card-image img,
+.products-grid .product-card-image svg {
+  max-width: 92%;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  /* mix-blend-mode để hòa nền trắng của ảnh với nền card (nếu có) */
+  mix-blend-mode: multiply;
+}
+@media (max-width: 768px) {
+  .products-grid .product-card-image {
+    min-height: 240px;
   }
-  .product-color-swatch-fill {
-    width: 28px;
-    height: 28px;
+  .products-grid .product-card-image img,
+  .products-grid .product-card-image svg {
+    max-height: 220px;
   }
 }
