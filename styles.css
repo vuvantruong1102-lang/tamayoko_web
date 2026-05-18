@@ -3598,3 +3598,54 @@ body.cart-drawer-open .contact-widget {
     max-height: 220px;
   }
 }
+
+/* ============ HERO BANNER — OVERLAY + WHITE TEXT FOR LEGIBILITY ============ */
+/* Đặt 1 lớp gradient đen mờ từ trái sang phải để chữ bên trái dễ đọc */
+.carousel-slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.62) 0%,
+    rgba(0, 0, 0, 0.45) 35%,
+    rgba(0, 0, 0, 0.15) 65%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Đẩy slide-content lên trên overlay */
+.carousel-slide .slide-content {
+  z-index: 2;
+}
+
+/* Đổi màu chữ banner sang trắng để nổi trên overlay tối */
+.carousel-slide .slide-title {
+  color: #ffffff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+.carousel-slide .slide-tagline {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Eyebrow giữ nguyên màu thương hiệu nhưng nền trong hơn để hợp với overlay tối */
+.carousel-slide .slide-eyebrow {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--brand);
+  border-color: var(--brand);
+}
+
+/* Mobile: overlay đậm đều hơn vì chữ chiếm gần hết */
+@media (max-width: 768px) {
+  .carousel-slide::after {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0.55) 60%,
+      rgba(0, 0, 0, 0.65) 100%
+    );
+  }
+}
