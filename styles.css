@@ -271,6 +271,19 @@ input, select, textarea, button {
   display: block;
 }
 
+/* Light variant (white text) hidden by default — only shows when parent has .is-dark */
+.logo-img--light {
+  display: none;
+}
+
+/* When ANY ancestor is marked .is-dark (or has dark bg), swap variants */
+.is-dark .logo-img--dark {
+  display: none;
+}
+.is-dark .logo-img--light {
+  display: block;
+}
+
 .footer-brand .logo-img {
   height: 72px;
 }
@@ -5000,5 +5013,65 @@ body.cart-drawer-open .contact-widget {
   }
   .article-cta {
     padding: 24px 20px;
+  }
+}
+
+/* ============ B2B CUSTOMERS LOGO WALL ============ */
+.b2b-customers {
+  padding: 80px 0 96px;
+  background: var(--bg-surface);
+}
+
+.b2b-customers .section-header {
+  margin-bottom: 56px;
+  text-align: center;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.b2b-customers-wall {
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 32px;
+  overflow: hidden;
+}
+
+.b2b-customers-wall img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .b2b-customers {
+    padding: 56px 0 64px;
+  }
+  .b2b-customers-wall {
+    padding: 16px;
+  }
+}
+
+/* ============ B2B SLIDE DUAL CTA ============ */
+.slide-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.slide-cta-row .slide-cta {
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .slide-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .slide-cta-row .slide-cta {
+    width: 100%;
+    justify-content: center;
   }
 }
