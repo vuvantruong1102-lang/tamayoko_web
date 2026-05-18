@@ -1389,16 +1389,17 @@ input, select, textarea, button {
 }
 
 .footer-social-link {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 1px solid var(--border-subtle);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
   transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease);
   padding: 0;
+  line-height: 0;
 }
 
 .footer-social-link:hover {
@@ -1408,8 +1409,9 @@ input, select, textarea, button {
 }
 
 .footer-social-link svg {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 
 .footer-bottom {
@@ -3424,9 +3426,15 @@ body.cart-drawer-open .contact-widget {
   }
 
   .carousel-arrow {
-    width: 44px;
-    height: 44px;
-    font-size: 16px;
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    top: auto;
+    bottom: 80px;
+    transform: none;
   }
 
   .carousel-prev { left: 12px; }
@@ -3807,17 +3815,70 @@ body.cart-drawer-open .contact-widget {
   max-width: 100%;
 }
 
-/* Mobile: text full width, banner sẽ chuyển sang ảnh nền thay vì side-by-side */
+/* Mobile: text full width centered, with bg overlay for readability */
 @media (max-width: 768px) {
+  .hero-carousel {
+    height: 70vh;
+    min-height: 520px;
+  }
+
+  /* Add a soft white-to-transparent gradient overlay on top of bg image
+     so text remains readable wherever product sits in the banner. */
+  .carousel-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(245,244,242,0.92) 0%, rgba(245,244,242,0.78) 45%, rgba(245,244,242,0.25) 70%, rgba(245,244,242,0) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
   .carousel-slide .slide-content {
     width: 100%;
     max-width: 100%;
+    padding-left: 24px;
     padding-right: 24px;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-start;
+    padding-top: 56px;
+  }
+
+  .carousel-slide .slide-title {
+    font-size: clamp(32px, 8vw, 48px);
+    line-height: 1.1;
+    white-space: normal;
+    max-width: 100%;
+  }
+
+  .carousel-slide .slide-tagline {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    max-width: 100%;
+  }
+
+  .carousel-slide .slide-eyebrow {
+    font-size: 11px;
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-carousel {
+    height: 76vh;
+    min-height: 480px;
+  }
+  .carousel-slide .slide-content {
+    padding-top: 44px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .carousel-slide .slide-title {
-    font-size: clamp(36px, 8vw, 60px);
-    line-height: 1.12;
-    white-space: normal; /* allow natural wrap on small screens */
+    font-size: clamp(28px, 9vw, 40px);
+  }
+  .carousel-slide .slide-tagline {
+    font-size: 14px;
   }
 }
 
