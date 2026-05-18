@@ -3641,9 +3641,9 @@ body.cart-drawer-open .contact-widget {
 /* Banner mới có sản phẩm bên phải, text bên trái → cần giới hạn width text */
 .carousel-slide .slide-content {
   max-width: none;       /* override default 1280px container limit */
-  width: 780px;          /* fixed width gives enough room for "Mọi lúc, mọi nơi" on one line */
+  width: clamp(560px, 60vw, 1050px);  /* total slot incl. left padding */
   margin: 0;             /* left-aligned, not centered in viewport */
-  padding-left: clamp(24px, 6vw, 80px);
+  padding-left: clamp(180px, 14vw, 270px);
   padding-right: 32px;
 }
 .carousel-slide .slide-title {
