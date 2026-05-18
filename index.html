@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yokool - Sạc nhanh, sạc dự phòng và ổ điện du lịch. Công nghệ GaN, thiết kế hiện đại.">
+  <meta name="theme-color" content="#FFFFFF">
+  <title>YOKOOL — Năng lượng. Không giới hạn.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Yokool trang chủ">
+        <img src="images/yokool-logo.png" alt="YOKOOL" class="logo-img">
+      </a>
+
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="index.html" class="nav-link">Trang chủ</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+            Sạc dự phòng
+            <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-panel" role="menu">
+            <a href="products/jp395.html" class="nav-leaf">JP395</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+            Củ sạc
+            <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-panel" role="menu">
+            <a href="products/rc502.html" class="nav-leaf">RC502</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+            Ổ điện du lịch
+            <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-panel" role="menu">
+            <a href="products/sl207.html" class="nav-leaf">SL207</a>
+            <a href="products/ol212.html" class="nav-leaf">OL212</a>
+          </div>
+        </div>
+
+        <a href="news.html" class="nav-link">Tin tức</a>
+        <a href="b2b.html" class="nav-link">Hợp tác B2B</a>
+        <a href="index.html#contact" class="nav-link">Liên hệ</a>
+      </nav>
+
+      <button class="cart-icon-btn" id="cartIconBtn" aria-label="Mở giỏ hàng">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 4H5L6 16C6 16.5523 6.44772 17 7 17H17C17.5523 17 18 16.5523 18 16L19 7H7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="9" cy="20" r="1.3" fill="currentColor"/>
+          <circle cx="16" cy="20" r="1.3" fill="currentColor"/>
+        </svg>
+        <span class="cart-badge" aria-label="Số sản phẩm trong giỏ">0</span>
+      </button>
+
+      <a href="https://shopee.vn/yokool" target="_blank" rel="noopener" class="cta-button cta-button--small">
+        Mua tại Shopee
+        <span class="cta-arrow">→</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Mở menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ HERO CAROUSEL ============ -->
+  <section class="hero-carousel" id="heroCarousel">
+    <div class="carousel-track" id="carouselTrack">
+
+      <!-- Slide 1: SL207 -->
+      <div class="carousel-slide is-active" data-slide="0">
+        <img src="images/banner-1.jpg" alt="" class="slide-bg" aria-hidden="true">
+        <div class="slide-content">
+          <span class="slide-eyebrow">/ Travel power · SL207</span>
+          <h2 class="slide-title">Đi đến đâu,<br>điện tới đó.</h2>
+          <p class="slide-tagline">Ổ điện du lịch đa quốc gia. Công nghệ GaN 65W. Sạc cùng lúc 3 thiết bị.</p>
+          <a href="products/sl207.html" class="cta-button slide-cta">
+            Khám phá SL207
+            <span class="cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 2: OL212 -->
+      <div class="carousel-slide" data-slide="1">
+        <img src="images/banner-2.jpg" alt="" class="slide-bg" aria-hidden="true">
+        <div class="slide-content">
+          <span class="slide-eyebrow">/ Travel power pro · OL212</span>
+          <h2 class="slide-title">Mạnh mẽ.<br>Đa năng.</h2>
+          <p class="slide-tagline">100W GaN III với màn hình LED. Sạc đầy MacBook trong 1 giờ.</p>
+          <a href="products/ol212.html" class="cta-button slide-cta">
+            Khám phá OL212
+            <span class="cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 3: JP395 -->
+      <div class="carousel-slide" data-slide="2">
+        <img src="images/banner-3.jpg" alt="" class="slide-bg" aria-hidden="true">
+        <div class="slide-content">
+          <span class="slide-eyebrow">/ Power bank · JP395</span>
+          <h2 class="slide-title">Năng lượng<br>theo bạn.</h2>
+          <p class="slide-tagline">Sạc dự phòng 10.000mAh. Sạc nhanh PD 22.5W. Nhỏ gọn vừa lòng bàn tay.</p>
+          <a href="products/jp395.html" class="cta-button slide-cta">
+            Khám phá JP395
+            <span class="cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="carousel-arrow carousel-prev" id="carouselPrev" aria-label="Slide trước">‹</button>
+    <button class="carousel-arrow carousel-next" id="carouselNext" aria-label="Slide sau">›</button>
+
+    <div class="carousel-dots" id="carouselDots">
+      <button class="dot is-active" data-dot="0" aria-label="Slide 1"></button>
+      <button class="dot" data-dot="1" aria-label="Slide 2"></button>
+      <button class="dot" data-dot="2" aria-label="Slide 3"></button>
+    </div>
+  </section>
+
+  <!-- ============ PRODUCTS GRID ============ -->
+  <section class="products-section" id="products">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">/ Bộ sưu tập 2026</span>
+        <h2 class="section-title">Bốn sản phẩm.<br>Một <em>triết lý</em>.</h2>
+        <p class="section-description">
+          Nhỏ gọn, mạnh mẽ, đáng tin cậy. Mỗi sản phẩm Yokool được thiết kế cho người luôn di chuyển.
+        </p>
+      </div>
+
+      <div class="products-grid">
+
+        <a href="products/sl207.html" class="product-card">
+          <div class="product-card-image">
+            <img src="images/product-sl207.jpg" alt="Yokool SL207 ổ điện du lịch">
+            <span class="product-code-badge">SL207</span>
+          </div>
+          <div class="product-card-info">
+            <h3 class="product-card-title">Ổ điện du lịch SL207</h3>
+            <p class="product-card-tagline">Đa quốc gia · 65W · 3 cổng USB</p>
+            <span class="product-card-link">Xem chi tiết →</span>
+          </div>
+        </a>
+
+        <a href="products/ol212.html" class="product-card">
+          <div class="product-card-image">
+            <img src="images/product-ol212.jpg" alt="Yokool OL212 ổ điện du lịch pro">
+            <span class="product-code-badge">OL212</span>
+          </div>
+          <div class="product-card-info">
+            <h3 class="product-card-title">Ổ điện du lịch OL212</h3>
+            <p class="product-card-tagline">100W · LED display · 5 cổng</p>
+            <span class="product-card-link">Xem chi tiết →</span>
+          </div>
+        </a>
+
+        <a href="products/jp395.html" class="product-card">
+          <div class="product-card-image">
+            <img src="images/product-jp395.jpg" alt="Yokool JP395 sạc dự phòng 10000mAh">
+            <span class="product-code-badge">JP395</span>
+          </div>
+          <div class="product-card-info">
+            <h3 class="product-card-title">Sạc dự phòng JP395</h3>
+            <p class="product-card-tagline">10.000mAh · 22.5W PD · Vỏ kim loại</p>
+            <span class="product-card-link">Xem chi tiết →</span>
+          </div>
+        </a>
+
+        <a href="products/rc502.html" class="product-card">
+          <div class="product-card-image">
+            <img src="images/product-rc502.jpg" alt="Yokool RC502 sạc dây rút">
+            <span class="product-code-badge">RC502</span>
+          </div>
+          <div class="product-card-info">
+            <h3 class="product-card-title">Sạc dây rút RC502</h3>
+            <p class="product-card-tagline">30W · Dây rút 100cm · USB-C</p>
+            <span class="product-card-link">Xem chi tiết →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY YOKOOL ============ -->
+  <section class="why-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">/ Tại sao Yokool</span>
+        <h2 class="section-title">Khác biệt nằm ở <em>chi tiết</em>.</h2>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">◆</div>
+          <h3 class="why-title">Công nghệ GaN</h3>
+          <p class="why-description">
+            Hiệu suất chuyển đổi điện cao hơn 30%. Nhỏ hơn, mát hơn, an toàn hơn so với sạc truyền thống.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">◇</div>
+          <h3 class="why-title">Bảo hành 12 tháng</h3>
+          <p class="why-description">
+            Đổi mới 30 ngày đầu nếu lỗi. Bảo hành đầy đủ 12 tháng kể từ ngày nhận hàng.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">◈</div>
+          <h3 class="why-title">Giao COD toàn quốc</h3>
+          <p class="why-description">
+            Thanh toán khi nhận hàng. Miễn phí ship đơn từ 500.000đ. Giao trong 2-3 ngày.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">◉</div>
+          <h3 class="why-title">Đạt chuẩn quốc tế</h3>
+          <p class="why-description">
+            Mọi sản phẩm qua 6 vòng kiểm định trước xuất xưởng. Đạt chuẩn CE, FCC, RoHS.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact-section" id="contact">
+    <div class="container contact-inner">
+      <span class="section-label">/ Liên hệ &amp; tư vấn</span>
+      <h2 class="section-title">Đặt hàng &amp; tư vấn</h2>
+      <p class="section-description">
+        Liên hệ trực tiếp để đặt hàng, nhận tư vấn sản phẩm, hoặc báo giá đại lý.
+        Đội ngũ Yokool phản hồi trong 30 phút giờ hành chính.
+      </p>
+
+      <div class="contact-channels">
+        <a href="tel:+84900000000" class="contact-channel">
+          <div class="contact-channel-label">Hotline</div>
+          <div class="contact-channel-value">+84 900 000 000</div>
+        </a>
+        <a href="https://zalo.me/yokool" target="_blank" rel="noopener" class="contact-channel">
+          <div class="contact-channel-label">Zalo</div>
+          <div class="contact-channel-value">zalo.me/yokool</div>
+        </a>
+        <a href="mailto:info@yokool.vn" class="contact-channel">
+          <div class="contact-channel-label">Email</div>
+          <div class="contact-channel-value">info@yokool.vn</div>
+        </a>
+        <a href="https://shopee.vn/yokool" target="_blank" rel="noopener" class="contact-channel">
+          <div class="contact-channel-label">Shopee</div>
+          <div class="contact-channel-value">shopee.vn/yokool</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="images/yokool-logo.png" alt="YOKOOL" class="logo-img">
+        </a>
+        <p class="footer-tagline">Năng lượng. Không giới hạn.</p>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Sản phẩm</h4>
+          <a href="products/sl207.html">SL207</a>
+          <a href="products/ol212.html">OL212</a>
+          <a href="products/jp395.html">JP395</a>
+          <a href="products/rc502.html">RC502</a>
+        </div>
+        <div class="footer-col">
+          <h4>Hỗ trợ</h4>
+          <a href="#contact">Liên hệ</a>
+          <a href="#">Bảo hành</a>
+          <a href="#">Vận chuyển</a>
+          <a href="#">Câu hỏi thường gặp</a>
+        </div>
+        <div class="footer-col">
+          <h4>Kênh bán</h4>
+          <a href="https://shopee.vn/yokool" target="_blank" rel="noopener">Shopee</a>
+          <a href="https://zalo.me/yokool" target="_blank" rel="noopener">Zalo</a>
+          <a href="mailto:info@yokool.vn">Email</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 YOKOOL. Made in Vietnam.</p>
+      <p class="footer-meta">v3.4 — B2B menu + catalogue</p>
+    </div>
+  </footer>
+  <!-- ============ CART DRAWER ============ -->
+  <div class="cart-drawer-overlay" aria-hidden="true"></div>
+  <aside class="cart-drawer" aria-label="Giỏ hàng">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">Giỏ hàng</h3>
+      <button class="cart-drawer-close" aria-label="Đóng giỏ hàng">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="cart-drawer-body">
+      <div id="cartDrawerEmpty" class="cart-drawer-empty">
+        <svg class="cart-drawer-empty-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M10 14H16L18 46C18 47.6569 19.3431 49 21 49H47C48.6569 49 50 47.6569 50 46L52 22H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="26" cy="56" r="3" stroke="currentColor" stroke-width="2"/>
+          <circle cx="44" cy="56" r="3" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <div class="cart-drawer-empty-text">Giỏ hàng đang trống</div>
+        <a href="index.html" class="cta-button cta-button--ghost cta-button--small">Tiếp tục mua sắm</a>
+      </div>
+      <div id="cartDrawerList"></div>
+    </div>
+
+    <div class="cart-drawer-footer" id="cartDrawerFooter" style="display: none;">
+      <div class="cart-drawer-total-row">
+        <span class="cart-drawer-total-label">Tổng tạm tính</span>
+        <span class="cart-drawer-total-value" id="cartDrawerTotal">0đ</span>
+      </div>
+      <button class="cta-button cta-button--full cta-button--large" id="cartDrawerCheckout">
+        Thanh toán
+        <span class="cta-arrow">→</span>
+      </button>
+      <div class="cart-drawer-hint">Phí vận chuyển sẽ tính ở bước kế tiếp · COD toàn quốc</div>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
