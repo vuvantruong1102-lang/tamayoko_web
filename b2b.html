@@ -403,68 +403,21 @@
               <input class="form-input" type="text" id="b2b-name" name="name" required placeholder="Họ và tên">
             </div>
             <div class="form-field">
-              <label class="form-label" for="b2b-position">Chức vụ</label>
-              <input class="form-input" type="text" id="b2b-position" name="position" placeholder="VD: HR Manager">
-            </div>
-            <div class="form-field">
-              <label class="form-label is-required" for="b2b-email">Email công việc</label>
-              <input class="form-input" type="email" id="b2b-email" name="email" required placeholder="ban@congty.com">
-            </div>
-            <div class="form-field">
               <label class="form-label is-required" for="b2b-phone">Số điện thoại</label>
               <input class="form-input" type="tel" id="b2b-phone" name="phone" inputmode="numeric" required placeholder="09xx xxx xxx">
             </div>
-
             <div class="form-field form-field--full">
-              <label class="form-label">Sản phẩm quan tâm (chọn nhiều)</label>
-              <div class="form-checkbox-group">
-                <label class="form-checkbox">
-                  <input type="checkbox" name="products" value="SL207">
-                  <span>SL207 — Ổ điện du lịch 65W</span>
-                </label>
-                <label class="form-checkbox">
-                  <input type="checkbox" name="products" value="OL212">
-                  <span>OL212 — Ổ điện du lịch 100W LED</span>
-                </label>
-                <label class="form-checkbox">
-                  <input type="checkbox" name="products" value="JP395">
-                  <span>JP395 — Sạc dự phòng 10000mAh</span>
-                </label>
-                <label class="form-checkbox">
-                  <input type="checkbox" name="products" value="RC502">
-                  <span>RC502 — Sạc dây rút 30W</span>
-                </label>
-              </div>
-            </div>
-
-            <div class="form-field">
-              <label class="form-label is-required" for="b2b-quantity">Số lượng dự kiến</label>
-              <select class="form-input" id="b2b-quantity" name="quantity" required>
-                <option value="">— Chọn —</option>
-                <option value="50-99">05-100 sản phẩm</option>
-                <option value="100-499">101-500 sản phẩm</option>
-                <option value="500-999">500 – 999 sản phẩm</option>
-                <option value="1000+">1.000+ sản phẩm</option>
-              </select>
-            </div>
-
-            <div class="form-field">
-              <label class="form-label" for="b2b-deadline">Thời gian cần hàng</label>
-              <input class="form-input" type="text" id="b2b-deadline" name="deadline" placeholder="VD: trước 15/01/2026">
+              <label class="form-label is-required" for="b2b-email">Email công việc</label>
+              <input class="form-input" type="email" id="b2b-email" name="email" required placeholder="ban@congty.com">
             </div>
 
             <div class="form-field form-field--full">
-              <label class="form-label" for="b2b-purpose">Mục đích sử dụng</label>
-              <input class="form-input" type="text" id="b2b-purpose" name="purpose" placeholder="VD: Quà Tết khách hàng VIP / Quà nhân viên / Sự kiện ABC...">
-            </div>
-
-            <div class="form-field form-field--full">
-              <label class="form-label" for="b2b-note">Ghi chú khác</label>
-              <textarea class="form-textarea" id="b2b-note" name="note" placeholder="In logo, đóng gói riêng, yêu cầu đặc biệt..."></textarea>
+              <label class="form-label" for="b2b-note">Nội dung yêu cầu / ghi chú</label>
+              <textarea class="form-textarea" id="b2b-note" name="note" placeholder="Mô tả nhu cầu: sản phẩm quan tâm, số lượng dự kiến, thời gian cần hàng, mục đích sử dụng, yêu cầu in logo / đóng gói riêng..."></textarea>
             </div>
           </div>
 
-          <button type="submit" class="cta-button cta-button--large cta-button--full">
+          <button type="submit" class="cta-button cta-button--large cta-button--full" id="b2bSubmitBtn">
             Gửi yêu cầu báo giá
             <span class="cta-arrow">→</span>
           </button>
@@ -557,8 +510,8 @@
           <h4>Hỗ trợ</h4>
           <a href="lien-he.html">Liên hệ</a>
           <a href="b2b.html">Hợp tác B2B</a>
-          <a href="#">Bảo hành</a>
-          <a href="#">Vận chuyển</a>
+          <a href="bao-hanh.html">Bảo hành</a>
+          <a href="van-chuyen.html">Vận chuyển</a>
         </div>
         <div class="footer-col">
           <h4>Kênh bán</h4>
@@ -571,7 +524,7 @@
 
     <div class="container footer-bottom">
       <p>© 2026 Tamayoko. Made in Vietnam.</p>
-      <p class="footer-meta">v3.4 — B2B</p>
+      <p class="footer-meta">v3.5 — B2B + Google Sheets</p>
     </div>
   </footer>
 
@@ -612,19 +565,18 @@
 
   <script src="script.js"></script>
 
-  <!-- B2B form handler — gửi inquiry lên admin API -->
+  <!-- B2B form handler — gửi qua Apps Script (Google Sheets backend) -->
   <script>
     (function () {
       const form = document.getElementById('b2bForm');
+      const submitBtn = document.getElementById('b2bSubmitBtn');
       if (!form) return;
 
-      // 👉 SỬA URL NÀY khi setup custom domain (admin.Tamayoko.vn)
-      const API_BASE = 'https://Tamayoko-admin.pages.dev';
-
-      form.addEventListener('submit', async (e) => {
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
+
         const data = new FormData(form);
-        const required = ['company', 'name', 'email', 'phone', 'quantity'];
+        const required = ['company', 'name', 'email', 'phone'];
         let isValid = true;
 
         required.forEach(field => {
@@ -641,59 +593,67 @@
         const phone = (data.get('phone') || '').trim().replace(/\s+/g, '');
         if (phone && !/^0\d{9,10}$/.test(phone)) {
           form.elements.phone?.classList.add('is-invalid');
-          window.TamayokoToast && window.TamayokoToast('Số điện thoại không đúng định dạng', 'info');
+          if (window.TamayokoToast) {
+            window.TamayokoToast('Số điện thoại không đúng định dạng', 'info');
+          }
           return;
         }
         if (!isValid) {
-          window.TamayokoToast && window.TamayokoToast('Vui lòng điền đầy đủ thông tin', 'info');
+          if (window.TamayokoToast) {
+            window.TamayokoToast('Vui lòng điền đầy đủ thông tin bắt buộc', 'info');
+          }
           return;
         }
 
-        const submitBtn = form.querySelector('button[type="submit"]');
         const oldHTML = submitBtn.innerHTML;
         submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.6';
+        submitBtn.style.pointerEvents = 'none';
         submitBtn.innerHTML = 'Đang gửi...';
 
         const payload = {
-          company:       data.get('company'),
-          contact_name:  data.get('name'),
-          position:      data.get('position') || '',
-          email:         data.get('email'),
-          phone:         phone,
-          products:      data.getAll('products'),
-          quantity:      data.get('quantity'),
-          deadline:      data.get('deadline') || '',
-          purpose:       data.get('purpose') || '',
-          customer_note: data.get('note') || '',
+          _type: 'b2b',
+          company: data.get('company'),
+          name: data.get('name'),
+          phone: phone,
+          email: data.get('email'),
+          topic: data.get('note') || '(không có ghi chú)',
+          createdAt: new Date().toISOString(),
         };
 
-        // Backup vào localStorage (phòng khi API lỗi)
+        // Backup vào localStorage (phòng khi backend lỗi)
         try {
           const all = JSON.parse(localStorage.getItem('Tamayoko_b2b_inquiries') || '[]');
-          all.unshift({ ...payload, createdAt: new Date().toISOString() });
+          all.unshift(payload);
           localStorage.setItem('Tamayoko_b2b_inquiries', JSON.stringify(all.slice(0, 50)));
         } catch (err) {}
 
-        try {
-          const res = await fetch(API_BASE + '/api/inquiries', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(payload),
-          });
-          const result = await res.json().catch(() => ({}));
+        const restore = () => {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '';
+          submitBtn.style.pointerEvents = '';
+          submitBtn.innerHTML = oldHTML;
+        };
 
-          if (!res.ok) throw new Error(result.error || 'Gửi thất bại');
-
-          console.log('[Tamayoko B2B inquiry]', result);
-          window.TamayokoToast && window.TamayokoToast('Đã gửi yêu cầu! Đội B2B sẽ liên hệ trong 24h', 'success');
+        const finish = () => {
+          if (window.TamayokoToast) {
+            window.TamayokoToast('Đã gửi yêu cầu! Đội B2B sẽ liên hệ trong 24h', 'success');
+          } else {
+            alert('Đã gửi yêu cầu! Đội B2B Tamayoko sẽ liên hệ lại trong 24h làm việc.');
+          }
           form.reset();
           form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } catch (err) {
-          console.error('[B2B submit error]', err);
-          window.TamayokoToast && window.TamayokoToast('Lỗi gửi: ' + err.message + '. Vui lòng gọi hotline B2B.', 'info');
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = oldHTML;
+          setTimeout(restore, 2000);
+        };
+
+        if (window.TamayokoSendToBackend) {
+          window.TamayokoSendToBackend(payload).then((result) => {
+            console.log('[Tamayoko B2B inquiry]', payload, 'backend:', result);
+            finish();
+          });
+        } else {
+          console.warn('Backend chưa sẵn sàng, B2B inquiry:', payload);
+          finish();
         }
       });
 
