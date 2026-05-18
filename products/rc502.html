@@ -87,6 +87,12 @@
         <div class="product-gallery">
           <div class="product-gallery-main">
             <img id="galleryMain" src="../images/product-rc502.jpg" alt="Yokool RC502 củ sạc nhanh PD 65W GaN">
+            <button class="product-gallery-arrow product-gallery-arrow--prev" type="button" id="galleryPrev" aria-label="Ảnh trước">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="product-gallery-arrow product-gallery-arrow--next" type="button" id="galleryNext" aria-label="Ảnh kế tiếp">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
           </div>
           <div class="product-gallery-thumbs">
             <button class="product-gallery-thumb is-active" type="button" data-src="../images/product-rc502.jpg" aria-label="RC502 cắm tường">
@@ -479,6 +485,28 @@
         thumbs.forEach(x => x.classList.remove('is-active'));
         t.classList.add('is-active');
       }));
+
+      // Arrow buttons: prev/next cycling through thumbs
+      const prevBtn = document.getElementById('galleryPrev');
+      const nextBtn = document.getElementById('galleryNext');
+      function getActiveIndex() {
+        let idx = 0;
+        thumbs.forEach((t, i) => { if (t.classList.contains('is-active')) idx = i; });
+        return idx;
+      }
+      function activateThumb(i) {
+        if (!thumbs.length) return;
+        const wrapped = ((i % thumbs.length) + thumbs.length) % thumbs.length;
+        const t = thumbs[wrapped];
+        const src = t.dataset.src;
+        if (!src || !main) return;
+        main.src = src;
+        thumbs.forEach(x => x.classList.remove('is-active'));
+        t.classList.add('is-active');
+      }
+      if (prevBtn) prevBtn.addEventListener('click', () => activateThumb(getActiveIndex() - 1));
+      if (nextBtn) nextBtn.addEventListener('click', () => activateThumb(getActiveIndex() + 1));
+
     })();
   </script>
 </body>
