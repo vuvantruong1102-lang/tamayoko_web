@@ -138,7 +138,7 @@ Search & replace `https://shopee.vn/yokool` trong tất cả file `.html` thành
 ### Đổi thông tin liên hệ
 
 Trong `index.html`, tìm section `<section class="contact-section">` và sửa:
-- Số hotline: `+84 900 000 000`
+- Số hotline: `0971 222 822`
 - Zalo: `zalo.me/yokool`
 - Email: `info@yokool.vn`
 

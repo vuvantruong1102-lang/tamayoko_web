@@ -682,7 +682,7 @@
   const CONTACT_CONFIG = {
     messenger: 'https://m.me/yokool',           // ← Jay: thay bằng m.me/<facebook-page-username>
     zalo: 'https://zalo.me/yokool',             // ← Jay: thay bằng zalo.me/<số điện thoại Zalo OA>
-    phone: '+84900000000',                      // ← Jay: thay bằng hotline thật (giữ định dạng +84...)
+    phone: '0971 222 822',                      // ← Jay: thay bằng hotline thật (giữ định dạng +84...)
     phoneDisplay: '0900 000 000',               // ← Jay: cách hiển thị tooltip
   };
 
