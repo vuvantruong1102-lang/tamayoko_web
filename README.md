@@ -133,14 +133,14 @@ Nếu test trang sản phẩm: vào `products/` → double-click bất kỳ file
 
 ### Đổi link Shopee
 
-Search & replace `https://shopee.vn/yokool` trong tất cả file `.html` thành link Shopee thật của bạn.
+Search & replace `https://shopee.vn/tamayokoofficial` trong tất cả file `.html` thành link Shopee thật của bạn.
 
 ### Đổi thông tin liên hệ
 
 Trong `index.html`, tìm section `<section class="contact-section">` và sửa:
 - Số hotline: `0971 222 822`
-- Zalo: `zalo.me/yokool`
-- Email: `info@yokool.vn`
+- Zalo: `zalo.me/0971222822`
+- Email: `contact@tamayoko.com`
 
 ### Đổi màu thương hiệu
 
