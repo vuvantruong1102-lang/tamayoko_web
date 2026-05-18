@@ -1384,33 +1384,29 @@ input, select, textarea, button {
 
 .footer-social {
   display: flex;
-  gap: 12px;
+  gap: 18px;
   margin-top: 2px;
+  align-items: center;
 }
 
 .footer-social-link {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid var(--border-subtle);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
-  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease);
+  transition: color 0.2s var(--ease), transform 0.2s var(--ease);
   padding: 0;
   line-height: 0;
 }
 
 .footer-social-link:hover {
-  color: #fff;
-  background: var(--brand);
-  border-color: var(--brand);
+  color: var(--brand);
+  transform: translateY(-2px);
 }
 
 .footer-social-link svg {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   display: block;
   vertical-align: middle;
 }
