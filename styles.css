@@ -3900,3 +3900,62 @@ body.cart-drawer-open .contact-widget {
     min-height: 600px;
   }
 }
+
+/* ============ PRODUCT GALLERY ARROWS ============ */
+.product-gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  z-index: 3;
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 0;
+}
+
+.product-gallery-arrow:hover {
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.product-gallery-arrow:active {
+  transform: translateY(-50%) scale(0.94);
+}
+
+.product-gallery-arrow:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.product-gallery-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.product-gallery-arrow--prev {
+  left: 12px;
+}
+
+.product-gallery-arrow--next {
+  right: 12px;
+}
+
+@media (max-width: 640px) {
+  .product-gallery-arrow {
+    width: 36px;
+    height: 36px;
+  }
+  .product-gallery-arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+}
