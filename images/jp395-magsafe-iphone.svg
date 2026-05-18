@@ -1,0 +1,89 @@
+<svg viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="So sánh MagSafe trên iPhone và Android">
+  <defs>
+    <linearGradient id="bgM" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5f4f2"/>
+      <stop offset="100%" stop-color="#ebe9e5"/>
+    </linearGradient>
+    <pattern id="dotsM" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#c8c5bf"/>
+    </pattern>
+    <radialGradient id="magnetField" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#DC143B" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#DC143B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bgM)"/>
+  <rect width="1200" height="675" fill="url(#dotsM)"/>
+
+  <!-- Title -->
+  <text x="600" y="80" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif"
+        font-size="32" font-weight="800" fill="#1a1a1a" letter-spacing="-0.02em">
+    MagSafe vs Qi: iPhone &amp; Android
+  </text>
+
+  <!-- LEFT: iPhone with MagSafe -->
+  <g transform="translate(280, 220)">
+    <text x="120" y="-40" text-anchor="middle" font-family="JetBrains Mono, monospace"
+          font-size="13" fill="#DC143B" letter-spacing="0.12em">IPHONE 12+ · MAGSAFE 15W</text>
+
+    <!-- Magnetic field glow -->
+    <circle cx="120" cy="160" r="180" fill="url(#magnetField)"/>
+
+    <!-- Power bank (behind) -->
+    <rect x="40" y="100" width="160" height="100" rx="14" fill="#2a2a2a"/>
+    <circle cx="120" cy="150" r="32" fill="none" stroke="#444" stroke-width="2"/>
+    <text x="120" y="155" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif"
+          font-size="12" font-weight="600" fill="#666">JP395</text>
+
+    <!-- iPhone (front) -->
+    <rect x="55" y="80" width="130" height="220" rx="22" fill="#1a1a1a" stroke="#000" stroke-width="2"/>
+    <rect x="65" y="92" width="110" height="196" rx="16" fill="#0a0a0a"/>
+    <!-- Magnetic alignment indicator -->
+    <circle cx="120" cy="190" r="40" fill="none" stroke="#DC143B" stroke-width="2" stroke-dasharray="4 4" opacity="0.7"/>
+    <circle cx="120" cy="190" r="6" fill="#DC143B"/>
+
+    <text x="120" y="340" text-anchor="middle" font-family="Be Vietnam Pro, sans-serif"
+          font-size="14" font-weight="600" fill="#1a1a1a">Nam châm hút đúng vị trí</text>
+    <text x="120" y="362" text-anchor="middle" font-family="Be Vietnam Pro, sans-serif"
+          font-size="13" fill="#666">15W tốc độ tối đa</text>
+  </g>
+
+  <!-- DIVIDER -->
+  <line x1="600" y1="180" x2="600" y2="540" stroke="#c8c5bf" stroke-width="1" stroke-dasharray="4 6"/>
+
+  <!-- RIGHT: Android with Qi -->
+  <g transform="translate(800, 220)">
+    <text x="120" y="-40" text-anchor="middle" font-family="JetBrains Mono, monospace"
+          font-size="13" fill="#666" letter-spacing="0.12em">ANDROID · QI 7.5-10W</text>
+
+    <!-- Power bank -->
+    <rect x="40" y="100" width="160" height="100" rx="14" fill="#2a2a2a"/>
+    <circle cx="120" cy="150" r="32" fill="none" stroke="#444" stroke-width="2"/>
+    <text x="120" y="155" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif"
+          font-size="12" font-weight="600" fill="#666">JP395</text>
+
+    <!-- Android phone (slightly offset to show no magnet alignment) -->
+    <rect x="70" y="80" width="130" height="220" rx="22" fill="#1a1a1a" stroke="#000" stroke-width="2"/>
+    <rect x="80" y="92" width="110" height="196" rx="16" fill="#0a0a0a"/>
+
+    <!-- Arrow showing manual alignment needed -->
+    <g stroke="#666" stroke-width="1.5" fill="none" opacity="0.7">
+      <path d="M 50 180 L 70 190" stroke-linecap="round"/>
+      <path d="M 60 175 L 50 180 L 60 185" stroke-linecap="round"/>
+      <path d="M 220 180 L 200 190" stroke-linecap="round"/>
+      <path d="M 210 175 L 220 180 L 210 185" stroke-linecap="round"/>
+    </g>
+
+    <text x="120" y="340" text-anchor="middle" font-family="Be Vietnam Pro, sans-serif"
+          font-size="14" font-weight="600" fill="#1a1a1a">Cần căn chỉnh thủ công</text>
+    <text x="120" y="362" text-anchor="middle" font-family="Be Vietnam Pro, sans-serif"
+          font-size="13" fill="#666">Tốc độ Qi tiêu chuẩn</text>
+  </g>
+
+  <!-- Bottom note -->
+  <text x="600" y="620" text-anchor="middle" font-family="Be Vietnam Pro, sans-serif"
+        font-size="14" fill="#666" font-style="italic">
+    Có thể dán ring nam châm cho Android để được hiệu ứng MagSafe-style
+  </text>
+</svg>
