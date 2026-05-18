@@ -164,7 +164,7 @@
           </div>
         </div>
 
-        <button type="submit" class="cta-button cta-button--large cta-button--full" style="margin-top: 24px;">
+        <button type="submit" class="cta-button cta-button--large cta-button--full" id="contactSubmitBtn" style="margin-top: 24px;">
           Gửi yêu cầu
           <span class="cta-arrow">→</span>
         </button>
@@ -254,14 +254,82 @@
 
   <script src="script.js"></script>
   <script>
-    // Contact form: client-side stub. To send to email, integrate Formspree/EmailJS later.
-    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(this).entries());
-      console.log('Contact request:', data);
-      alert('Cảm ơn bạn! Yêu cầu đã được ghi nhận. Đội ngũ Tamayoko sẽ liên hệ lại trong 30 phút giờ hành chính.');
-      this.reset();
-    });
+    // Contact form: gửi tới Google Sheets qua Apps Script webhook (đã cấu hình trong script.js)
+    (function () {
+      const form = document.getElementById('contactForm');
+      const submitBtn = document.getElementById('contactSubmitBtn');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Validate basic
+        const data = Object.fromEntries(new FormData(this).entries());
+        if (!data.name || !data.phone || !data.topic) {
+          if (window.TamayokoToast) {
+            window.TamayokoToast('Vui lòng điền đầy đủ thông tin bắt buộc', 'info');
+          } else {
+            alert('Vui lòng điền đầy đủ thông tin bắt buộc');
+          }
+          return;
+        }
+
+        // Validate phone (10-11 digits VN)
+        const phoneClean = String(data.phone).replace(/\s+/g, '');
+        if (!/^0\d{9,10}$/.test(phoneClean)) {
+          if (window.TamayokoToast) {
+            window.TamayokoToast('Số điện thoại không đúng định dạng', 'info');
+          } else {
+            alert('Số điện thoại không đúng định dạng');
+          }
+          return;
+        }
+
+        // Disable button to prevent double-submit
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.style.opacity = '0.6';
+          submitBtn.style.pointerEvents = 'none';
+        }
+
+        const payload = {
+          _type: 'inquiry',
+          name: data.name,
+          phone: phoneClean,
+          email: data.email || '',
+          topic: data.topic,
+          createdAt: new Date().toISOString(),
+        };
+
+        const finish = () => {
+          if (window.TamayokoToast) {
+            window.TamayokoToast('Đã gửi yêu cầu! Tamayoko sẽ liên hệ trong 30 phút');
+          } else {
+            alert('Cảm ơn bạn! Yêu cầu đã được ghi nhận. Đội ngũ Tamayoko sẽ liên hệ lại trong 30 phút giờ hành chính.');
+          }
+          form.reset();
+          if (submitBtn) {
+            setTimeout(() => {
+              submitBtn.disabled = false;
+              submitBtn.style.opacity = '';
+              submitBtn.style.pointerEvents = '';
+            }, 3000);
+          }
+        };
+
+        // Gọi backend qua function expose trong script.js
+        if (window.TamayokoSendToBackend) {
+          window.TamayokoSendToBackend(payload).then((result) => {
+            console.log('[Tamayoko inquiry]', payload, 'backend:', result);
+            finish();
+          });
+        } else {
+          // Fallback nếu chưa có script.js
+          console.warn('Backend chưa sẵn sàng, đơn liên hệ:', payload);
+          finish();
+        }
+      });
+    })();
   </script>
 </body>
 </html>

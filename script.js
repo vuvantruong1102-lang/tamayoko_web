@@ -9,6 +9,34 @@
 (function () {
   'use strict';
 
+  // ============================================
+  // BACKEND CONFIG — Google Apps Script webhook
+  // ============================================
+  // Sau khi deploy Apps Script làm Web App, paste URL vào đây (giữa 2 dấu ').
+  // URL có dạng: https://script.google.com/macros/s/AKfycb..../exec
+  // Trước khi paste URL, hệ thống vẫn lưu đơn vào localStorage để bạn không mất.
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyoSOiYIJQN04oKtkOugknP4eRDFigD04Qz6fHKJYWuLea_xF7gwW2CHSSem2ZvJBKt/exec';
+
+  function sendToBackend(payload) {
+    // Bỏ qua nếu chưa cấu hình URL
+    if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.length < 20) {
+      console.warn('[Tamayoko] Apps Script URL chưa cấu hình — đơn chỉ lưu localStorage.');
+      return Promise.resolve({ ok: false, reason: 'not_configured' });
+    }
+    // Dùng no-cors + text/plain để tránh CORS preflight với Google Apps Script.
+    // Apps Script vẫn nhận được body JSON qua e.postData.contents
+    return fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
+    }).then(() => ({ ok: true }))
+      .catch((err) => {
+        console.error('[Tamayoko] Backend error:', err);
+        return { ok: false, error: String(err) };
+      });
+  }
+
   // ============ STICKY HEADER ============
   const header = document.getElementById('siteHeader');
 
@@ -413,6 +441,7 @@
 
   // Expose globally for inline handlers / debugging
   window.TamayokoCart = Cart;
+  window.TamayokoSendToBackend = sendToBackend; // for lien-he.html
 
   // ============ TOAST NOTIFICATIONS ============
   function showToast(message, type = 'success') {
@@ -608,6 +637,7 @@
         Math.floor(1000 + Math.random() * 9000);
 
       const order = {
+        _type: 'order',
         id: orderId,
         createdAt: now.toISOString(),
         customer: {
@@ -626,39 +656,42 @@
       // Save locally so Jay can debug via console: TamayokoCart.getOrders()
       Cart.saveOrder(order);
 
-      // TODO Jay: integrate real backend here.
-      // Recommended: Formspree.io (free 50/month), EmailJS, or Cloudflare Worker.
-      // Example (Formspree):
-      //   fetch('https://formspree.io/f/YOUR_FORM_ID', {
-      //     method: 'POST', body: JSON.stringify(order),
-      //     headers: { 'Content-Type': 'application/json', Accept: 'application/json' }
-      //   });
-
-      console.log('[Tamayoko order]', order);
-
-      // Clear buy-now / cart
-      if (isBuyNow) {
-        sessionStorage.removeItem('Tamayoko_buy_now');
-      } else {
-        Cart.clear();
+      // Disable submit button to prevent double-submit
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.6';
+        submitBtn.style.pointerEvents = 'none';
       }
 
-      // Show success modal
-      if (successOrderId) successOrderId.textContent = orderId;
-      if (successSummary) {
-        successSummary.innerHTML = `
-          <div class="success-row"><span>Sản phẩm</span><span>${items.map(i => `${i.name} ×${i.qty}`).join(', ')}</span></div>
-          <div class="success-row"><span>Tổng tiền</span><span><strong>${formatPrice(total)}</strong></span></div>
-          <div class="success-row"><span>Người nhận</span><span>${data.get('fullname')}</span></div>
-          <div class="success-row"><span>Số điện thoại</span><span>${data.get('phone')}</span></div>
-          <div class="success-row"><span>Địa chỉ</span><span>${data.get('address')}, ${data.get('city')}</span></div>
-          <div class="success-row"><span>Phương thức</span><span>Thanh toán khi nhận hàng (COD)</span></div>
-        `;
-      }
-      if (successModal) {
-        successModal.classList.add('is-visible');
-        document.body.style.overflow = 'hidden';
-      }
+      // Gửi đơn đến Google Sheets qua Apps Script webhook
+      sendToBackend(order).then((result) => {
+        console.log('[Tamayoko order]', order, 'backend:', result);
+
+        // Clear buy-now / cart
+        if (isBuyNow) {
+          sessionStorage.removeItem('Tamayoko_buy_now');
+        } else {
+          Cart.clear();
+        }
+
+        // Show success modal
+        if (successOrderId) successOrderId.textContent = orderId;
+        if (successSummary) {
+          successSummary.innerHTML = `
+            <div class="success-row"><span>Sản phẩm</span><span>${items.map(i => `${i.name} ×${i.qty}`).join(', ')}</span></div>
+            <div class="success-row"><span>Tổng tiền</span><span><strong>${formatPrice(total)}</strong></span></div>
+            <div class="success-row"><span>Người nhận</span><span>${data.get('fullname')}</span></div>
+            <div class="success-row"><span>Số điện thoại</span><span>${data.get('phone')}</span></div>
+            <div class="success-row"><span>Địa chỉ</span><span>${data.get('address')}, ${data.get('city')}</span></div>
+            <div class="success-row"><span>Phương thức</span><span>Thanh toán khi nhận hàng (COD)</span></div>
+          `;
+        }
+        if (successModal) {
+          successModal.classList.add('is-visible');
+          document.body.style.overflow = 'hidden';
+        }
+      });
     });
 
     // Close success modal
@@ -730,6 +763,6 @@
   if (typeof console !== 'undefined' && console.log) {
     console.log('%c Tamayoko ', 'background:#DC143B;color:#fff;font-weight:bold;font-size:14px;padding:4px 8px;');
     console.log('%c Năng lượng. Không giới hạn. ', 'color:#888;font-style:italic;');
-    console.log('Build: v2.0 — light theme · Cloudflare Pages');
+    console.log('Build: v2.1 — Google Sheets backend integration');
   }
 })();
