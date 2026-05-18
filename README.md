@@ -133,14 +133,14 @@ Nếu test trang sản phẩm: vào `products/` → double-click bất kỳ file
 
 ### Đổi link Shopee
 
-Search & replace `https://shopee.vn/Tamayokoofficial` trong tất cả file `.html` thành link Shopee thật của bạn.
+Search & replace `https://shopee.vn/tamayokoofficial` trong tất cả file `.html` thành link Shopee thật của bạn.
 
 ### Đổi thông tin liên hệ
 
 Trong `index.html`, tìm section `<section class="contact-section">` và sửa:
 - Số hotline: `0971 222 822`
 - Zalo: `zalo.me/0971222822`
-- Email: `contact@Tamayoko.com`
+- Email: `contact@tamayoko.com`
 
 ### Đổi màu thương hiệu
 
