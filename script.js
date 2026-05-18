@@ -680,10 +680,10 @@
   // Inject the contact widget on every page automatically.
   // Update the 3 links below with Tamayoko's real channels.
   const CONTACT_CONFIG = {
-    messenger: 'https://m.me/Tamayoko',           // ← Jay: thay bằng m.me/<facebook-page-username>
-    zalo: 'https://zalo.me/0971222822',             // ← Jay: thay bằng zalo.me/<số điện thoại Zalo OA>
-    phone: '0971 222 822',                      // ← Jay: thay bằng hotline thật (giữ định dạng +84...)
-    phoneDisplay: '0900 000 000',               // ← Jay: cách hiển thị tooltip
+    messenger: 'https://m.me/tamayokoofficial',  // Tamayoko Facebook Page
+    zalo: 'https://zalo.me/0971222822',          // Tamayoko Zalo
+    phone: '0971222822',                          // Hotline thật (dùng cho tel:)
+    phoneDisplay: '0971 222 822',                 // Hotline hiển thị tooltip
   };
 
   function injectContactWidget() {
