@@ -3662,3 +3662,235 @@ body.cart-drawer-open .contact-widget {
     line-height: 1.1;
   }
 }
+
+/* ============ REVIEWERS / TIKTOK ============ */
+.reviews-section {
+  padding: var(--section-padding) 0;
+  background: #fff;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.review-card {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  display: block;
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.18);
+}
+
+.review-card:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
+/* Placeholder gradients per card — TikTok blocks direct thumbnail fetching,
+   so we use branded gradient placeholders. Real video loads inside modal. */
+.review-thumb {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+.review-thumb[data-color="1"] {
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a1a2e 60%, #ff2d55 120%);
+}
+.review-thumb[data-color="2"] {
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a2a4a 50%, #25f4ee 130%);
+}
+.review-thumb[data-color="3"] {
+  background: linear-gradient(135deg, #1a0a1f 0%, #4a1a4a 50%, #ff2d55 130%);
+}
+.review-thumb[data-color="4"] {
+  background: linear-gradient(135deg, #0a1a1a 0%, #1a4a4a 50%, #25f4ee 130%);
+}
+
+/* Subtle dot pattern over thumb for texture */
+.review-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+  opacity: 0.6;
+}
+
+.review-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.review-play svg {
+  width: 28px;
+  height: 28px;
+  margin-left: 3px; /* visually center the play triangle */
+}
+
+.review-card:hover .review-play {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: var(--brand);
+  color: #fff;
+}
+
+.review-meta {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.review-tt-icon {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.review-tt-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.review-handle {
+  font-weight: 500;
+}
+
+/* ============ TIKTOK MODAL ============ */
+.tt-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.tt-modal.is-open {
+  display: flex;
+}
+
+.tt-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+.tt-modal-content {
+  position: relative;
+  width: min(420px, 92vw);
+  max-height: 92vh;
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tt-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s var(--ease);
+}
+
+.tt-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.tt-modal-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+.tt-modal-embed {
+  width: 100%;
+  height: 100%;
+  min-height: 740px;
+  overflow-y: auto;
+}
+
+.tt-modal-embed blockquote.tiktok-embed {
+  margin: 0 auto !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* Reviews responsive */
+@media (max-width: 1024px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .reviews-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .review-play {
+    width: 52px;
+    height: 52px;
+  }
+  .review-play svg {
+    width: 22px;
+    height: 22px;
+  }
+  .tt-modal-embed {
+    min-height: 600px;
+  }
+}

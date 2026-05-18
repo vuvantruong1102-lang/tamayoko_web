@@ -759,6 +759,89 @@
   }
   injectContactWidget();
 
+  // ============ TIKTOK REVIEWS MODAL ============
+  (function initTikTokReviews() {
+    const cards = document.querySelectorAll('.review-card');
+    const modal = document.getElementById('ttModal');
+    if (!cards.length || !modal) return;
+
+    const embedContainer = document.getElementById('ttModalEmbed');
+    let lastFocused = null;
+
+    function loadTikTokScript() {
+      // TikTok's embed.js scans for .tiktok-embed only once on load.
+      // To re-trigger parsing on each modal open, we always re-inject
+      // the script (the previously-rendered iframes are not affected).
+      return new Promise((resolve) => {
+        // Remove previous script tag if any
+        const old = document.getElementById('tt-embed-script');
+        if (old) old.remove();
+
+        const s = document.createElement('script');
+        s.id = 'tt-embed-script';
+        s.src = 'https://www.tiktok.com/embed.js';
+        s.async = true;
+        s.onload = () => resolve();
+        s.onerror = () => resolve(); // resolve anyway so modal still shows fallback
+        document.body.appendChild(s);
+      });
+    }
+
+    function buildEmbed(videoId, username) {
+      // TikTok official embed markup
+      return (
+        '<blockquote class="tiktok-embed" ' +
+        'cite="https://www.tiktok.com/@' + username + '/video/' + videoId + '" ' +
+        'data-video-id="' + videoId + '" ' +
+        'style="max-width: 605px; min-width: 325px;">' +
+        '<section></section>' +
+        '</blockquote>'
+      );
+    }
+
+    function openModal(videoId, username) {
+      lastFocused = document.activeElement;
+      embedContainer.innerHTML = buildEmbed(videoId, username);
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      loadTikTokScript();
+
+      // Focus close button for accessibility
+      const closeBtn = modal.querySelector('.tt-modal-close');
+      if (closeBtn) setTimeout(() => closeBtn.focus(), 50);
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      embedContainer.innerHTML = '';
+      document.body.style.overflow = '';
+      if (lastFocused && typeof lastFocused.focus === 'function') {
+        lastFocused.focus();
+      }
+    }
+
+    cards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const id = card.getAttribute('data-tt-id');
+        const user = card.getAttribute('data-tt-user');
+        if (id && user) openModal(id, user);
+      });
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target.hasAttribute('data-close')) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+        closeModal();
+      }
+    });
+  })();
+
   // ============ CONSOLE EASTER EGG ============
   if (typeof console !== 'undefined' && console.log) {
     console.log('%c Tamayoko ', 'background:#DC143B;color:#fff;font-weight:bold;font-size:14px;padding:4px 8px;');
