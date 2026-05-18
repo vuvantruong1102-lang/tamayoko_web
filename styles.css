@@ -3649,3 +3649,40 @@ body.cart-drawer-open .contact-widget {
     );
   }
 }
+
+/* ============ CONTACT CHANNELS FIX — chiều cao đều, không wrap ============ */
+/* Đảm bảo 4 ô liên hệ luôn cùng chiều cao và nội dung không wrap xuống nhiều dòng */
+.contact-channels .contact-channel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+  overflow: hidden;
+}
+
+.contact-channels .contact-channel-value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  font-size: 14px;
+}
+
+.contact-channels .contact-channel-label {
+  margin-bottom: 6px;
+}
+
+/* Mobile responsive: 2 cột thay vì 4 để có chỗ cho text dài */
+@media (max-width: 640px) {
+  .contact-channels {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  .contact-channels .contact-channel {
+    min-height: 88px;
+  }
+  .contact-channels .contact-channel-value {
+    font-size: 13px;
+  }
+}
