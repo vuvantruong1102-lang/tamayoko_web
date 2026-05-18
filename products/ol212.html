@@ -93,7 +93,34 @@
   <section class="product-hero">
     <div class="container product-hero-inner">
       <div class="product-hero-visual">
-        <img src="../images/product-ol212.jpg" alt="Yokool OL212 ổ điện du lịch đa năng">
+        <div class="product-gallery">
+          <div class="product-gallery-main">
+            <img id="galleryMain" src="../images/product-ol212.jpg" alt="Yokool OL212 ổ điện du lịch đa năng">
+          </div>
+          <div class="product-gallery-thumbs">
+            <button class="product-gallery-thumb is-active" type="button" data-src="../images/product-ol212.jpg" aria-label="Ảnh OL212 chính">
+              <img src="../images/product-ol212.jpg" alt="OL212 chính">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/ol212-hero.jpg" aria-label="OL212 du lịch quốc tế">
+              <img src="../images/ol212-hero.jpg" alt="OL212 du lịch quốc tế">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/ol212-plugs.jpg" aria-label="Bản đồ tương thích ổ cắm">
+              <img src="../images/ol212-plugs.jpg" alt="Bản đồ tương thích">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/ol212-multi-device.jpg" aria-label="OL212 sạc 5 thiết bị">
+              <img src="../images/ol212-multi-device.jpg" alt="Sạc 5 thiết bị">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/ol212-fast-charge.jpg" aria-label="OL212 sạc nhanh PD 20W">
+              <img src="../images/ol212-fast-charge.jpg" alt="Sạc nhanh">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/ol212-power.jpg" aria-label="OL212 công suất 2500W">
+              <img src="../images/ol212-power.jpg" alt="Công suất 2500W">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/ol212-safety.jpg" aria-label="OL212 bảo vệ an toàn">
+              <img src="../images/ol212-safety.jpg" alt="Bảo vệ an toàn">
+            </button>
+          </div>
+        </div>
       </div>
       <div class="product-hero-content">
         <span class="section-label">/ Travel power · PD 20W + QC 18W</span>
@@ -102,9 +129,13 @@
           Ổ điện đa năng compact. Sạc nhanh 5 thiết bị. Dùng được tại 180+ quốc gia.
         </p>
 
-        <div class="product-hero-description">
-          <p>4 loại chân cắm Type A/C/G/I tích hợp sẵn. 2 cổng USB-A QC 18W và 2 cổng USB-C PD 20W. Chỉ 127g — nhẹ và compact, hoàn hảo cho mọi chuyến công tác và du lịch.</p>
-        </div>
+        <ul class="product-hero-bullets">
+          <li>4 loại chân cắm Type A/C/G/I tích hợp sẵn, dùng được tại 180+ quốc gia</li>
+          <li>2 cổng USB-A QC 18W và 2 cổng USB-C PD 20W</li>
+          <li>Sạc cùng lúc 5 thiết bị, công suất tối đa 2500W ở 250V</li>
+          <li>Cầu chì 10A và lẫy bảo vệ trẻ em tích hợp sẵn</li>
+          <li>Chỉ 127g — nhẹ và compact, hoàn hảo cho mọi chuyến đi</li>
+        </ul>
 
         <div class="product-hero-price-row">
           <span class="price-current">350.000đ</span>
@@ -535,5 +566,20 @@
   </aside>
 
   <script src="../script.js"></script>
+  <script>
+    // Product gallery
+    (function() {
+      const main = document.getElementById('galleryMain');
+      const thumbs = document.querySelectorAll('.product-gallery-thumb');
+      if (!main || !thumbs.length) return;
+      thumbs.forEach(t => t.addEventListener('click', () => {
+        const src = t.dataset.src;
+        if (!src) return;
+        main.src = src;
+        thumbs.forEach(x => x.classList.remove('is-active'));
+        t.classList.add('is-active');
+      }));
+    })();
+  </script>
 </body>
 </html>

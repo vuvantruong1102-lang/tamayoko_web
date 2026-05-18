@@ -93,7 +93,28 @@
   <section class="product-hero">
     <div class="container product-hero-inner">
       <div class="product-hero-visual">
-        <img src="../images/product-sl207.jpg" alt="Yokool SL207 ổ điện du lịch đa năng">
+        <div class="product-gallery">
+          <div class="product-gallery-main">
+            <img id="galleryMain" src="../images/product-sl207.jpg" alt="Yokool SL207 ổ điện du lịch đa năng">
+          </div>
+          <div class="product-gallery-thumbs">
+            <button class="product-gallery-thumb is-active" type="button" data-src="../images/product-sl207.jpg" aria-label="Ảnh SL207 màu trắng">
+              <img src="../images/product-sl207.jpg" alt="SL207 màu trắng">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/sl207-black.jpg" aria-label="Ảnh SL207 màu đen">
+              <img src="../images/sl207-black.jpg" alt="SL207 màu đen">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/sl207-lifestyle-travel.jpg" aria-label="SL207 trong vali">
+              <img src="../images/sl207-lifestyle-travel.jpg" alt="SL207 trong vali">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/sl207-lifestyle-devices.jpg" aria-label="SL207 với thiết bị Apple">
+              <img src="../images/sl207-lifestyle-devices.jpg" alt="SL207 với thiết bị Apple">
+            </button>
+            <button class="product-gallery-thumb" type="button" data-src="../images/sl207-lifestyle-airport.jpg" aria-label="SL207 trên đường du lịch">
+              <img src="../images/sl207-lifestyle-airport.jpg" alt="SL207 trên đường du lịch">
+            </button>
+          </div>
+        </div>
       </div>
       <div class="product-hero-content">
         <span class="section-label">/ Travel power · PD 35W</span>
@@ -102,9 +123,13 @@
           Ổ điện đa năng PD 35W. Sạc cùng lúc 5 thiết bị. Dùng được tại 180+ quốc gia.
         </p>
 
-        <div class="product-hero-description">
-          <p>Tích hợp 4 loại chân cắm (Type A/C/G/I) trượt gập gọn. 3 cổng USB-A và 2 cổng USB-C, sạc nhanh tối đa 35W. Cầu chì 10A và lẫy bảo vệ trẻ em tích hợp sẵn.</p>
-        </div>
+        <ul class="product-hero-bullets">
+          <li>4 loại chân cắm Type A/C/G/I tích hợp sẵn, trượt gập gọn trong 1 giây</li>
+          <li>3 cổng USB-A và 2 cổng USB-C, sạc nhanh tối đa 35W</li>
+          <li>Sạc cùng lúc 5 thiết bị, công suất tối đa 2500W ở 250V</li>
+          <li>Cầu chì 10A và lẫy bảo vệ trẻ em tích hợp sẵn</li>
+          <li>2 màu Đen / Trắng, chỉ 164g — nhỏ gọn cầm tay</li>
+        </ul>
 
         <div class="product-hero-price-row">
           <span class="price-current">500.000đ</span>
@@ -466,5 +491,20 @@
   </aside>
 
   <script src="../script.js"></script>
+  <script>
+    // Product gallery
+    (function() {
+      const main = document.getElementById('galleryMain');
+      const thumbs = document.querySelectorAll('.product-gallery-thumb');
+      if (!main || !thumbs.length) return;
+      thumbs.forEach(t => t.addEventListener('click', () => {
+        const src = t.dataset.src;
+        if (!src) return;
+        main.src = src;
+        thumbs.forEach(x => x.classList.remove('is-active'));
+        t.classList.add('is-active');
+      }));
+    })();
+  </script>
 </body>
 </html>
