@@ -1283,7 +1283,7 @@ input, select, textarea, button {
 
 .lifestyle-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
@@ -1296,6 +1296,7 @@ input, select, textarea, button {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: 16px;
+  text-decoration: none;
   transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
 }
 
@@ -1315,6 +1316,19 @@ input, select, textarea, button {
   font-size: 16px;
   font-weight: 700;
   color: var(--text-primary);
+}
+
+.lifestyle-card-link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--brand);
+  transition: padding-left 0.2s var(--ease);
+}
+
+.lifestyle-card:hover .lifestyle-card-link {
+  padding-left: 4px;
 }
 
 .lifestyle-card-soon {
