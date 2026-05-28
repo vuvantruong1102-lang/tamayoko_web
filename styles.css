@@ -493,6 +493,67 @@ input, select, textarea, button {
   display: none;
 }
 
+/* Yokool brand logo inside nav trigger */
+.nav-dropdown-btn--brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-brand-logo {
+  height: 16px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Wide panel for the Yokool brand menu */
+.nav-dropdown-panel--wide {
+  min-width: 260px;
+}
+
+/* Small label at top of a dropdown panel */
+.nav-panel-label {
+  display: block;
+  padding: 6px 14px 10px;
+  margin-bottom: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* "Coming soon" leaf items (non-clickable) */
+.nav-leaf--soon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--text-tertiary);
+  cursor: default;
+}
+
+.nav-leaf--soon:hover {
+  background: transparent;
+  color: var(--text-tertiary);
+  padding-left: 14px;
+}
+
+.nav-soon-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--brand);
+  background: var(--brand-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
 .menu-toggle {
   display: none;
   width: 32px;
@@ -1203,6 +1264,84 @@ input, select, textarea, button {
   letter-spacing: 0.1em;
 }
 
+/* ============ LIFESTYLE TEASER ============ */
+.lifestyle-section {
+  padding: var(--section-padding) 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.lifestyle-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.lifestyle-copy .section-label {
+  margin-bottom: 16px;
+}
+
+.lifestyle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.lifestyle-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 28px 22px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.lifestyle-card:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-4px);
+}
+
+.lifestyle-card-icon {
+  font-size: 30px;
+  line-height: 1;
+  color: var(--brand);
+}
+
+.lifestyle-card-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.lifestyle-card-soon {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--brand);
+  background: var(--brand-soft);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+@media (max-width: 860px) {
+  .lifestyle-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 560px) {
+  .lifestyle-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ============ WHY YOKOOL ============ */
 .why-section {
   padding: var(--section-padding) 0;
@@ -1380,6 +1519,13 @@ input, select, textarea, button {
 
 .footer-col a:hover {
   color: var(--brand);
+}
+
+.footer-soon {
+  display: block;
+  padding: 6px 0;
+  font-size: 14px;
+  color: var(--text-tertiary);
 }
 
 .footer-social {
