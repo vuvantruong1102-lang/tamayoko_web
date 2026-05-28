@@ -752,6 +752,15 @@ input, select, textarea, button {
   background: var(--bg-base);
 }
 
+.products-section--alt {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.products-section--alt .product-card {
+  background: var(--bg-base);
+}
+
 .products-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
