@@ -1,0 +1,24 @@
+CẬP NHẬT — thêm trang "Tra cứu bảo hành" cho tamayoko.com
+===================================================
+
+ĐÃ LÀM:
+1. Thêm trang MỚI: kich-hoat-bao-hanh.html
+   - Có header + menu + footer đồng bộ với web hiện tại.
+   - Tự động chuyển hướng (và có nút bấm) sang trang nhập thông tin bảo hành:
+     https://baohanhapp.vercel.app/
+2. Thêm menu "Tra cứu bảo hành" vào thanh điều hướng, NGAY SAU "Liên hệ",
+   trên TẤT CẢ các trang (gồm cả trang trong products/ và news/).
+
+CÁCH UPLOAD (giữ nguyên cấu trúc thư mục):
+- Up đè toàn bộ các file trong gói này lên repo tamayoko_web (GitHub), giữ đúng
+  đường dẫn thư mục (các file trong products/ và news/ phải nằm đúng chỗ).
+- Cloudflare sẽ tự build lại web tĩnh.
+- Sau khi deploy: kiểm tra menu trang chủ có "Tra cứu bảo hành" sau "Liên hệ",
+  bấm vào ra trang chuyển hướng sang app bảo hành.
+
+GHI CHÚ:
+- Trang gốc dùng link "kich-hoat-bao-hanh.html".
+- Trang con (products/, news/) dùng "../kich-hoat-bao-hanh.html" (đã xử lý đúng).
+- Nếu muốn ĐỔI nội dung/giao diện trang chờ, sửa trong kich-hoat-bao-hanh.html.
+- Nếu muốn BỎ tự động chuyển hướng (chỉ để khách tự bấm nút), xóa đoạn
+  <script> setTimeout(...) ở cuối file kich-hoat-bao-hanh.html.
