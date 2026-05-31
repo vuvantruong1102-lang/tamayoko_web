@@ -110,28 +110,39 @@
     </div>
   </header>
 
+  
   <!-- ============ KÍCH HOẠT BẢO HÀNH ============ -->
   <main class="warranty-redirect">
-    <section class="wr-hero">
-      <div class="container wr-inner">
-        <span class="wr-eyebrow">Trung tâm bảo hành Tamayoko</span>
-        <h1 class="wr-title">Tra cứu &amp; kích hoạt bảo hành</h1>
-        <p class="wr-desc">
-          Kích hoạt bảo hành điện tử cho sản phẩm Tamayoko chỉ trong một phút.
-          Nhập mã đơn hàng và số điện thoại để xác nhận quyền lợi bảo hành của bạn.
-        </p>
-        <a href="https://baohanhapp.vercel.app/" class="wr-btn" id="wrGo">
-          Mở trang kích hoạt bảo hành →
-        </a>
-        <p class="wr-note">Bạn sẽ được chuyển tới hệ thống bảo hành an toàn của chúng tôi.</p>
-      </div>
-    </section>
+    <div class="wr-inner">
+      <span class="wr-eyebrow">Trung tâm bảo hành Tamayoko</span>
+      <h1 class="wr-title">Tra cứu &amp; kích hoạt bảo hành</h1>
+      <p class="wr-desc">
+        Kích hoạt bảo hành điện tử cho sản phẩm Tamayoko chỉ trong một phút.
+        Nhập mã đơn hàng và số điện thoại để xác nhận quyền lợi bảo hành của bạn.
+      </p>
+      <a href="https://baohanh.tamayoko.com" class="wr-btn" id="wrGo">
+        Mở trang kích hoạt bảo hành →
+      </a>
+      <p class="wr-note">Đang chuyển tới hệ thống bảo hành an toàn của chúng tôi…</p>
+    </div>
   </main>
 
   <style>
-    .warranty-redirect{min-height:60vh;display:flex;align-items:center;
-      background:radial-gradient(120% 120% at 50% 0%,#fff 0%,#faf8f6 100%)}
-    .wr-inner{text-align:center;max-width:640px;margin:0 auto;padding:80px 20px}
+    .warranty-redirect{
+      min-height:62vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:80px 20px;
+      box-sizing:border-box;
+      background:radial-gradient(120% 120% at 50% 0%,#fff 0%,#faf8f6 100%);
+    }
+    .wr-inner{
+      width:100%;
+      max-width:600px;
+      margin:0 auto;
+    }
     .wr-eyebrow{display:inline-block;font-size:13px;letter-spacing:.08em;
       text-transform:uppercase;color:#c20e35;font-weight:700;margin-bottom:16px}
     .wr-title{font-size:clamp(28px,5vw,44px);font-weight:800;line-height:1.15;
@@ -145,9 +156,10 @@
   </style>
 
   <script>
-    // Tự động chuyển hướng sau 1.2s; nếu khách bấm nút thì đi ngay.
-    setTimeout(function(){ window.location.href = "https://baohanhapp.vercel.app/"; }, 1200);
+    // Tự động chuyển hướng sau 1.2s; khách bấm nút thì đi ngay.
+    setTimeout(function(){ window.location.href = "https://baohanh.tamayoko.com"; }, 1200);
   </script>
+
 
   <footer class="site-footer">
     <div class="container footer-inner">
