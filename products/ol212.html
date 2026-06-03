@@ -181,6 +181,18 @@
           <span class="price-tag">Giá lẻ · đã VAT</span>
         </div>
 
+        <div class="product-qty-block">
+          <div class="product-qty-label">Số lượng</div>
+          <div class="product-qty-selector">
+            <button type="button" class="product-qty-btn qty-minus" aria-label="Giảm">&#8249;</button>
+            <span class="product-qty-value" id="qtyValue">1</span>
+            <button type="button" class="product-qty-btn qty-plus" aria-label="Tăng">&#8250;</button>
+          </div>
+          <div class="product-stock-badge is-in-stock" id="stockBadge">
+            <span class="stock-dot"></span><span class="stock-text">Còn hàng, giao ngay</span>
+          </div>
+        </div>
+
         <div class="product-hero-actions">
           <button class="cta-button cta-button--large buy-now-btn"
             data-id="ol212"
@@ -741,5 +753,59 @@
 
     })();
   </script>
+  <script>
+    // Quantity selector + stock status
+    (function() {
+      const qtyVal = document.getElementById('qtyValue');
+      const minus = document.querySelector('.qty-minus');
+      const plus = document.querySelector('.qty-plus');
+      const badge = document.getElementById('stockBadge');
+      const actions = document.querySelector('.product-hero-actions');
+      const swatches = document.querySelectorAll('.product-color-swatch[data-color]');
+      let qty = 1;
+      const MAX = 99;
+
+      function syncQty() {
+        if (qtyVal) qtyVal.textContent = qty;
+        if (minus) minus.disabled = qty <= 1;
+        if (plus) plus.disabled = qty >= MAX;
+        document.querySelectorAll('.buy-now-btn, .add-to-cart-btn').forEach(b => {
+          b.dataset.qty = qty;
+        });
+      }
+      if (minus) minus.addEventListener('click', () => { if (qty > 1) { qty--; syncQty(); } });
+      if (plus) plus.addEventListener('click', () => { if (qty < MAX) { qty++; syncQty(); } });
+      syncQty();
+
+      function setStock(inStock) {
+        if (!badge) return;
+        const txt = badge.querySelector('.stock-text');
+        if (inStock) {
+          badge.classList.add('is-in-stock');
+          badge.classList.remove('is-out-of-stock');
+          if (txt) txt.textContent = 'Còn hàng, giao ngay';
+          if (actions) actions.classList.remove('is-out-of-stock');
+        } else {
+          badge.classList.add('is-out-of-stock');
+          badge.classList.remove('is-in-stock');
+          if (txt) txt.textContent = 'Tạm hết hàng';
+          if (actions) actions.classList.add('is-out-of-stock');
+        }
+      }
+
+      // Nếu sản phẩm có phân loại màu hết hàng, cập nhật khi đổi màu
+      if (swatches.length) {
+        swatches.forEach(s => {
+          s.addEventListener('click', () => {
+            setStock(s.dataset.stock !== 'out');
+          });
+        });
+        // trạng thái ban đầu theo swatch đang active
+        const active = document.querySelector('.product-color-swatch.is-active');
+        if (active) setStock(active.dataset.stock !== 'out');
+      }
+    })();
+  </script>
 </body>
+
 </html>
