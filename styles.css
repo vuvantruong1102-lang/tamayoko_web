@@ -6127,12 +6127,18 @@ body.cart-drawer-open .contact-widget {
   filter: grayscale(0.4);
 }
 
-.product-stock-badge { 
-  /* luôn xuống dòng riêng dưới bộ chọn số lượng */
+/* Badge nằm CẠNH bộ chọn số lượng (cùng hàng) */
+.product-qty-block { display: block; }
+.product-qty-label { margin-bottom: 10px; }
+.product-qty-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
 }
-.product-qty-selector { display: flex; width: max-content; }
-.product-stock-badge { display: inline-flex; }
-.product-qty-block .product-stock-badge { margin-top: 14px; }
-.product-qty-block .product-qty-selector + .product-stock-badge,
-.product-qty-block .product-stock-badge { clear: both; }
-.product-qty-block { display: flex; flex-direction: column; align-items: flex-start; }
+.product-qty-selector { display: inline-flex; width: max-content; }
+.product-stock-badge { display: inline-flex; margin-top: 0; }
+@media (max-width: 420px) {
+  .product-qty-row { gap: 10px; }
+  .product-stock-badge { font-size: 0.82rem; padding: 8px 14px; }
+}

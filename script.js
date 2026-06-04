@@ -503,6 +503,7 @@
       name: btn.dataset.name,
       price: parseInt(btn.dataset.price, 10) || 0,
       image: btn.dataset.image,
+      qty: Math.max(1, parseInt(btn.dataset.qty, 10) || 1),
     };
   }
 
@@ -519,7 +520,6 @@
     btn.addEventListener('click', () => {
       const product = readProductFromButton(btn);
       if (!product.id) return;
-      product.qty = 1;
       sessionStorage.setItem('Tamayoko_buy_now', JSON.stringify(product));
       window.location.href = pathPrefix() + 'checkout.html';
     });
