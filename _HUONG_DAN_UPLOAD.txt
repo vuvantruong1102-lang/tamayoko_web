@@ -1,0 +1,45 @@
+================================================================
+HƯỚNG DẪN UPLOAD LÊN GITHUB - Yokool Logo Migration
+================================================================
+
+GÓI NÀY GỒM 29 FILE - chỉ những file CÓ THAY ĐỔI hoặc MỚI:
+
+📁 images/ - 4 FILE ẢNH LOGO MỚI (upload bổ sung):
+   - yokool-logo.png             (logo header, không slogan)
+   - yokool-logo-white.png       (logo header, phiên bản trắng cho dark mode)
+   - yokool-logo-slogan.png      (logo footer, có slogan "STAY POWERED, STAY COOL")
+   - yokool-logo-slogan-white.png (logo footer, phiên bản trắng)
+
+📄 25 FILE HTML/CSS/JS đã update (upload đè lên file cũ):
+   - styles.css                  (footer logo height 72px→96px để slogan đọc rõ)
+   - script.js                   (cập nhật hotline trong code)
+   - index.html, b2b.html, faq.html, lien-he.html, bao-hanh.html
+   - van-chuyen.html, checkout.html, news.html, sl207.html
+   - products/jp395.html, ol212.html, rc502.html, sl207.html
+   - news/ (10 file)
+
+⚠️ HÀNH ĐỘNG BỔ SUNG TRÊN GITHUB:
+   Sau khi upload xong, vào GitHub web → vào thư mục images/ →
+   XOÁ file cũ "Yokool.png" (không còn dùng nữa).
+
+✅ NHỮNG GÌ ĐÃ THAY:
+   1. Logo Yokool → Yokool (header no slogan, footer có slogan)
+   2. Hotline 0971222822 → 0822838665 (mọi định dạng)
+   3. Email contact@Yokool.com → contact@yokool.vn
+   4. Domain Yokool.com → yokool.vn
+   5. Facebook → facebook.com/yokoolvietnam
+   6. TikTok → tiktok.com/@yokool.vit.nam
+   7. Shopee → shopee.vn/tamayokoofficial
+   8. Zalo number cập nhật theo hotline mới
+
+❌ NHỮNG GÌ KHÔNG THAY (bạn tự sửa sau):
+   - Text "Yokool" / "Yokool" trong nội dung HTML
+   - alt="Yokool" của logo images
+   - aria-label="Facebook Yokool" / "TikTok Yokool"
+   - Title pages, copyright footer
+   - Tên công ty "VNF Việt Nam" (giữ nguyên theo yêu cầu)
+   
+   Còn ~249 chỗ text "Yokool" trong HTML để bạn search & replace tay
+   hoặc nhờ Claude làm sau.
+
+================================================================

@@ -1,0 +1,15 @@
+# ============================================================
+# _redirects - Cloudflare Pages redirect rules
+# Format: <source> <destination> <status>
+# ============================================================
+
+# Legacy news URLs → modern URLs (giữ SEO)
+/news.html         /news                    301
+/news.html/        /news                    301
+
+# Legacy article URLs với .html → modern không có .html
+# Cloudflare auto strip .html nhưng để tường minh
+/news/:slug.html   /news/:slug              301
+
+# Optional: trailing slash cleanup
+/news/             /news                    301

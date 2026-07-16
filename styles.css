@@ -256,6 +256,7 @@ input, select, textarea, button {
 .logo {
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
   text-decoration: none;
   color: var(--text-primary);
   transition: opacity 0.2s var(--ease);
@@ -268,6 +269,8 @@ input, select, textarea, button {
 .logo-img {
   height: 52px;
   width: auto;
+  max-width: 100%;
+  object-fit: contain;
   display: block;
 }
 
@@ -285,7 +288,7 @@ input, select, textarea, button {
 }
 
 .footer-brand .logo-img {
-  height: 72px;
+  height: 96px;
 }
 
 .main-nav {
@@ -493,67 +496,6 @@ input, select, textarea, button {
   display: none;
 }
 
-/* Yokool brand logo inside nav trigger */
-.nav-dropdown-btn--brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.nav-brand-logo {
-  height: 16px;
-  width: auto;
-  display: block;
-  object-fit: contain;
-}
-
-/* Wide panel for the Yokool brand menu */
-.nav-dropdown-panel--wide {
-  min-width: 260px;
-}
-
-/* Small label at top of a dropdown panel */
-.nav-panel-label {
-  display: block;
-  padding: 6px 14px 10px;
-  margin-bottom: 4px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-/* "Coming soon" leaf items (non-clickable) */
-.nav-leaf--soon {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  color: var(--text-tertiary);
-  cursor: default;
-}
-
-.nav-leaf--soon:hover {
-  background: transparent;
-  color: var(--text-tertiary);
-  padding-left: 14px;
-}
-
-.nav-soon-tag {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--brand);
-  background: var(--brand-soft);
-  padding: 2px 7px;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-
 .menu-toggle {
   display: none;
   width: 32px;
@@ -749,15 +691,6 @@ input, select, textarea, button {
 /* ============ FEATURED PRODUCTS GRID (HOME) ============ */
 .products-section {
   padding: var(--section-padding) 0;
-  background: var(--bg-base);
-}
-
-.products-section--alt {
-  background: var(--bg-surface);
-  border-top: 1px solid var(--border-subtle);
-}
-
-.products-section--alt .product-card {
   background: var(--bg-base);
 }
 
@@ -1273,98 +1206,6 @@ input, select, textarea, button {
   letter-spacing: 0.1em;
 }
 
-/* ============ LIFESTYLE TEASER ============ */
-.lifestyle-section {
-  padding: var(--section-padding) 0;
-  border-top: 1px solid var(--border-subtle);
-}
-
-.lifestyle-inner {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 56px;
-  align-items: center;
-}
-
-.lifestyle-copy .section-label {
-  margin-bottom: 16px;
-}
-
-.lifestyle-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.lifestyle-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 28px 22px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 16px;
-  text-decoration: none;
-  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
-}
-
-.lifestyle-card:hover {
-  border-color: var(--border-medium);
-  transform: translateY(-4px);
-}
-
-.lifestyle-card-icon {
-  font-size: 30px;
-  line-height: 1;
-  color: var(--brand);
-}
-
-.lifestyle-card-title {
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.lifestyle-card-link {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  color: var(--brand);
-  transition: padding-left 0.2s var(--ease);
-}
-
-.lifestyle-card:hover .lifestyle-card-link {
-  padding-left: 4px;
-}
-
-.lifestyle-card-soon {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--brand);
-  background: var(--brand-soft);
-  padding: 4px 10px;
-  border-radius: 999px;
-}
-
-@media (max-width: 860px) {
-  .lifestyle-inner {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-}
-
-@media (max-width: 560px) {
-  .lifestyle-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* ============ WHY YOKOOL ============ */
 .why-section {
   padding: var(--section-padding) 0;
@@ -1542,13 +1383,6 @@ input, select, textarea, button {
 
 .footer-col a:hover {
   color: var(--brand);
-}
-
-.footer-soon {
-  display: block;
-  padding: 6px 0;
-  font-size: 14px;
-  color: var(--text-tertiary);
 }
 
 .footer-social {
@@ -2622,7 +2456,8 @@ body.cart-drawer-open {
 
 /* ============ B2B PAGE ============ */
 .b2b-stats {
-  background: var(--text-primary);
+  /* Navy sẫm khớp với bìa catalogue PDF + section .b2b-catalogue */
+  background: #0F1422;
   color: #fff;
   padding: 32px 0;
 }
@@ -3052,7 +2887,8 @@ body.cart-drawer-open {
 /* Catalogue download CTA section */
 .b2b-catalogue {
   padding: var(--section-padding) 0;
-  background: var(--text-primary);
+  /* Navy sẫm khớp với bìa catalogue PDF (B2B 2026) */
+  background: #0F1422;
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -3842,6 +3678,26 @@ body.cart-drawer-open .contact-widget {
   display: block;
   transition: opacity 0.3s var(--ease);
 }
+.product-gallery-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+  display: block;
+}
+.product-gallery-thumb--video { position: relative; }
+.product-gallery-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.product-gallery-play svg { width: 16px; height: 16px; margin-left: 2px; }
 .product-gallery-thumbs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
@@ -6038,6 +5894,135 @@ body.cart-drawer-open .contact-widget {
     padding: 0 18px 20px;
   }
 }
+/* ============================================
+   BLOG ARTICLE ADDITIONS — Yokool
+   Thêm các class này vào CUỐI file styles.css
+   ============================================ */
+
+/* ============ TAGS ============ */
+.article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 0;
+  margin-top: 32px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.article-tags-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-right: 4px;
+}
+
+.article-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.article-tag:hover {
+  background: var(--brand-soft);
+  border-color: var(--brand);
+  color: var(--brand);
+  transform: translateY(-1px);
+}
+
+.article-tag::before {
+  content: '#';
+  margin-right: 2px;
+  color: var(--text-tertiary);
+  font-weight: 600;
+}
+
+.article-tag:hover::before {
+  color: var(--brand);
+}
+
+/* ============ FAQ BLOCK ============ */
+.article-faq-item {
+  padding: 20px 24px;
+  margin: 16px 0;
+  background: var(--bg-surface);
+  border-left: 4px solid var(--brand);
+  border-radius: 8px;
+}
+
+.article-faq-q {
+  font-size: 17px;
+  margin: 0 0 12px 0;
+  color: var(--text-primary);
+}
+
+.article-faq-q strong {
+  font-weight: 700;
+}
+
+.article-faq-a {
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* ============ SUBSECTION H3 ============ */
+.article-subsection-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 32px 0 16px 0;
+  color: var(--text-primary);
+}
+
+/* ============ BLOCKQUOTE ============ */
+.article-blockquote {
+  padding: 16px 24px;
+  margin: 24px 0;
+  background: var(--bg-surface);
+  border-left: 4px solid var(--text-tertiary);
+  font-style: italic;
+  color: var(--text-secondary);
+  border-radius: 4px;
+}
+
+/* ============ INLINE FIGURE ============ */
+.article-figure {
+  margin: 32px 0;
+  text-align: center;
+}
+
+.article-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 640px) {
+  .article-tags {
+    gap: 6px;
+  }
+  .article-tag {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+  .article-faq-item {
+    padding: 16px 18px;
+  }
+  .article-faq-q {
+    font-size: 16px;
+  }
+}
 
 /* ===== Quantity selector + Stock badge (product pages) ===== */
 .product-qty-block {
@@ -6141,4 +6126,39 @@ body.cart-drawer-open .contact-widget {
 @media (max-width: 420px) {
   .product-qty-row { gap: 10px; }
   .product-stock-badge { font-size: 0.82rem; padding: 8px 14px; }
+}
+
+/* ============ ANNOUNCEMENT BAR (Tamayoko → Yokool) ============ */
+:root { --announce-h: 40px; }
+.announce-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 120;
+  min-height: var(--announce-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: var(--brand);
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.2px;
+  box-sizing: border-box;
+}
+.announce-bar a { color: #fff; text-decoration: underline; }
+/* Header fixed nằm ngay dưới thanh thông báo */
+.site-header { top: var(--announce-h); }
+/* Đẩy section đầu của mọi loại trang xuống thêm đúng chiều cao thanh */
+.hero-carousel { margin-top: calc(72px + var(--announce-h)); }
+.product-hero { padding-top: calc(120px + var(--announce-h)); }
+.support-hero { padding-top: calc(96px + var(--announce-h)); }
+.news-hero { padding-top: calc(140px + var(--announce-h)); }
+.checkout-page { padding-top: calc(120px + var(--announce-h)); }
+.article { padding-top: var(--announce-h); }
+@media (max-width: 600px) {
+  :root { --announce-h: 56px; }
+  .announce-bar { font-size: 12px; }
 }

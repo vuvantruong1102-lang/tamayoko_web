@@ -1,0 +1,12 @@
+# robots.txt cho yokool.vn
+# Cho phép tất cả search engine crawl toàn bộ website
+
+User-agent: *
+Allow: /
+
+# Không cho crawl các trang không cần SEO
+Disallow: /checkout.html
+Disallow: /*.code-search$
+
+# Vị trí sitemap
+Sitemap: https://yokool.vn/sitemap.xml

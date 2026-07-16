@@ -1,5 +1,5 @@
 /* ============================================
-   Tamayoko — Interaction layer
+   Yokool — Interaction layer
    - Hero carousel (auto-rotate, manual nav, dots)
    - Sticky header on scroll
    - Mobile menu toggle
@@ -20,7 +20,7 @@
   function sendToBackend(payload) {
     // Bỏ qua nếu chưa cấu hình URL
     if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.length < 20) {
-      console.warn('[Tamayoko] Apps Script URL chưa cấu hình — đơn chỉ lưu localStorage.');
+      console.warn('[Yokool] Apps Script URL chưa cấu hình — đơn chỉ lưu localStorage.');
       return Promise.resolve({ ok: false, reason: 'not_configured' });
     }
     // Dùng no-cors + text/plain để tránh CORS preflight với Google Apps Script.
@@ -32,7 +32,7 @@
       body: JSON.stringify(payload),
     }).then(() => ({ ok: true }))
       .catch((err) => {
-        console.error('[Tamayoko] Backend error:', err);
+        console.error('[Yokool] Backend error:', err);
         return { ok: false, error: String(err) };
       });
   }
@@ -294,8 +294,8 @@
   }
 
   const Cart = {
-    KEY: 'Tamayoko_cart_v1',
-    ORDERS_KEY: 'Tamayoko_orders_v1',
+    KEY: 'Yokool_cart_v1',
+    ORDERS_KEY: 'Yokool_orders_v1',
 
     getItems() {
       try {
@@ -440,8 +440,8 @@
   };
 
   // Expose globally for inline handlers / debugging
-  window.TamayokoCart = Cart;
-  window.TamayokoSendToBackend = sendToBackend; // for lien-he.html
+  window.YokoolCart = Cart;
+  window.YokoolSendToBackend = sendToBackend; // for lien-he.html
 
   // ============ TOAST NOTIFICATIONS ============
   function showToast(message, type = 'success') {
@@ -464,7 +464,7 @@
       setTimeout(() => toast.remove(), 300);
     }, 2800);
   }
-  window.TamayokoToast = showToast;
+  window.YokoolToast = showToast;
 
   // ============ CART DRAWER TOGGLE ============
   function pathPrefix() {
@@ -520,7 +520,7 @@
     btn.addEventListener('click', () => {
       const product = readProductFromButton(btn);
       if (!product.id) return;
-      sessionStorage.setItem('Tamayoko_buy_now', JSON.stringify(product));
+      sessionStorage.setItem('Yokool_buy_now', JSON.stringify(product));
       window.location.href = pathPrefix() + 'checkout.html';
     });
   });
@@ -530,7 +530,7 @@
       showToast('Giỏ hàng đang trống', 'info');
       return;
     }
-    sessionStorage.removeItem('Tamayoko_buy_now');
+    sessionStorage.removeItem('Yokool_buy_now');
     window.location.href = pathPrefix() + 'checkout.html';
   });
 
@@ -554,7 +554,7 @@
     // Pick items: buy-now mode if sessionStorage has it, else cart
     let items;
     let isBuyNow = false;
-    const buyNowRaw = sessionStorage.getItem('Tamayoko_buy_now');
+    const buyNowRaw = sessionStorage.getItem('Yokool_buy_now');
     if (buyNowRaw) {
       try {
         const buyNow = JSON.parse(buyNowRaw);
@@ -579,10 +579,10 @@
       // Persist mutation back to source of truth
       if (isBuyNow) {
         if (items.length === 0) {
-          sessionStorage.removeItem('Tamayoko_buy_now');
+          sessionStorage.removeItem('Yokool_buy_now');
         } else {
           // Buy-now is single item — keep only first
-          sessionStorage.setItem('Tamayoko_buy_now', JSON.stringify(items[0]));
+          sessionStorage.setItem('Yokool_buy_now', JSON.stringify(items[0]));
         }
       } else {
         Cart.setItems(items);
@@ -731,7 +731,7 @@
         paymentMethod: 'COD',
       };
 
-      // Save locally so Jay can debug via console: TamayokoCart.getOrders()
+      // Save locally so Jay can debug via console: YokoolCart.getOrders()
       Cart.saveOrder(order);
 
       // Disable submit button to prevent double-submit
@@ -744,11 +744,11 @@
 
       // Gửi đơn đến Google Sheets qua Apps Script webhook
       sendToBackend(order).then((result) => {
-        console.log('[Tamayoko order]', order, 'backend:', result);
+        console.log('[Yokool order]', order, 'backend:', result);
 
         // Clear buy-now / cart
         if (isBuyNow) {
-          sessionStorage.removeItem('Tamayoko_buy_now');
+          sessionStorage.removeItem('Yokool_buy_now');
         } else {
           Cart.clear();
         }
@@ -789,12 +789,12 @@
 
   // ============ FLOATING CONTACT WIDGET ============
   // Inject the contact widget on every page automatically.
-  // Update the 3 links below with Tamayoko's real channels.
+  // Update the 3 links below with Yokool's real channels.
   const CONTACT_CONFIG = {
-    messenger: 'https://m.me/tamayokoofficial',  // Tamayoko Facebook Page
-    zalo: 'https://zalo.me/0971222822',          // Tamayoko Zalo
-    phone: '0971222822',                          // Hotline thật (dùng cho tel:)
-    phoneDisplay: '0971 222 822',                 // Hotline hiển thị tooltip
+    messenger: 'https://m.me/Yokoolofficial',  // Yokool Facebook Page
+    zalo: 'https://zalo.me/0822838665',          // Yokool Zalo
+    phone: '0822838665',                          // Hotline thật (dùng cho tel:)
+    phoneDisplay: '0822 838 665',                 // Hotline hiển thị tooltip
   };
 
   function injectContactWidget() {
@@ -802,7 +802,7 @@
 
     const widget = document.createElement('div');
     widget.className = 'contact-widget';
-    widget.setAttribute('aria-label', 'Liên hệ Tamayoko');
+    widget.setAttribute('aria-label', 'Liên hệ Yokool');
     widget.innerHTML = `
       <a href="${CONTACT_CONFIG.messenger}" target="_blank" rel="noopener noreferrer"
         class="contact-widget-btn contact-widget-btn--messenger"
@@ -970,8 +970,8 @@
 
   // ============ CONSOLE EASTER EGG ============
   if (typeof console !== 'undefined' && console.log) {
-    console.log('%c Tamayoko ', 'background:#DC143B;color:#fff;font-weight:bold;font-size:14px;padding:4px 8px;');
-    console.log('%c Công nghệ vì cuộc sống tốt đẹp hơn ', 'color:#888;font-style:italic;');
+    console.log('%c Yokool ', 'background:#DC143B;color:#fff;font-weight:bold;font-size:14px;padding:4px 8px;');
+    console.log('%c Stay powered. Stay Cool ', 'color:#888;font-style:italic;');
     console.log('Build: v2.1 — Google Sheets backend integration');
   }
 })();

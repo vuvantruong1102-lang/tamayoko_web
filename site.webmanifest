@@ -1,0 +1,23 @@
+{
+  "name": "Yokool",
+  "short_name": "Yokool",
+  "description": "Yokool — Thương hiệu phụ kiện sạc thông minh",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#E32636",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}

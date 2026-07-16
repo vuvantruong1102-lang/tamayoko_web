@@ -1,0 +1,614 @@
+/* ============================================================
+ * blog-enhance.css
+ * Styles cho TOC, lightbox, callouts trên trang bài viết yokool.vn
+ *
+ * Sử dụng: thêm <link rel="stylesheet" href="/blog-enhance.css">
+ * vào head của trang article (function tự include)
+ * ============================================================ */
+
+/* ============================================================
+   1. Reading Progress Bar
+   - Đã inline trong JS, không cần CSS thêm
+   ============================================================ */
+
+/* ============================================================
+   2. Table of Contents
+   ============================================================ */
+#article-toc {
+  /* Inline block ở đầu bài viết - không còn sticky bên phải */
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 32px;
+  background: #fafafa;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: none;
+  z-index: 1;
+  overflow: hidden;
+  font-family: var(--font-sans, 'Be Vietnam Pro', sans-serif);
+  display: flex;
+  flex-direction: column;
+}
+
+#article-toc.is-collapsed .toc-list {
+  display: none;
+}
+#article-toc.is-collapsed {
+  /* Khi thu gọn vẫn full-width, không thu nhỏ về icon */
+  max-height: none;
+}
+
+.toc-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fafbfc;
+}
+
+.toc-icon {
+  font-size: 16px;
+  color: #6b7280;
+  font-weight: bold;
+}
+
+.toc-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1f2937;
+  flex: 1;
+  letter-spacing: -0.01em;
+}
+
+.toc-toggle {
+  background: transparent;
+  border: none;
+  width: 22px;
+  height: 22px;
+  font-size: 18px;
+  line-height: 1;
+  color: #6b7280;
+  cursor: pointer;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.toc-toggle:hover {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.toc-item {
+  position: relative;
+}
+
+.toc-item a {
+  display: block;
+  padding: 6px 14px 6px 18px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #6b7280;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.toc-h2 a {
+  padding-left: 18px;
+  font-weight: 500;
+}
+.toc-h3 a {
+  padding-left: 32px;
+  font-size: 12px;
+}
+
+.toc-item a:hover {
+  color: #DC143B;
+  background: #fff8f9;
+}
+
+.toc-item a.is-active {
+  color: #DC143B;
+  border-left-color: #DC143B;
+  background: #fff8f9;
+  font-weight: 600;
+}
+
+/* TOC scrollbar nhỏ gọn */
+.toc-list::-webkit-scrollbar {
+  width: 4px;
+}
+.toc-list::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+/* Responsive - TOC ẩn dưới 1280px (vì không có chỗ) */
+@media (max-width: 1280px) {
+  /* Desktop đã inline, không cần override */
+}
+@media (max-width: 640px) {
+  #article-toc {
+    margin: 0 0 24px;
+  }
+  .toc-list {
+    max-height: 40vh;
+  }
+}
+
+/* ============================================================
+   3. Image Lightbox
+   ============================================================ */
+#lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: zoom-out;
+}
+#lightbox-overlay.is-visible {
+  opacity: 1;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: calc(100vh - 120px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  cursor: default;
+}
+
+.lightbox-caption {
+  color: rgba(255,255,255,0.9);
+  font-size: 14px;
+  margin-top: 16px;
+  text-align: center;
+  max-width: 720px;
+  padding: 0 20px;
+  cursor: default;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: white;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+.lightbox-close:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ============================================================
+   4. Callout boxes - hiển thị bài viết CMS
+   ============================================================ */
+.article-body .callout {
+  border-left: 4px solid;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 1.5em 0;
+  font-size: 15px;
+  line-height: 1.65;
+}
+.article-body .callout > * { margin: 0.5em 0 !important; }
+.article-body .callout > *:first-child { margin-top: 0 !important; }
+.article-body .callout > *:last-child { margin-bottom: 0 !important; }
+.article-body .callout p { color: inherit !important; }
+
+.article-body .callout-info {
+  background: #eff6ff;
+  border-color: #3b82f6;
+  color: #1e3a8a;
+}
+.article-body .callout-warning {
+  background: #fffbeb;
+  border-color: #f59e0b;
+  color: #78350f;
+}
+.article-body .callout-success {
+  background: #f0fdf4;
+  border-color: #22c55e;
+  color: #14532d;
+}
+.article-body .callout-tip {
+  background: #faf5ff;
+  border-color: #a855f7;
+  color: #581c87;
+}
+
+/* ============================================================
+   5. Image alignment from CMS editor
+   ============================================================ */
+.article-body figure[data-resizable-image] {
+  margin: 1.5em 0;
+}
+.article-body figure[data-resizable-image][data-align="left"] {
+  text-align: left;
+}
+.article-body figure[data-resizable-image][data-align="center"] {
+  text-align: center;
+}
+.article-body figure[data-resizable-image][data-align="right"] {
+  text-align: right;
+}
+.article-body figure[data-resizable-image] img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: inline-block;
+}
+.article-body figure[data-resizable-image] figcaption {
+  font-size: 13px;
+  color: #6b7280;
+  font-style: italic;
+  margin-top: 8px;
+  text-align: inherit;
+}
+
+/* ============================================================
+   6. YouTube embed responsive
+   ============================================================ */
+.article-body iframe.youtube-embed,
+.article-body iframe[src*="youtube.com"],
+.article-body iframe[src*="youtube-nocookie.com"] {
+  display: block;
+  margin: 1.5em auto;
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: 12px;
+  border: none;
+}
+
+/* ============================================================
+   7. Tables from CMS
+   ============================================================ */
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 14px;
+  overflow-x: auto;
+  display: block;
+}
+@media (min-width: 720px) {
+  .article-body table { display: table; }
+}
+.article-body th, .article-body td {
+  border: 1px solid #e5e7eb;
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+.article-body th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+
+/* ============================================================
+   8. Related posts grid
+   ============================================================ */
+.article-related-section {
+  max-width: 1100px;
+  margin: 64px auto 0;
+  padding: 48px 24px 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.article-related-section h2 {
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  margin: 0 0 28px;
+  color: #111827;
+}
+
+.article-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.related-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.related-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  border-color: #111827;
+}
+
+.related-card-thumb {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+.related-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.related-card:hover .related-card-thumb img {
+  transform: scale(1.04);
+}
+
+.related-card-body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.related-card-category {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #DC143B;
+}
+
+.related-card-title {
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #111827;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .article-related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .article-related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   NEWS LIST PAGE (/news.html)
+   ============================================================ */
+.news-page {
+  min-height: 60vh;
+}
+
+.news-hero {
+  padding: 60px 0 40px;
+  background: linear-gradient(180deg, #fff5f5 0%, white 100%);
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.news-hero-title {
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 12px 0 16px;
+  color: #1a1a1a;
+}
+
+.news-hero-title em {
+  color: #DC143B;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.news-hero-tagline {
+  font-size: 18px;
+  color: #4b5563;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.news-list-section {
+  padding: 48px 0 80px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.news-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid #f3f4f6;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.news-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.news-card-image-link {
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #f9fafb;
+}
+
+.news-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.news-card:hover .news-card-image {
+  transform: scale(1.04);
+}
+
+.news-card-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card-category {
+  display: inline-block;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: #DC143B;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.news-card-title {
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 12px;
+}
+
+.news-card-title a {
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.news-card-title a:hover {
+  color: #DC143B;
+}
+
+.news-card-excerpt {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6b7280;
+  margin: 0 0 16px;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-card-meta {
+  font-size: 12px;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.news-card-dot {
+  opacity: 0.6;
+}
+
+.news-empty {
+  text-align: center;
+  padding: 80px 20px;
+  color: #6b7280;
+}
+
+.news-empty p {
+  margin-bottom: 20px;
+}
+
+.news-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.news-page-btn {
+  padding: 10px 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #4b5563;
+  text-decoration: none;
+  background: white;
+  transition: all 0.15s;
+}
+
+.news-page-btn:hover {
+  border-color: #DC143B;
+  color: #DC143B;
+}
+
+.news-page-btn--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  color: #9ca3af;
+}
+
+.news-page-current {
+  font-size: 14px;
+  color: #6b7280;
+  padding: 0 8px;
+}
+
+@media (max-width: 640px) {
+  .news-hero {
+    padding: 40px 0 30px;
+  }
+  .news-list-section {
+    padding: 32px 0 60px;
+  }
+  .news-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
