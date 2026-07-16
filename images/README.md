@@ -1,2 +1,2 @@
-# Tamayoko-web
-Tamayoko-web
+# Yokool-web
+Yokool-web
