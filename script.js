@@ -817,21 +817,9 @@
         class="contact-widget-btn contact-widget-btn--zalo"
         aria-label="Chat qua Zalo">
         <span class="contact-widget-label">Chat Zalo</span>
-        <svg class="contact-widget-zalo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M28 4 H72 Q94 4 94 26 V58 Q94 80 72 80 H56 L40 94 Q28 98 30 86 V78 Q6 74 6 52 V26 Q6 4 28 4 Z" fill="#0068FF"/>
-          <path d="M32 12 H68 Q86 12 86 28 V56 Q86 72 68 72 H54 L42 82 Q36 84 38 77 V72 Q14 68 14 50 V28 Q14 12 32 12 Z" fill="#FFFFFF"/>
-          <text x="50" y="48" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif" font-weight="800" font-size="22" fill="#0068FF" letter-spacing="-0.5">Zalo</text>
-        </svg>
+        <img class="contact-widget-zalo-img" src="/images/zalo-icon.png" alt="Zalo" width="120" height="120">
       </a>
 
-      <a href="tel:${CONTACT_CONFIG.phone}"
-        class="contact-widget-btn contact-widget-btn--phone"
-        aria-label="Gọi hotline ${CONTACT_CONFIG.phoneDisplay}">
-        <span class="contact-widget-label">Gọi hotline · ${CONTACT_CONFIG.phoneDisplay}</span>
-        <svg class="contact-widget-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-        </svg>
-      </a>
     `;
     document.body.appendChild(widget);
   }

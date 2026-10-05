@@ -59,13 +59,28 @@
 
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-      <a href="index.html" class="logo" aria-label="Tamayoko trang chủ">
-        <img src="images/tamayoko.png" alt="Tamayoko" class="logo-img">
+      <a href="index.html" class="logo" aria-label="Yokool trang chủ">
+        <img src="images/yokool-logo.png" alt="Yokool" class="logo-img logo-img--dark"><img src="images/yokool-logo-white.png" alt="Yokool" class="logo-img logo-img--light">
       </a>
 
       <nav class="main-nav" aria-label="Điều hướng chính">
         <a href="index.html" class="nav-link">Trang chủ</a>
-        <div class="nav-dropdown">
+<div class="nav-dropdown">
+          <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+            Ổ điện du lịch
+            <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-panel" role="menu">
+            <a href="products/nano.html" class="nav-leaf">NANO</a>
+            <a href="products/nomad25.html" class="nav-leaf">NOMAD 25</a>
+            <a href="products/atlas20.html" class="nav-leaf">ATLAS 20</a>
+            <a href="products/sl207.html" class="nav-leaf">ATLAS 35</a>
+            <a href="products/atlas70.html" class="nav-leaf">ATLAS 70</a>
+          </div>
+        </div>
+                <div class="nav-dropdown">
           <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
             Sạc dự phòng
             <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
@@ -87,18 +102,6 @@
             <a href="products/rc502.html" class="nav-leaf">RC502</a>
           </div>
         </div>
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
-            Ổ điện du lịch
-            <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
-              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="nav-dropdown-panel" role="menu">
-            <a href="products/sl207.html" class="nav-leaf">SL207</a>
-            <a href="products/ol212.html" class="nav-leaf">OL212</a>
-          </div>
-        </div>
         <a href="news.html" class="nav-link">Tin tức</a>
         <a href="b2b.html" class="nav-link">Hợp tác B2B</a>
         <a href="lien-he.html" class="nav-link">Liên hệ</a>
@@ -114,7 +117,7 @@
         <span class="cart-badge">0</span>
       </button>
 
-      <a href="https://shopee.vn/tamayokoofficial" target="_blank" rel="noopener" class="cta-button cta-button--small">
+      <a href="https://shopee.vn/yokoolstore" target="_blank" rel="noopener" class="cta-button cta-button--small">
         Mua tại Shopee <span class="cta-arrow">→</span>
       </a>
 
@@ -149,7 +152,7 @@
         <div class="slide-content">
           <span class="slide-eyebrow">/ Co-branding · Custom</span>
           <h2 class="slide-title">In logo<br>miễn phí.</h2>
-          <p class="slide-tagline">Khắc laser, in UV logo công ty trên từng sản phẩm. Miễn phí từ 05 đơn vị.</p>
+          <p class="slide-tagline">Khắc laser, in UV logo công ty trên từng sản phẩm. Miễn phí ngay từ đơn hàng đầu tiên (05 sản phẩm).</p>
           <div class="slide-cta-row">
             <a href="#b2b-catalogue" class="cta-button slide-cta">
               Tải catalogue <span class="cta-arrow">→</span>
@@ -166,10 +169,10 @@
         <div class="slide-content">
           <span class="slide-eyebrow">/ Wholesale · Bulk pricing</span>
           <h2 class="slide-title">Giá đại lý<br>từ 05 sp.</h2>
-          <p class="slide-tagline">Tiết kiệm tới 12% so với giá bán lẻ. Báo giá chi tiết trong 24h giờ hành chính.</p>
+          <p class="slide-tagline">Chiết khấu 15%–25% so với giá bán lẻ theo số lượng. Báo giá chi tiết trong 24h giờ hành chính.</p>
           <div class="slide-cta-row">
-            <a href="#b2b-catalogue" class="cta-button slide-cta">
-              Tải catalogue <span class="cta-arrow">→</span>
+            <a href="#b2b-tiers" class="cta-button slide-cta">
+              Xem bảng giá <span class="cta-arrow">→</span>
             </a>
             <a href="#b2b-inquiry" class="cta-button cta-button--ghost slide-cta">
               Nhận báo giá <span class="cta-arrow">→</span>
@@ -255,6 +258,39 @@
     </div>
   </section>
 
+  <!-- ============ VIDEO SHOWCASE ============ -->
+  <section class="b2b-video">
+    <div class="container b2b-video-inner">
+      <div class="b2b-video-media">
+        <video
+          class="b2b-video-player"
+          poster="images/b2b-video-poster.jpg"
+          controls
+          playsinline
+          muted
+          preload="metadata">
+          <source src="images/yokool-b2b.mp4" type="video/mp4">
+          Trình duyệt của bạn không hỗ trợ video.
+        </video>
+      </div>
+      <div class="b2b-video-content">
+        <span class="section-label">/ Sản phẩm Yokool</span>
+        <h2 class="section-title">Chất lượng <em>nhìn thấy được</em>.</h2>
+        <p class="section-description">
+          Từ ổ điện du lịch GaN đến sạc dự phòng MagSafe — mỗi sản phẩm Yokool đều được hoàn thiện để đại diện cho thương hiệu của doanh nghiệp bạn. Xem qua bộ sản phẩm trong video.
+        </p>
+        <ul class="b2b-video-points">
+          <li>Thiết kế hiện đại, phù hợp làm quà tặng cao cấp</li>
+          <li>In logo doanh nghiệp sắc nét bằng khắc laser / in UV</li>
+          <li>Đóng gói chỉn chu, sẵn sàng trao tặng đối tác, nhân viên</li>
+        </ul>
+        <a href="#b2b-inquiry" class="cta-button">
+          Nhận báo giá <span class="cta-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ CUSTOMERS / LOGO WALL ============ -->
   <section class="b2b-customers">
     <div class="container">
@@ -328,7 +364,7 @@
         <span class="section-label">/ Bảng giá đại lý</span>
         <h2 class="section-title">Ưu đãi <em>theo số lượng</em>.</h2>
         <p class="section-description">
-          Mức giá đại lý áp dụng cho tất cả sản phẩm trong danh mục. Càng đặt nhiều, ưu đãi càng cao.
+          Chiết khấu 15%–25% so với giá lẻ, áp dụng cho toàn bộ danh mục. In logo doanh nghiệp miễn phí ở mọi mức. Càng đặt nhiều, ưu đãi càng cao.
         </p>
       </div>
 
@@ -337,7 +373,7 @@
           <div class="b2b-tier-quantity">05-100 sản phẩm</div>
           <h3 class="b2b-tier-name">Khởi điểm</h3>
           <div class="b2b-tier-discount">
-            <span class="b2b-tier-discount-value">-5%</span>
+            <span class="b2b-tier-discount-value">-15%</span>
             <span class="b2b-tier-discount-label">so với giá lẻ</span>
           </div>
           <ul class="b2b-tier-features">
@@ -345,7 +381,7 @@
             <li>Đóng gói theo set nếu cần</li>
             <li>Hỗ trợ vận chuyển tận nơi</li>
             <li>Bảo hành 12 tháng chính hãng</li>
-            <li class="is-disabled">In logo công ty</li>
+            <li><strong>In logo công ty miễn phí</strong></li>
             <li class="is-disabled">Thiết kế gói quà riêng</li>
           </ul>
           <a href="#b2b-inquiry" class="cta-button cta-button--ghost cta-button--full">Nhận báo giá</a>
@@ -356,7 +392,7 @@
           <div class="b2b-tier-quantity">101-500 sản phẩm</div>
           <h3 class="b2b-tier-name">Doanh nghiệp</h3>
           <div class="b2b-tier-discount">
-            <span class="b2b-tier-discount-value">-10%</span>
+            <span class="b2b-tier-discount-value">-20%</span>
             <span class="b2b-tier-discount-label">so với giá lẻ</span>
           </div>
           <ul class="b2b-tier-features">
@@ -374,7 +410,7 @@
           <div class="b2b-tier-quantity">500+ sản phẩm</div>
           <h3 class="b2b-tier-name">Enterprise</h3>
           <div class="b2b-tier-discount">
-            <span class="b2b-tier-discount-value">−12%</span>
+            <span class="b2b-tier-discount-value">-25%</span>
             <span class="b2b-tier-discount-label">so với giá lẻ</span>
           </div>
           <ul class="b2b-tier-features">
@@ -522,8 +558,7 @@
             04 · KHÁCH HÀNG &amp; DỰ ÁN<br>
             05 · JP395 - SẠC DỰ PHÒNG<br>
             06 · RC502 - CỦ SẠC NHANH<br>
-            07 · OL212 - Ổ ĐIỆN ĐA NĂNG<br>
-            08 · SL207 - Ổ ĐIỆN CÔNG SUẤT CAO
+            08 · ATLAS 35 - Ổ ĐIỆN CÔNG SUẤT CAO
           </div>
           <div class="b2b-catalogue-pdf-footer">PDF · 5.5 MB · 9 PAGES</div>
         </div>
@@ -533,9 +568,9 @@
         <span class="section-label">/ Catalogue B2B 2026</span>
         <h2 class="b2b-catalogue-title">Tải catalogue<br>doanh nghiệp.</h2>
         <p class="b2b-catalogue-description">
-          Catalogue 9 trang giới thiệu đầy đủ 4 dòng sản phẩm chủ lực — sạc dự phòng từ tính JP395, củ sạc nhanh GaN RC502,
-          ổ điện du lịch OL212 và SL207 — kèm thông số kỹ thuật, chứng nhận an toàn quốc tế, giải pháp in logo
-          và danh sách khách hàng tiêu biểu. Liên hệ để nhận báo giá riêng theo số lượng.
+          Catalogue 2026 giới thiệu đầy đủ 7 sản phẩm chủ lực — dải ổ điện du lịch Nano, Atlas 20, Nomad 25,
+          Atlas 35, Atlas 70, sạc dự phòng từ tính JP395 và củ sạc nhanh GaN RC502 — kèm thông số kỹ thuật,
+          chứng nhận an toàn quốc tế, giải pháp in logo và danh sách khách hàng tiêu biểu. Liên hệ để nhận báo giá riêng theo số lượng.
         </p>
 
         <div class="b2b-catalogue-meta">
@@ -571,7 +606,7 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <a href="index.html" class="logo">
-          <img src="images/tamayoko.png" alt="Tamayoko" class="logo-img">
+          <img src="images/yokool-logo-slogan.png" alt="Yokool" class="logo-img logo-img--dark"><img src="images/yokool-logo-slogan-white.png" alt="Yokool" class="logo-img logo-img--light">
         </a>
         <p class="footer-tagline">Stay powered. Stay Cool</p>
         <div class="footer-company">
@@ -584,8 +619,11 @@
       <div class="footer-cols">
         <div class="footer-col">
           <h4>Sản phẩm</h4>
-          <a href="products/sl207.html">SL207</a>
-          <a href="products/ol212.html">OL212</a>
+          <a href="products/nano.html">NANO</a>
+          <a href="products/nomad25.html">NOMAD 25</a>
+          <a href="products/atlas20.html">ATLAS 20</a>
+          <a href="products/sl207.html">ATLAS 35</a>
+          <a href="products/atlas70.html">ATLAS 70</a>
           <a href="products/jp395.html">JP395</a>
           <a href="products/rc502.html">RC502</a>
         </div>
@@ -598,7 +636,7 @@
         </div>
         <div class="footer-col">
           <h4>Kênh bán</h4>
-          <a href="https://shopee.vn/tamayokoofficial" target="_blank" rel="noopener">Shopee</a>
+          <a href="https://shopee.vn/yokoolstore" target="_blank" rel="noopener">Shopee</a>
           <a href="https://zalo.me/0822838665" target="_blank" rel="noopener">Zalo</a>
           <a href="mailto:contact@yokool.vn">B2B Email</a>
         </div>
