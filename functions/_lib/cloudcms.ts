@@ -195,7 +195,25 @@ export function renderHeader(): string {
       <nav class="main-nav" aria-label="Điều hướng chính">
         <a href="/index.html" class="nav-link">Trang chủ</a>
 
-        <div class="nav-dropdown">
+<div class="nav-dropdown">
+          <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+            Ổ điện du lịch
+            <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-panel" role="menu">
+            
+            
+            <a href="/products/nano.html" class="nav-leaf">NANO</a>
+            <a href="/products/nomad25.html" class="nav-leaf">NOMAD 25</a>
+            <a href="/products/atlas20.html" class="nav-leaf">ATLAS 20</a>
+            <a href="/products/sl207.html" class="nav-leaf">ATLAS 35</a>
+            <a href="/products/atlas70.html" class="nav-leaf">ATLAS 70</a>
+          </div>
+        </div>
+
+                <div class="nav-dropdown">
           <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
             Sạc dự phòng
             <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
@@ -219,19 +237,6 @@ export function renderHeader(): string {
           </div>
         </div>
 
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
-            Ổ điện du lịch
-            <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
-              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="nav-dropdown-panel" role="menu">
-            <a href="/products/sl207.html" class="nav-leaf">SL207</a>
-            <a href="/products/ol212.html" class="nav-leaf">OL212</a>
-          </div>
-        </div>
-
         <a href="/news" class="nav-link">Tin tức</a>
         <a href="/b2b.html" class="nav-link">Hợp tác B2B</a>
         <a href="/lien-he.html" class="nav-link">Liên hệ</a>
@@ -246,7 +251,7 @@ export function renderHeader(): string {
         <span class="cart-badge" aria-label="Số sản phẩm trong giỏ">0</span>
       </button>
 
-      <a href="https://shopee.vn/tamayokoofficial" target="_blank" rel="noopener" class="cta-button cta-button--small">
+      <a href="https://shopee.vn/yokoolstore" target="_blank" rel="noopener" class="cta-button cta-button--small">
         Mua tại Shopee
         <span class="cta-arrow">→</span>
       </a>
@@ -285,10 +290,16 @@ export function renderFooter(): string {
       <div class="footer-cols">
         <div class="footer-col">
           <h4>Sản phẩm</h4>
-          <a href="/products/sl207.html">SL207</a>
-          <a href="/products/ol212.html">OL212</a>
+          
+          
+          <a href="/products/nano.html">NANO</a>
+          <a href="/products/nomad25.html">NOMAD 25</a>
+          <a href="/products/atlas20.html">ATLAS 20</a>
+          <a href="/products/sl207.html">ATLAS 35</a>
+          <a href="/products/atlas70.html">ATLAS 70</a>
           <a href="/products/jp395.html">JP395</a>
           <a href="/products/rc502.html">RC502</a>
+        
         </div>
         <div class="footer-col">
           <h4>Hỗ trợ</h4>
@@ -299,7 +310,7 @@ export function renderFooter(): string {
         </div>
         <div class="footer-col">
           <h4>Kênh bán</h4>
-          <a href="https://shopee.vn/tamayokoofficial" target="_blank" rel="noopener">Shopee</a>
+          <a href="https://shopee.vn/yokoolstore" target="_blank" rel="noopener">Shopee</a>
           <a href="https://zalo.me/0822838665" target="_blank" rel="noopener">Zalo</a>
           <a href="mailto:contact@yokool.vn">Email</a>
         </div>
