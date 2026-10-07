@@ -185,6 +185,9 @@ export function renderHead(opts: {
 
 export function renderHeader(): string {
   return `
+  <!-- ============ ANNOUNCEMENT BAR ============ -->
+  <div class="announce-bar">YOKOOL là thương hiệu chuyên về các sản phẩm sạc của Tamayoko</div>
+
   <!-- ============ HEADER ============ -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
