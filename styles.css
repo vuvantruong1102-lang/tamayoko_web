@@ -6288,7 +6288,24 @@ body.cart-drawer-open .contact-widget {
 .news-hero { padding-top: calc(140px + var(--announce-h)); }
 .checkout-page { padding-top: calc(120px + var(--announce-h)); }
 .article { padding-top: calc(32px + var(--announce-h)); }
+.news-hero-v2 { padding-top: calc(140px + var(--announce-h)); }
+.news-empty { padding-top: calc(var(--section-padding, 96px) + var(--announce-h)); }
 @media (max-width: 600px) {
   :root { --announce-h: 56px; }
   .announce-bar { font-size: 12px; }
+}
+
+/* ============ NEWS EMPTY STATE ============ */
+.news-empty {
+  min-height: 38vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+}
+.news-empty-text {
+  font-size: 18px;
+  color: var(--text-tertiary);
+  font-weight: 500;
 }
